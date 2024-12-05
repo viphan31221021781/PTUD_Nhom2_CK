@@ -6,7 +6,7 @@ if(isset($_POST['form1'])) {
 
     if(empty($_POST['caption'])) {
         $valid = 0;
-        $error_message .= "Photo Caption Name can not be empty<br>";
+        $error_message .= "Tên mô tả ảnh không được để trống<br>";
     }
 
     $path = $_FILES['photo']['name'];
@@ -14,19 +14,19 @@ if(isset($_POST['form1'])) {
 
     if($path == '') {
     	$valid = 0;
-        $error_message .= "You must have to select a photo<br>";
+        $error_message .= "Bạn phải chọn một ảnh<br>";
     } else {
     	$ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Bạn chỉ được phép tải lên ảnh với định dạng jpg, jpeg, gif hoặc png<br>';
         }
     }
     
     if($valid == 1) {
 
-    	// getting auto increment id for photo renaming
+    	// lấy id tự động cho việc đổi tên ảnh
 		$statement = $pdo->prepare("SHOW TABLE STATUS LIKE 'tbl_photo'");
 		$statement->execute();
 		$result = $statement->fetchAll();
@@ -34,28 +34,27 @@ if(isset($_POST['form1'])) {
 			$ai_id=$row[10];
 		}
 
-		// uploading the photo into the main location and giving it a final name
+		// tải ảnh lên thư mục chính và đặt tên cuối cùng
 		$final_name = 'photo-'.$ai_id.'.'.$ext;
         move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
 
-		// saving into the database
+		// lưu vào cơ sở dữ liệu
 		$statement = $pdo->prepare("INSERT INTO tbl_photo (caption,photo) VALUES (?,?)");
 		$statement->execute(array($_POST['caption'],$final_name));
 
-    	$success_message = 'Photo is added successfully.';
+    	$success_message = 'Ảnh đã được thêm thành công.';
     }
 }
 ?>
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Add Photo</h1>
+		<h1>Thêm Ảnh</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="photo.php" class="btn btn-primary btn-sm">View All</a>
+		<a href="photo.php" class="btn btn-primary btn-sm">Xem tất cả</a>
 	</div>
 </section>
-
 
 <section class="content">
 
@@ -82,13 +81,13 @@ if(isset($_POST['form1'])) {
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Photo Caption <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Mô tả Ảnh <span>*</span></label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" name="caption">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Upload Photo <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Tải Ảnh Lên <span>*</span></label>
 							<div class="col-sm-4" style="padding-top:6px;">
 								<input type="file" name="photo">
 							</div>
@@ -96,7 +95,7 @@ if(isset($_POST['form1'])) {
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+								<button type="submit" class="btn btn-success pull-left" name="form1">Gửi</button>
 							</div>
 						</div>
 					</div>

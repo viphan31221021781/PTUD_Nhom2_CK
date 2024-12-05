@@ -2,13 +2,12 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View Photos</h1>
+		<h1>Xem Ảnh</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="photo-add.php" class="btn btn-primary btn-sm">Add New</a>
+		<a href="photo-add.php" class="btn btn-primary btn-sm">Thêm Mới</a>
 	</div>
 </section>
-
 
 <section class="content">
 
@@ -23,9 +22,9 @@
 			<thead>
 			    <tr>
 			        <th>#</th>
-			        <th>Caption</th>
-			        <th>Photo</th>
-			        <th>Action</th>
+			        <th>Mô Tả</th>
+			        <th>Ảnh</th>
+			        <th>Hành Động</th>
 			    </tr>
 			</thead>
             <tbody>
@@ -45,8 +44,8 @@
 	                    	<img src="../assets/uploads/<?php echo $row['photo']; ?>" width="140">
 	                    </td>
 	                    <td>
-	                        <a href="photo-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-	                        <a href="#" class="btn btn-danger btn-xs" data-href="photo-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>
+	                        <a href="photo-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Chỉnh Sửa</a>
+	                        <a href="#" class="btn btn-danger btn-xs" data-href="photo-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Xóa</a>
 	                    </td>
 	                </tr>
 	                <?php
@@ -65,14 +64,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Xác Nhận Xóa</h4>
             </div>
             <div class="modal-body">
-                Are you sure want to delete this item?
+                Bạn có chắc chắn muốn xóa mục này không?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                <a class="btn btn-danger btn-ok">Xóa</a>
             </div>
         </div>
     </div>
