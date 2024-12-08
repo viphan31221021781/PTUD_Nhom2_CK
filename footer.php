@@ -15,8 +15,39 @@ foreach ($result as $row)
     $before_body = $row['before_body'];
 }
 ?>
+<style>
+	.home-newsletter {
+    background-color: #f5f5f5; /* Thay đổi màu nền quanh phần đăng ký */
+    padding: 30px 0; /* Thêm khoảng cách trên dưới */
+}
 
+.home-newsletter .single {
+    background-color: #ffffff; /* Màu nền trắng cho phần form */
+    padding: 20px; /* Khoảng cách trong form */
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo bóng cho phần form */
+}
 
+.home-newsletter h2 {
+    color: black; /* Màu chữ tiêu đề */
+    font-size: 24px; /* Kích thước chữ tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+.home-newsletter .input-group input {
+    border-radius: 4px; /* Bo góc cho ô nhập liệu */
+}
+
+.home-newsletter .btn-theme {
+    background-color: #484241; /* Màu nền cho nút đăng ký */
+    border: none;
+    color: #fff; /* Màu chữ nút */
+}
+
+.home-newsletter .btn-theme:hover {
+    background-color: #e67e22; /* Màu nền khi hover nút đăng ký */
+}
+</style>
 <?php if($newsletter_on_off == 1): ?>
 <section class="home-newsletter">
 	<div class="container">
@@ -26,7 +57,6 @@ foreach ($result as $row)
 					<?php
 			if(isset($_POST['form_subscribe']))
 			{
-
 				if(empty($_POST['email_subscribe'])) 
 			    {
 			        $valid = 0;
@@ -117,9 +147,6 @@ This link will be active only for 24 hours.
 </section>
 <?php endif; ?>
 
-
-
-
 <div class="footer-bottom">
 	<div class="container">
 		<div class="row">
@@ -129,7 +156,6 @@ This link will be active only for 24 hours.
 		</div>
 	</div>
 </div>
-
 
 <a href="#" class="scrollup">
 	<i class="fa fa-angle-up"></i>
@@ -191,7 +217,6 @@ foreach ($result as $row) {
             }
         });
 	});
-
 
 	$(document).on('submit', '#stripe_form', function () {
         // createToken returns immediately - the supplied callback submits the form if there are no errors

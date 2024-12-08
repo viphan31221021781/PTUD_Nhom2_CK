@@ -231,7 +231,29 @@ foreach ($result as $row) {
 	<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5993ef01e2587a001253a261&product=inline-share-buttons"></script>
 
 <?php echo $before_head; ?>
+<style>
+	.menu-container {
+    text-align: right; /* Căn nội dung sang phải */
+	background-color: black;
+}
 
+.menu ul {
+    list-style: none;
+    padding-right: 0; /* Xóa khoảng cách bên phải của danh sách */
+}
+
+.menu ul li {
+    display: inline-block; /* Đặt các mục menu trên cùng một dòng */
+    margin-left: 15px; /* Khoảng cách giữa các mục menu */
+}
+
+.menu ul li a {
+    text-decoration: none; /* Xóa gạch chân */
+    color: white; /* Đặt màu chữ cho menu */
+}
+
+
+</style>
 </head>
 <body>
 

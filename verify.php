@@ -1,4 +1,22 @@
 <?php require_once('header.php'); ?>
+<style>
+/* Định dạng cho nút */
+.login-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f2ec85; /* Màu nền nút */
+    color: black; /* Màu chữ */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px; /* Bo góc nút */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền khi hover */
+}
+
+/* Hiệu ứng hover */
+.login-button:hover {
+    background-color: #d8c7c3; /* Màu nền thay đổi khi di chuột */
+}
+</style>
 
 <?php
 if ( (!isset($_REQUEST['email'])) || (isset($_REQUEST['token'])) )
@@ -22,14 +40,19 @@ if ( (!isset($_REQUEST['email'])) || (isset($_REQUEST['token'])) )
         $statement = $pdo->prepare("UPDATE tbl_customer SET cust_token=?, cust_status=? WHERE cust_email=?");
         $statement->execute(array('',1,$_GET['email']));
 
-        $success_message = '<p style="color:green;">Your email is verified successfully. You can now login to our website.</p><p><a href="'.BASE_URL.'login.php" style="color:#167ac6;font-weight:bold;">Click here to login</a></p>';     
+        $success_message = '<p style="color:green; text-align: center;">Email của bạn đã được xác minh thành công. Bây giờ bạn có thể đăng nhập vào trang web của chúng tôi.</p>
+        <p style="text-align: center;">
+            <a href="'.BASE_URL.'login.php" class="login-button">Đăng nhập</a>
+        </p>';
+        
+
     }
 }
 ?>
 
-<div class="page-banner" style="background-color:#444;">
+<div class="page-banner" style="background-color:#FFFF66;">
     <div class="inner">
-        <h1>Registration Successful</h1>
+        <h1 style="color:black">Đăng ký thành công</h1>
     </div>
 </div>
 

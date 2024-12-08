@@ -21,11 +21,11 @@ foreach ($result as $row) {
 }
 ?>
 
-<div class="page-banner" style="background-image: url(assets/uploads/<?php echo $banner_search; ?>);">
-    <div class="overlay"></div>
+<div class="page-banner" style="background-color:#FFFF66">
+    <!-- <div class="overlay"></div> -->
     <div class="inner">
-        <h1>
-            Search By: 
+        <h1 style="color:black">
+            Kết quả tìm kiếm: 
             <?php 
                 $search_text = strip_tags($_REQUEST['search_text']); 
                 echo $search_text; 
