@@ -42,7 +42,7 @@ if(isset($_POST['form1'])) {
         
     }
 }
-// Change Favicon
+// Đổi Favicon
 if(isset($_POST['form2'])) {
     $valid = 1;
 
@@ -83,7 +83,7 @@ if(isset($_POST['form2'])) {
         
     }
 }
-//Footer & Contact us page
+//Footer &  Trang liên hệ
 if(isset($_POST['form3'])) {
     
     // updating the database
@@ -93,7 +93,7 @@ if(isset($_POST['form3'])) {
     $success_message = 'Cập nhật thành công!';
     
 }
-//Email Settings
+//Cài đặt email
 if(isset($_POST['form4'])) {
     // updating the database
     $statement = $pdo->prepare("UPDATE tbl_settings SET receive_email=?, receive_email_subject=?,receive_email_thank_you_message=?, forget_password_message=? WHERE id=1");
@@ -269,90 +269,7 @@ if(isset($_POST['form6_6'])) {
         
     }
 }
-/*
-if(isset($_POST['form6_1'])) {
 
-    $valid = 1;
-
-    if(empty($_POST['testimonial_title'])) {
-        $valid = 0;
-        $error_message .= 'Testimonial Title can not be empty<br>';
-    }
-
-    if(empty($_POST['testimonial_subtitle'])) {
-        $valid = 0;
-        $error_message .= 'Testimonial SubTitle can not be empty<br>';
-    }
-
-    $path = $_FILES['testimonial_photo']['name'];
-    $path_tmp = $_FILES['testimonial_photo']['tmp_name'];
-
-    if($path != '') {
-        $ext = pathinfo( $path, PATHINFO_EXTENSION );
-        $file_name = basename( $path, '.' . $ext );
-        if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
-            $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
-        }
-    }
-
-    if($valid == 1) {
-
-
-        if($path != '') {
-            // removing the existing photo
-            $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-            $statement->execute();
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);                           
-            foreach ($result as $row) {
-                $testimonial_photo = $row['testimonial_photo'];
-                unlink('../assets/uploads/'.$testimonial_photo);
-            }
-
-            // updating the data
-            $final_name = 'testimonial'.'.'.$ext;
-            move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
-
-            // updating the database
-            $statement = $pdo->prepare("UPDATE tbl_settings SET testimonial_title=?,testimonial_subtitle=?, testimonial_photo=? WHERE id=1");
-            $statement->execute(array($_POST['testimonial_title'],$_POST['testimonial_subtitle'],$final_name));
-        } else {
-            // updating the database
-            $statement = $pdo->prepare("UPDATE tbl_settings SET testimonial_title=?,testimonial_subtitle=? WHERE id=1");
-            $statement->execute(array($_POST['testimonial_title'],$_POST['testimonial_subtitle']));
-        }
-
-        $success_message = 'Testimonial Data is updated successfully.';
-        
-    }
-}
-
-
-if(isset($_POST['form6_2'])) {
-
-    $valid = 1;
-
-    if(empty($_POST['blog_title'])) {
-        $valid = 0;
-        $error_message .= 'Blog Title can not be empty<br>';
-    }
-
-    if(empty($_POST['blog_subtitle'])) {
-        $valid = 0;
-        $error_message .= 'Blog SubTitle can not be empty<br>';
-    }
-
-    if($valid == 1) {
-
-        // updating the database
-        $statement = $pdo->prepare("UPDATE tbl_settings SET blog_title=?,blog_subtitle=? WHERE id=1");
-        $statement->execute(array($_POST['blog_title'],$_POST['blog_subtitle']));
-
-        $success_message = 'Blog Data is updated successfully.';
-        
-    }
-}
-*/
 
 if(isset($_POST['form6_3'])) {
 
@@ -710,28 +627,7 @@ if(isset($_POST['form7_10'])) {
             $error_message .= 'Bạn phải đăng tải dưới định dạng jpg, jpeg, gif hoặc png<br>';
         }
     }
-/*
-    if($valid == 1) {
-        // removing the existing photo
-        $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                           
-        foreach ($result as $row) {
-            $banner_blog = $row['banner_blog'];
-            unlink('../assets/uploads/'.$banner_blog);
-        }
 
-        // updating the data
-        $final_name = 'banner_blog'.'.'.$ext;
-        move_uploaded_file( $path_tmp, '../assets/uploads/'.$final_name );
-
-        // updating the database
-        $statement = $pdo->prepare("UPDATE tbl_settings SET banner_blog=? WHERE id=1");
-        $statement->execute(array($final_name));
-
-        $success_message = 'Blog Page Banner is updated successfully.';
-        
-    } */
 }
 
 if(isset($_POST['form9'])) {
@@ -750,35 +646,12 @@ if(isset($_POST['form10'])) {
     $success_message = 'Cập nhật thành công!';
 }
 
-/*
-if(isset($_POST['form11'])) {
-    // updating the database
-    $statement = $pdo->prepare("UPDATE tbl_settings 
-    						SET 
-    						ads_above_welcome_on_off=?, 
-    						ads_above_featured_product_on_off=?, 
-    						ads_above_latest_product_on_off=?, 
-    						ads_above_popular_product_on_off=?, 
-    						ads_above_testimonial_on_off=?, 
-    						ads_category_sidebar_on_off=? 
 
-    						WHERE id=1");
-    $statement->execute(array(
-    						$_POST['ads_above_welcome_on_off'],
-    						$_POST['ads_above_featured_product_on_off'],
-    						$_POST['ads_above_latest_product_on_off'],
-    						$_POST['ads_above_popular_product_on_off'],
-    						$_POST['ads_above_testimonial_on_off'],
-    						$_POST['ads_category_sidebar_on_off']
-    					));
-
-    $success_message = 'Advertisement On-Off Section is updated successfully.';
-} */
 ?>
 
-<section class="content-header">
+<section>
     <div class="content-header-left">
-        <h1>CÀI ĐẶT WEBSITE</h1>
+        <h1><i class="fa fa-sliders" style="padding-right:10px"></i>CÀI ĐẶT WEBSITE</h1>
     </div>
 </section>
 
@@ -1002,12 +875,7 @@ foreach ($result as $row) {
                                             <input type="text" class="form-control" name="contact_phone" value="<?php echo $contact_phone; ?>">
                                         </div>
                                     </div>
-                                 <!-- <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Contact Fax Number </label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="contact_fax" value="<?php echo $contact_fax; ?>">
-                                        </div>
-                                    </div>-->
+                
                                     <div class="form-group">
                                         <label for="" class="col-sm-2 control-label">Bản đồ </label>
                                         <div class="col-sm-9">
@@ -1074,30 +942,7 @@ foreach ($result as $row) {
                             <form class="form-horizontal" action="" method="post">
                             <div class="box box-info">
                                 <div class="box-body">
-                                    <!--<div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Footer (How many recent posts?)<span>*</span></label>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" name="total_recent_post_footer" value="<?php echo $total_recent_post_footer; ?>">
-                                        </div>
-                                    </div>      
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Footer (How many popular posts?)<span>*</span></label>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" name="total_popular_post_footer" value="<?php echo $total_popular_post_footer; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Sidebar (How many recent posts?)<span>*</span></label>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" name="total_recent_post_sidebar" value="<?php echo $total_recent_post_sidebar; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Sidebar (How many popular posts?)<span>*</span></label>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control" name="total_popular_post_sidebar" value="<?php echo $total_popular_post_sidebar; ?>">
-                                        </div>
-                                    </div>-->
+                                    
                                     <div class="form-group">
                                         <label for="" class="col-sm-4 control-label">Trang chủ-Số sản phẩm nổi bật<span>*</span></label>
                                         <div class="col-sm-2">
@@ -1245,62 +1090,6 @@ foreach ($result as $row) {
                                 </div>
                             </div>
                             </form>
-
-
-
-                           <!-- <h3>Call to Action Section</h3>
-                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-                            <div class="box box-info">
-                                <div class="box-body">                                          
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Title<span>*</span></label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="cta_title" value="<?php echo $cta_title; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Content<span>*</span></label>
-                                        <div class="col-sm-8">
-                                            <textarea name="cta_content" class="form-control" cols="30" rows="10" style="height:120px;"><?php echo $cta_content; ?></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Read More Text<span>*</span></label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="cta_read_more_text" value="<?php echo $cta_read_more_text; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Read More URL<span>*</span></label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="cta_read_more_url" value="<?php echo $cta_read_more_url; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Existing Call to Action Background</label>
-                                        <div class="col-sm-6" style="padding-top:6px;">
-                                            <img src="../assets/uploads/<?php echo $cta_photo; ?>" class="existing-photo" style="height:80px;">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">New Background</label>
-                                        <div class="col-sm-6" style="padding-top:6px;">
-                                            <input type="file" name="cta_photo">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_7">Update</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </form>-->
-
-
-
-
 
                             <h3>Sản phẩm nổi bật</h3>
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">

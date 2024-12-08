@@ -1,8 +1,8 @@
 <?php require_once('header.php'); ?>
 
-<section class="content-header">
+<section>
 	<div class="content-header-left">
-		<h1>CÁC DỊCH VỤ</h1>
+		<h1><i class="fa fa-list-ol" style="padding-right:10px"></i> CÁC DỊCH VỤ</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="service-add.php" class="btn btn-primary btn-sm">Thêm</a>

@@ -121,9 +121,9 @@ if($success_message != '') {
 }
 ?>
 
-<section class="content-header">
+<section>
 	<div class="content-header-left">
-		<h1>Xem Đơn Hàng</h1>
+		<h1><i class="fa fa-sticky-note" style="padding-right:10px"></i>Xem Đơn Hàng</h1>
 	</div>
 </section>
 

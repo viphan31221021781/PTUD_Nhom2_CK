@@ -1,8 +1,8 @@
 <?php require_once('header.php'); ?>
 
-<section class="content-header">
+<section>
 	<div class="content-header-left">
-		<h1>Xem Sản Phẩm</h1>
+		<h1><i class="fa fa-shopping-bag" style="padding-right:10px"></i>Xem Sản Phẩm</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="product-add.php" class="btn btn-primary btn-sm">Thêm Sản Phẩm</a>

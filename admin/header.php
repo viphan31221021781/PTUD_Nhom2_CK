@@ -39,6 +39,187 @@ if(!isset($_SESSION['user'])) {
 	<link rel="stylesheet" href="css/on-off-switch.css"/>
 	<link rel="stylesheet" href="css/summernote.css">
 	<link rel="stylesheet" href="style.css">
+	<style>
+		/* Tổng quan */
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    background-color: #f8f9fa;
+    color: #444;
+}
+
+a {
+    color: #6c63ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #5a55d6;
+    text-decoration: underline;
+}
+
+/* Navbar styles */
+.main-header {
+    background-color: #282c34;
+    border-bottom: 3px solid #5a55d6;
+}
+
+.main-header .logo {
+    background-color: #6c63ff;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.main-header .logo:hover {
+    background-color: #554fd4;
+}
+
+.navbar {
+    background-color: #282c34;
+}
+
+.navbar-custom-menu .nav > li > a {
+    color: #f8f9fa;
+    transition: color 0.3s ease;
+}
+
+.navbar-custom-menu .nav > li > a:hover {
+    color: #d1d2ff;
+}
+
+.navbar-custom-menu .dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.user-footer a {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.user-footer a:hover {
+    background-color: #554fd4;
+}
+
+/* Sidebar styles */
+.main-sidebar {
+    background-color: #343a40;
+}
+
+.sidebar-menu > li > a {
+    color: #d1d2ff;
+    padding: 12px 15px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu > li.active > a,
+.sidebar-menu > li > a:hover {
+    background-color: #6c63ff;
+    color: #fff;
+    border-left: 3px solid #f8f9fa;
+}
+
+.sidebar-menu .treeview-menu > li > a {
+    font-size: 14px;
+    padding-left: 30px;
+    color: #b8b9c7;
+}
+
+.sidebar-menu .treeview-menu > li > a:hover {
+    color: #fff;
+}
+
+/* Content styles */
+.content-wrapper {
+    background-color: #f8f9fa;
+    padding: 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper h3 {
+    color: #282c34;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.content-wrapper .btn {
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.content-wrapper .btn:hover {
+    background-color: #554fd4;
+    transform: scale(1.05);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #6c63ff;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #f4f5ff;
+}
+
+/* Footer styles */
+.main-footer {
+    background-color: #282c34;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-header .logo {
+        font-size: 16px;
+    }
+
+    .content-wrapper {
+        padding: 15px;
+    }
+
+    .sidebar-menu > li > a {
+        padding: 10px 12px;
+    }
+}
+
+	</style>
 
 </head>
 

@@ -1,8 +1,8 @@
 <?php require_once('header.php'); ?>
 
-<section class="content-header">
+<section>
 	<div class="content-header-left">
-		<h1>Xem Danh Sách Khách Hàng</h1>
+		<h1><i class="fa fa-user-plus" style="padding-right:10px"></i>Xem Danh Sách Khách Hàng</h1>
 	</div>
 </section>
 

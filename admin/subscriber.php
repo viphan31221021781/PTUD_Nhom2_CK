@@ -1,8 +1,8 @@
 <?php require_once('header.php'); ?>
 
-<section class="content-header">
+<section>
 	<div class="content-header-left">
-		<h1>Người đăng ký</h1>
+		<h1><i class="fa fa-hand-o-right" style="padding-right:10px"></i>Người đăng ký</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="subscriber-remove.php" class="btn btn-primary btn-sm">Xóa người đăng ký chờ duyệt</a>

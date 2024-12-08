@@ -1,9 +1,9 @@
 <?php require_once('header.php'); ?>
 
 
-<section class="content-header">
+<section>
    <div class="content-header-left">
-       <h1>Xem Câu Hỏi Thường Gặp (FAQs)</h1>
+       <h1><i class="fa fa-question-circle" style="padding-right:10px"></i>Xem Câu Hỏi Thường Gặp (FAQs)</h1>
    </div>
    <div class="content-header-right">
        <a href="faq-add.php" class="btn btn-primary btn-sm">Thêm FAQ</a>
