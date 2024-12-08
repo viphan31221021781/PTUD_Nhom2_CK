@@ -1,3 +1,4 @@
+// Lưu dữ liệu vào bảng chính tbl_color
 <?php require_once('header.php'); ?>
 
 <?php
