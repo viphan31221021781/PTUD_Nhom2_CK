@@ -58,7 +58,7 @@ if(isset($_POST['form1'])) {
 
 <section>
 	<div class="content-header-left">
-		<h1><i class="fa fa-globe" style="padding-right:10px"></i>Mạng xã hội</h1>
+		<h1 style="margin-left:30px;"><i class="fa fa-globe" style="padding-right:10px"></i>Mạng xã hội</h1>
 	</div>
 </section>
 

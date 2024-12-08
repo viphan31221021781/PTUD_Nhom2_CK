@@ -2,7 +2,7 @@
 
 <section>
 	<div class="content-header-left">
-		<h1><i class="fa fa-user-plus" style="padding-right:10px"></i>Xem Danh Sách Khách Hàng</h1>
+		<h1 style="margin-left:30px;"><i class="fa fa-user-plus" style="padding-right:10px"></i>Xem Danh Sách Khách Hàng</h1>
 	</div>
 </section>
 

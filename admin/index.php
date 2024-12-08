@@ -1,7 +1,7 @@
 <?php require_once('header.php'); ?>
 
 <section>
-	<h1><i class="fa fa-dashboard" style="padding-right:10px"></i>Bảng điều khiển</h1>
+	<h1 style="margin-left:30px;"><i class="fa fa-dashboard" style="padding-right:10px"></i>Bảng điều khiển</h1>
 </section>
 
 <?php
@@ -51,7 +51,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 ?>
 <style>
 .common-bg {
-    background-color: #007FFF !important; /* Màu nền bạn muốn, ví dụ: xanh lam */
+    background-color: #0039a6 !important; /* Màu nền bạn muốn, ví dụ: xanh lam */
     color: #fff!important; /* Màu chữ trắng */
 	border-radius: 10px;
 	

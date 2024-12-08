@@ -2,7 +2,7 @@
 
 <section>
 	<div class="content-header-left">
-		<h1><i class="fa fa-list-ol" style="padding-right:10px"></i> CÁC DỊCH VỤ</h1>
+		<h1 style="margin-left:30px;"><i class="fa fa-list-ol" style="padding-right:10px"></i> CÁC DỊCH VỤ</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="service-add.php" class="btn btn-primary btn-sm">Thêm</a>

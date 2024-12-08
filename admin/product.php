@@ -2,7 +2,7 @@
 
 <section>
 	<div class="content-header-left">
-		<h1><i class="fa fa-shopping-bag" style="padding-right:10px"></i>Xem Sản Phẩm</h1>
+		<h1 style="margin-left:30px;"><i class="fa fa-shopping-bag" style="padding-right:10px"></i>Xem Sản Phẩm</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="product-add.php" class="btn btn-primary btn-sm">Thêm Sản Phẩm</a>
@@ -19,10 +19,10 @@
 							<tr>
 								<th width="10">#</th>
 								<th>Ảnh</th>
-								<th width="160">Tên Sản Phẩm</th>
+								<th width="200">Tên Sản Phẩm</th>
 								<th width="60">Giá Cũ</th>
 								<th width="60">Giá (C)</th>
-								<th width="60">Số Lượng</th>
+								<th width="90">Số Lượng</th>
 								<th>Đặc Biệt?</th>
 								<th>Hoạt Động?</th>
 								<th>Danh Mục</th>

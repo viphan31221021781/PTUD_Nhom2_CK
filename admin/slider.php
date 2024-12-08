@@ -2,7 +2,7 @@
 
 <section>
 	<div class="content-header-left">
-		<h1><i class="fa fa-picture-o" style="padding-right:10px"></i>Danh sách Slider</h1>
+		<h1 style="margin-left:30px;"><i class="fa fa-picture-o" style="padding-right:10px"></i>Danh sách Slider</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="slider-add.php" class="btn btn-primary btn-sm">Thêm Slider</a>

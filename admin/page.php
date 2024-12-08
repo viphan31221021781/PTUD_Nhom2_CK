@@ -167,7 +167,7 @@ if(isset($_POST['form_contact'])) {
 
 <section>
     <div class="content-header-left">
-        <h1><i class="fa fa-tasks" style="padding-right:10px"></i>Cài đặt trang</h1>
+        <h1 style="margin-left:30px;"><i class="fa fa-tasks" style="padding-right:10px"></i>Cài đặt trang</h1>
     </div>
 </section>
 

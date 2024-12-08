@@ -651,7 +651,7 @@ if(isset($_POST['form10'])) {
 
 <section>
     <div class="content-header-left">
-        <h1><i class="fa fa-sliders" style="padding-right:10px"></i>CÀI ĐẶT WEBSITE</h1>
+        <h1 style="margin-left:30px;"><i class="fa fa-sliders" style="padding-right:10px"></i>CÀI ĐẶT WEBSITE</h1>
     </div>
 </section>
 
