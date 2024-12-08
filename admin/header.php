@@ -172,7 +172,7 @@ if(!isset($_SESSION['user'])) {
                         <ul class="treeview-menu">
                             <li><a href="size.php"><i class="fa fa-circle-o"></i> Kích thước</a></li>
                             <li><a href="color.php"><i class="fa fa-circle-o"></i> Màu sắc</a></li>
-                            <li><a href="country.php"><i class="fa fa-circle-o"></i> Quốc gia </a></li>
+                            <li><a href="country.php"><i class="fa fa-circle-o"></i> Tỉnh thành </a></li>
                             <li><a href="shipping-cost.php"><i class="fa fa-circle-o"></i> Chi phí vận chuyển</a></li>
                             <li><a href="top-category.php"><i class="fa fa-circle-o"></i> Danh mục cấp trên</a></li>
                             <li><a href="mid-category.php"><i class="fa fa-circle-o"></i> Danh mục trung gian</a></li>

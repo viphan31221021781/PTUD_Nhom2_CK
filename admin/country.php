@@ -2,7 +2,7 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Danh Sách Quốc Gia</h1>
+		<h1>Danh Sách Tỉnh Thành</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="country-add.php" class="btn btn-primary btn-sm">Thêm Mới</a>
@@ -23,7 +23,7 @@
 			<thead>
 			    <tr>
 			        <th>#</th>
-			        <th>Tên Quốc Gia</th>
+			        <th>Tên Tỉnh Thành</th>
 			        <th>Hành Động</th>
 			    </tr>
 			</thead>

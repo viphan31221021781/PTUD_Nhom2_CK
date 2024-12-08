@@ -88,10 +88,10 @@ if(isset($_POST['form2'])) {
                 <div class="box box-info">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Chọn quốc gia <span>*</span></label>
+                            <label for="" class="col-sm-2 control-label">Chọn tỉnh thành <span>*</span></label>
                             <div class="col-sm-4">
                                 <select name="country_id" class="form-control select2">
-                                    <option value="">Chọn tên một quốc gia</option>
+                                    <option value="">Chọn tên một tỉnh thành</option>
                                     <?php
                                     $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                     $statement->execute();
