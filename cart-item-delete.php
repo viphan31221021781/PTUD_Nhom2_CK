@@ -2,66 +2,60 @@
 
 <?php
 
-// Check if the product is valid or not
-if( !isset($_REQUEST['id']) || !isset($_REQUEST['size']) || !isset($_REQUEST['color'])  ) {
+// Kiểm tra tính hợp lệ của sản phẩm
+if( !isset($_REQUEST['id']) || !isset($_REQUEST['size']) || !isset($_REQUEST['color']) ) {
     header('location: cart.php');
     exit;
 }
 
-$i=0;
+// Khởi tạo biến lưu trữ thông tin giỏ hàng
+$cart_product_ids = [];
+$cart_size_ids = [];
+$cart_size_names = [];
+$cart_color_ids = [];
+$cart_color_names = [];
+$cart_quantities = [];
+$cart_prices = [];
+$cart_product_names = [];
+$cart_featured_photos = [];
+
 foreach($_SESSION['cart_p_id'] as $key => $value) {
-    $i++;
-    $arr_cart_p_id[$i] = $value;
+    $cart_product_ids[] = $value;
 }
 
-$i=0;
 foreach($_SESSION['cart_size_id'] as $key => $value) {
-    $i++;
-    $arr_cart_size_id[$i] = $value;
+    $cart_size_ids[] = $value;
 }
 
-$i=0;
 foreach($_SESSION['cart_size_name'] as $key => $value) {
-    $i++;
-    $arr_cart_size_name[$i] = $value;
+    $cart_size_names[] = $value;
 }
 
-$i=0;
 foreach($_SESSION['cart_color_id'] as $key => $value) {
-    $i++;
-    $arr_cart_color_id[$i] = $value;
+    $cart_color_ids[] = $value;
 }
 
-$i=0;
 foreach($_SESSION['cart_color_name'] as $key => $value) {
-    $i++;
-    $arr_cart_color_name[$i] = $value;
+    $cart_color_names[] = $value;
 }
 
-$i=0;
 foreach($_SESSION['cart_p_qty'] as $key => $value) {
-    $i++;
-    $arr_cart_p_qty[$i] = $value;
+    $cart_quantities[] = $value;
 }
 
-$i=0;
 foreach($_SESSION['cart_p_current_price'] as $key => $value) {
-    $i++;
-    $arr_cart_p_current_price[$i] = $value;
+    $cart_prices[] = $value;
 }
 
-$i=0;
 foreach($_SESSION['cart_p_name'] as $key => $value) {
-    $i++;
-    $arr_cart_p_name[$i] = $value;
+    $cart_product_names[] = $value;
 }
 
-$i=0;
 foreach($_SESSION['cart_p_featured_photo'] as $key => $value) {
-    $i++;
-    $arr_cart_p_featured_photo[$i] = $value;
+    $cart_featured_photos[] = $value;
 }
 
+// Xóa tất cả các sản phẩm trong giỏ hàng
 unset($_SESSION['cart_p_id']);
 unset($_SESSION['cart_size_id']);
 unset($_SESSION['cart_size_name']);
@@ -72,22 +66,27 @@ unset($_SESSION['cart_p_current_price']);
 unset($_SESSION['cart_p_name']);
 unset($_SESSION['cart_p_featured_photo']);
 
-$k=1;
-for($i=1;$i<=count($arr_cart_p_id);$i++) {
-    if( ($arr_cart_p_id[$i] == $_REQUEST['id']) && ($arr_cart_size_id[$i] == $_REQUEST['size']) && ($arr_cart_color_id[$i] == $_REQUEST['color']) ) {
+// Cập nhật giỏ hàng sau khi xóa sản phẩm
+$k = 1;
+foreach ($cart_product_ids as $i => $product_id) {
+    if ($product_id == $_REQUEST['id'] && $cart_size_ids[$i] == $_REQUEST['size'] && $cart_color_ids[$i] == $_REQUEST['color']) {
+        // Bỏ qua sản phẩm bị xóa
         continue;
     } else {
-        $_SESSION['cart_p_id'][$k] = $arr_cart_p_id[$i];
-        $_SESSION['cart_size_id'][$k] = $arr_cart_size_id[$i];
-        $_SESSION['cart_size_name'][$k] = $arr_cart_size_name[$i];
-        $_SESSION['cart_color_id'][$k] = $arr_cart_color_id[$i];
-        $_SESSION['cart_color_name'][$k] = $arr_cart_color_name[$i];
-        $_SESSION['cart_p_qty'][$k] = $arr_cart_p_qty[$i];
-        $_SESSION['cart_p_current_price'][$k] = $arr_cart_p_current_price[$i];
-        $_SESSION['cart_p_name'][$k] = $arr_cart_p_name[$i];
-        $_SESSION['cart_p_featured_photo'][$k] = $arr_cart_p_featured_photo[$i];
+        // Lưu lại sản phẩm không bị xóa vào giỏ hàng
+        $_SESSION['cart_p_id'][$k] = $product_id;
+        $_SESSION['cart_size_id'][$k] = $cart_size_ids[$i];
+        $_SESSION['cart_size_name'][$k] = $cart_size_names[$i];
+        $_SESSION['cart_color_id'][$k] = $cart_color_ids[$i];
+        $_SESSION['cart_color_name'][$k] = $cart_color_names[$i];
+        $_SESSION['cart_p_qty'][$k] = $cart_quantities[$i];
+        $_SESSION['cart_p_current_price'][$k] = $cart_prices[$i];
+        $_SESSION['cart_p_name'][$k] = $cart_product_names[$i];
+        $_SESSION['cart_p_featured_photo'][$k] = $cart_featured_photos[$i];
         $k++;
     }
 }
+
+// Chuyển hướng người dùng về trang giỏ hàng
 header('location: cart.php');
 ?>

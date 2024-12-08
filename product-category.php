@@ -252,11 +252,11 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                                 <?php if($row['p_qty'] == 0): ?>
                                                     <div class="out-of-stock">
                                                         <div class="inner">
-                                                            Out Of Stock
+                                                            Hết Hàng
                                                         </div>
                                                     </div>
                                                 <?php else: ?>
-                                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_154; ?></a></p>
+                                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
