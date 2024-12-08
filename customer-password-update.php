@@ -1,12 +1,12 @@
 <?php require_once('header.php'); ?>
 
 <?php
-// Check if the customer is logged in or not
+// Kiểm tra xem khách hàng đã đăng nhập chưa
 if(!isset($_SESSION['customer'])) {
     header('location: '.BASE_URL.'logout.php');
     exit;
 } else {
-    // If customer is logged in, but admin make him inactive, then force logout this user.
+    // Nếu khách hàng đã đăng nhập nhưng admin đã làm cho tài khoản của họ không hoạt động, thì buộc phải đăng xuất
     $statement = $pdo->prepare("SELECT * FROM tbl_customer WHERE cust_id=? AND cust_status=?");
     $statement->execute(array($_SESSION['customer']['cust_id'],0));
     $total = $statement->rowCount();
@@ -24,19 +24,19 @@ if (isset($_POST['form1'])) {
 
     if( empty($_POST['cust_password']) || empty($_POST['cust_re_password']) ) {
         $valid = 0;
-        $error_message .= LANG_VALUE_138."<br>";
+        $error_message .= "Mật khẩu và xác nhận mật khẩu không được để trống.<br>";
     }
 
     if( !empty($_POST['cust_password']) && !empty($_POST['cust_re_password']) ) {
         if($_POST['cust_password'] != $_POST['cust_re_password']) {
             $valid = 0;
-            $error_message .= LANG_VALUE_139."<br>";
+            $error_message .= "Mật khẩu và xác nhận mật khẩu không khớp.<br>";
         }
     }
     
     if($valid == 1) {
 
-        // update data into the database
+        // Cập nhật mật khẩu vào cơ sở dữ liệu
 
         $password = strip_tags($_POST['cust_password']);
         
@@ -45,7 +45,7 @@ if (isset($_POST['form1'])) {
         
         $_SESSION['customer']['cust_password'] = md5($password);        
 
-        $success_message = LANG_VALUE_141;
+        $success_message = "Mật khẩu của bạn đã được thay đổi thành công.";
     }
 }
 ?>
@@ -59,7 +59,7 @@ if (isset($_POST['form1'])) {
             <div class="col-md-12">
                 <div class="user-content">
                     <h3 class="text-center">
-                        <?php echo LANG_VALUE_99; ?>
+                        Đổi mật khẩu
                     </h3>
                     <form action="" method="post">
                         <?php $csrf->echoInputField(); ?>
@@ -75,14 +75,14 @@ if (isset($_POST['form1'])) {
                                 }
                                 ?>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_100; ?> *</label>
+                                    <label for="">Mật khẩu mới *</label>
                                     <input type="password" class="form-control" name="cust_password">
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_101; ?> *</label>
+                                    <label for="">Xác nhận mật khẩu *</label>
                                     <input type="password" class="form-control" name="cust_re_password">
                                 </div>
-                                <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_5; ?>" name="form1">
+                                <input type="submit" class="btn btn-primary" value="Cập nhật" name="form1">
                             </div>
                         </div>
                         
@@ -92,6 +92,5 @@ if (isset($_POST['form1'])) {
         </div>
     </div>
 </div>
-
 
 <?php require_once('footer.php'); ?>

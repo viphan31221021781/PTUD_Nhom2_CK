@@ -1,14 +1,14 @@
 <?php require_once('header.php'); ?>
 
 <?php
-// Check if the customer is logged in or not
+// Kiểm tra xem khách hàng đã đăng nhập hay chưa
 if(!isset($_SESSION['customer'])) {
     header('location: '.BASE_URL.'logout.php');
     exit;
 } else {
-    // If customer is logged in, but admin make him inactive, then force logout this user.
+    // Nếu khách hàng đã đăng nhập, nhưng admin đã làm khách hàng không hoạt động, buộc phải đăng xuất
     $statement = $pdo->prepare("SELECT * FROM tbl_customer WHERE cust_id=? AND cust_status=?");
-    $statement->execute(array($_SESSION['customer']['cust_id'],0));
+    $statement->execute(array($_SESSION['customer']['cust_id'], 0));
     $total = $statement->rowCount();
     if($total) {
         header('location: '.BASE_URL.'logout.php');
@@ -19,9 +19,7 @@ if(!isset($_SESSION['customer'])) {
 
 <?php
 if (isset($_POST['form1'])) {
-
-
-    // update data into the database
+    // Cập nhật thông tin khách hàng vào cơ sở dữ liệu
     $statement = $pdo->prepare("UPDATE tbl_customer SET 
                             cust_b_name=?, 
                             cust_b_cname=?, 
@@ -39,7 +37,6 @@ if (isset($_POST['form1'])) {
                             cust_s_city=?, 
                             cust_s_state=?, 
                             cust_s_zip=? 
-
                             WHERE cust_id=?");
     $statement->execute(array(
                             strip_tags($_POST['cust_b_name']),
@@ -59,9 +56,9 @@ if (isset($_POST['form1'])) {
                             strip_tags($_POST['cust_s_state']),
                             strip_tags($_POST['cust_s_zip']),
                             $_SESSION['customer']['cust_id']
-                        ));  
+                        ));
    
-    $success_message = LANG_VALUE_122;
+    $success_message = "Cập nhật thông tin thành công.";
 
     $_SESSION['customer']['cust_b_name'] = strip_tags($_POST['cust_b_name']);
     $_SESSION['customer']['cust_b_cname'] = strip_tags($_POST['cust_b_cname']);
@@ -79,7 +76,6 @@ if (isset($_POST['form1'])) {
     $_SESSION['customer']['cust_s_city'] = strip_tags($_POST['cust_s_city']);
     $_SESSION['customer']['cust_s_state'] = strip_tags($_POST['cust_s_state']);
     $_SESSION['customer']['cust_s_zip'] = strip_tags($_POST['cust_s_zip']);
-
 }
 ?>
 
@@ -90,35 +86,35 @@ if (isset($_POST['form1'])) {
                 <?php require_once('customer-sidebar.php'); ?>
             </div>
             <div class="col-md-12">
-                <div class="user-content">
+                <div class="user-content" style="background: #f4f4f4; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                     <?php
                     if($error_message != '') {
-                        echo "<div class='error' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$error_message."</div>";
+                        echo "<div class='error' style='padding: 15px; background:#f8d7da; border-left: 5px solid #dc3545; margin-bottom:20px; font-size: 16px;'>".$error_message."</div>";
                     }
                     if($success_message != '') {
-                        echo "<div class='success' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$success_message."</div>";
+                        echo "<div class='success' style='padding: 15px; background:#d4edda; border-left: 5px solid #28a745; margin-bottom:20px; font-size: 16px;'>".$success_message."</div>";
                     }
                     ?>
                     <form action="" method="post">
                         <?php $csrf->echoInputField(); ?>
                         <div class="row">
                             <div class="col-md-6">
-                                <h3><?php echo LANG_VALUE_86; ?></h3>
+                                <h3>Thông tin hóa đơn</h3>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_102; ?></label>
-                                    <input type="text" class="form-control" name="cust_b_name" value="<?php echo $_SESSION['customer']['cust_b_name']; ?>">
+                                    <label for="cust_b_name">Tên người nhận *</label>
+                                    <input type="text" class="form-control" name="cust_b_name" value="<?php echo $_SESSION['customer']['cust_b_name']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_103; ?></label>
-                                    <input type="text" class="form-control" name="cust_b_cname" value="<?php echo $_SESSION['customer']['cust_b_cname']; ?>">
+                                    <label for="cust_b_cname">Công ty *</label>
+                                    <input type="text" class="form-control" name="cust_b_cname" value="<?php echo $_SESSION['customer']['cust_b_cname']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_104; ?></label>
-                                    <input type="text" class="form-control" name="cust_b_phone" value="<?php echo $_SESSION['customer']['cust_b_phone']; ?>">
+                                    <label for="cust_b_phone">Số điện thoại *</label>
+                                    <input type="text" class="form-control" name="cust_b_phone" value="<?php echo $_SESSION['customer']['cust_b_phone']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_106; ?></label>
-                                    <select name="cust_b_country" class="form-control">
+                                    <label for="cust_b_country">Quốc gia *</label>
+                                    <select name="cust_b_country" class="form-control" required>
                                         <?php
                                         $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                         $statement->execute();
@@ -132,39 +128,39 @@ if (isset($_POST['form1'])) {
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_105; ?></label>
-                                    <textarea name="cust_b_address" class="form-control" cols="30" rows="10" style="height:100px;"><?php echo $_SESSION['customer']['cust_b_address']; ?></textarea>
+                                    <label for="cust_b_address">Địa chỉ *</label>
+                                    <textarea name="cust_b_address" class="form-control" cols="30" rows="5" style="height:100px;" required><?php echo $_SESSION['customer']['cust_b_address']; ?></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_107; ?></label>
-                                    <input type="text" class="form-control" name="cust_b_city" value="<?php echo $_SESSION['customer']['cust_b_city']; ?>">
+                                    <label for="cust_b_city">Thành phố *</label>
+                                    <input type="text" class="form-control" name="cust_b_city" value="<?php echo $_SESSION['customer']['cust_b_city']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_108; ?></label>
-                                    <input type="text" class="form-control" name="cust_b_state" value="<?php echo $_SESSION['customer']['cust_b_state']; ?>">
+                                    <label for="cust_b_state">Tỉnh/Thành phố *</label>
+                                    <input type="text" class="form-control" name="cust_b_state" value="<?php echo $_SESSION['customer']['cust_b_state']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_109; ?></label>
-                                    <input type="text" class="form-control" name="cust_b_zip" value="<?php echo $_SESSION['customer']['cust_b_zip']; ?>">
+                                    <label for="cust_b_zip">Mã bưu điện *</label>
+                                    <input type="text" class="form-control" name="cust_b_zip" value="<?php echo $_SESSION['customer']['cust_b_zip']; ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <h3><?php echo LANG_VALUE_87; ?></h3>
+                                <h3>Thông tin giao hàng</h3>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_102; ?></label>
-                                    <input type="text" class="form-control" name="cust_s_name" value="<?php echo $_SESSION['customer']['cust_s_name']; ?>">
+                                    <label for="cust_s_name">Tên người nhận *</label>
+                                    <input type="text" class="form-control" name="cust_s_name" value="<?php echo $_SESSION['customer']['cust_s_name']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_103; ?></label>
-                                    <input type="text" class="form-control" name="cust_s_cname" value="<?php echo $_SESSION['customer']['cust_s_cname']; ?>">
+                                    <label for="cust_s_cname">Công ty *</label>
+                                    <input type="text" class="form-control" name="cust_s_cname" value="<?php echo $_SESSION['customer']['cust_s_cname']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_104; ?></label>
-                                    <input type="text" class="form-control" name="cust_s_phone" value="<?php echo $_SESSION['customer']['cust_s_phone']; ?>">
+                                    <label for="cust_s_phone">Số điện thoại *</label>
+                                    <input type="text" class="form-control" name="cust_s_phone" value="<?php echo $_SESSION['customer']['cust_s_phone']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_106; ?></label>
-                                    <select name="cust_s_country" class="form-control">
+                                    <label for="cust_s_country">Quốc gia *</label>
+                                    <select name="cust_s_country" class="form-control" required>
                                         <?php
                                         $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                         $statement->execute();
@@ -178,30 +174,29 @@ if (isset($_POST['form1'])) {
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_105; ?></label>
-                                    <textarea name="cust_s_address" class="form-control" cols="30" rows="10" style="height:100px;"><?php echo $_SESSION['customer']['cust_s_address']; ?></textarea>
+                                    <label for="cust_s_address">Địa chỉ *</label>
+                                    <textarea name="cust_s_address" class="form-control" cols="30" rows="5" style="height:100px;" required><?php echo $_SESSION['customer']['cust_s_address']; ?></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_107; ?></label>
-                                    <input type="text" class="form-control" name="cust_s_city" value="<?php echo $_SESSION['customer']['cust_s_city']; ?>">
+                                    <label for="cust_s_city">Thành phố *</label>
+                                    <input type="text" class="form-control" name="cust_s_city" value="<?php echo $_SESSION['customer']['cust_s_city']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_108; ?></label>
-                                    <input type="text" class="form-control" name="cust_s_state" value="<?php echo $_SESSION['customer']['cust_s_state']; ?>">
+                                    <label for="cust_s_state">Tỉnh/Thành phố *</label>
+                                    <input type="text" class="form-control" name="cust_s_state" value="<?php echo $_SESSION['customer']['cust_s_state']; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><?php echo LANG_VALUE_109; ?></label>
-                                    <input type="text" class="form-control" name="cust_s_zip" value="<?php echo $_SESSION['customer']['cust_s_zip']; ?>">
+                                    <label for="cust_s_zip">Mã bưu điện *</label>
+                                    <input type="text" class="form-control" name="cust_s_zip" value="<?php echo $_SESSION['customer']['cust_s_zip']; ?>" required>
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_5; ?>" name="form1">
+                        <input type="submit" class="btn btn-primary" value="Cập nhật" name="form1">
                     </form>
                 </div>                
             </div>
         </div>
     </div>
 </div>
-
 
 <?php require_once('footer.php'); ?>

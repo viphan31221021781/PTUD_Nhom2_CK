@@ -1,5 +1,4 @@
 <?php require_once('header.php'); ?>
-
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
@@ -25,10 +24,7 @@ foreach ($result as $row)
     $home_featured_product_on_off = $row['home_featured_product_on_off'];
     $home_latest_product_on_off = $row['home_latest_product_on_off'];
     $home_popular_product_on_off = $row['home_popular_product_on_off'];
-
 }
-
-
 ?>
 
 <div id="bootstrap-touch-slider" class="carousel bs-slider fade control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="false" >
@@ -66,7 +62,7 @@ foreach ($result as $row)
                         <div class="slide-text <?php if($row['position'] == 'Left') {echo 'slide_style_left';} elseif($row['position'] == 'Center') {echo 'slide_style_center';} elseif($row['position'] == 'Right') {echo 'slide_style_right';} ?>">
                             <h1 data-animation="animated <?php if($row['position'] == 'Left') {echo 'zoomInLeft';} elseif($row['position'] == 'Center') {echo 'flipInX';} elseif($row['position'] == 'Right') {echo 'zoomInRight';} ?>"><?php echo $row['heading']; ?></h1>
                             <p data-animation="animated <?php if($row['position'] == 'Left') {echo 'fadeInLeft';} elseif($row['position'] == 'Center') {echo 'fadeInDown';} elseif($row['position'] == 'Right') {echo 'fadeInRight';} ?>"><?php echo nl2br($row['content']); ?></p>
-                            <a href="<?php echo $row['button_url']; ?>" target="_blank"  class="btn btn-primary" data-animation="animated <?php if($row['position'] == 'Left') {echo 'fadeInLeft';} elseif($row['position'] == 'Center') {echo 'fadeInDown';} elseif($row['position'] == 'Right') {echo 'fadeInRight';} ?>"><?php echo $row['button_text']; ?></a>
+                            <a href="<?php echo $row['button_url']; ?>" target="_blank" class="btn btn-primary" data-animation="animated <?php if($row['position'] == 'Left') {echo 'fadeInLeft';} elseif($row['position'] == 'Center') {echo 'fadeInDown';} elseif($row['position'] == 'Right') {echo 'fadeInRight';} ?>"><?php echo $row['button_text']; ?></a>
                         </div>
                     </div>
                 </div>
@@ -90,7 +86,6 @@ foreach ($result as $row)
     </a>
 
 </div>
-
 
 <?php if($home_service_on_off == 1): ?>
 <div class="service bg-gray">
@@ -173,55 +168,8 @@ foreach ($result as $row)
                                     }
                                     ?>
                                     <?php
-                                    if($avg_rating == 0) {
-                                        echo '';
-                                    }
-                                    elseif($avg_rating == 1.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    } 
-                                    elseif($avg_rating == 2.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    }
-                                    elseif($avg_rating == 3.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    }
-                                    elseif($avg_rating == 4.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        ';
-                                    }
-                                    else {
-                                        for($i=1;$i<=5;$i++) {
-                                            ?>
-                                            <?php if($i>$avg_rating): ?>
-                                                <i class="fa fa-star-o"></i>
-                                            <?php else: ?>
-                                                <i class="fa fa-star"></i>
-                                            <?php endif; ?>
-                                            <?php
-                                        }
+                                    for($i = 1; $i <= 5; $i++) {
+                                        echo $i <= $avg_rating ? '<i class="fa fa-star"></i>' : '<i class="fa fa-star-o"></i>';
                                     }
                                     ?>
                                 </div>
@@ -229,24 +177,25 @@ foreach ($result as $row)
                                 <?php if($row['p_qty'] == 0): ?>
                                     <div class="out-of-stock">
                                         <div class="inner">
-                                            Out Of Stock
+                                            Hết Hàng
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>" class="btn-soft"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
                                 <?php endif; ?>
                             </div>
                         </div>
                         <?php
                     }
                     ?>
+
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 <?php endif; ?>
-
 
 <?php if($home_latest_product_on_off == 1): ?>
 <div class="product bg-gray pt_70 pb_30">
@@ -302,66 +251,19 @@ foreach ($result as $row)
                                     }
                                     ?>
                                     <?php
-                                    if($avg_rating == 0) {
-                                        echo '';
-                                    }
-                                    elseif($avg_rating == 1.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    } 
-                                    elseif($avg_rating == 2.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    }
-                                    elseif($avg_rating == 3.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    }
-                                    elseif($avg_rating == 4.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        ';
-                                    }
-                                    else {
-                                        for($i=1;$i<=5;$i++) {
-                                            ?>
-                                            <?php if($i>$avg_rating): ?>
-                                                <i class="fa fa-star-o"></i>
-                                            <?php else: ?>
-                                                <i class="fa fa-star"></i>
-                                            <?php endif; ?>
-                                            <?php
-                                        }
+                                    for($i = 1; $i <= 5; $i++) {
+                                        echo $i <= $avg_rating ? '<i class="fa fa-star"></i>' : '<i class="fa fa-star-o"></i>';
                                     }
                                     ?>
                                 </div>
                                 <?php if($row['p_qty'] == 0): ?>
                                     <div class="out-of-stock">
                                         <div class="inner">
-                                            Out Of Stock
+                                            Hết Hàng
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>" class="btn-soft"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -433,66 +335,19 @@ foreach ($result as $row)
                                     }
                                     ?>
                                     <?php
-                                    if($avg_rating == 0) {
-                                        echo '';
-                                    }
-                                    elseif($avg_rating == 1.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    } 
-                                    elseif($avg_rating == 2.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    }
-                                    elseif($avg_rating == 3.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    }
-                                    elseif($avg_rating == 4.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        ';
-                                    }
-                                    else {
-                                        for($i=1;$i<=5;$i++) {
-                                            ?>
-                                            <?php if($i>$avg_rating): ?>
-                                                <i class="fa fa-star-o"></i>
-                                            <?php else: ?>
-                                                <i class="fa fa-star"></i>
-                                            <?php endif; ?>
-                                            <?php
-                                        }
+                                    for($i = 1; $i <= 5; $i++) {
+                                        echo $i <= $avg_rating ? '<i class="fa fa-star"></i>' : '<i class="fa fa-star-o"></i>';
                                     }
                                     ?>
                                 </div>
                                 <?php if($row['p_qty'] == 0): ?>
                                     <div class="out-of-stock">
                                         <div class="inner">
-                                            Out Of Stock
+                                            Hết Hàng
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>" class="btn-soft"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -507,8 +362,4 @@ foreach ($result as $row)
     </div>
 </div>
 <?php endif; ?>
-
-
-
-
 <?php require_once('footer.php'); ?>
