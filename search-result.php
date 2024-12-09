@@ -21,9 +21,9 @@ foreach ($result as $row) {
 }
 ?>
 
-<div class="page-banner" style="background-color:#FFFF66">
+<div class="page-banner" style="background-color:#c18d8f">
     <div class="inner">
-        <h1 style="color:black">
+        <h1 style="color:#fff">
             Kết quả tìm kiếm: 
             <?php 
                 $search_text = strip_tags($_REQUEST['search_text']); 

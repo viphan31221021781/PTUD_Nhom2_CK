@@ -19,7 +19,7 @@ foreach ($result as $row) {
 }
 ?>
 
-<div class="page-banner" style="background-image: url(assets/uploads/<?php echo $contact_banner; ?>);">
+<div class="page-banner" style="background-color:#c18d8f">
     <div class="inner text-center">
         <h1><?php echo $contact_title; ?></h1>
     </div>
