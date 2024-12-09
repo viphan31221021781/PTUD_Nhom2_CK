@@ -251,7 +251,7 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
                                 <input type="text" class="form-control" name="cust_city" value="<?php if(isset($_POST['cust_city'])){echo $_POST['cust_city'];} ?>" style="border: 2px solid #936921;">
                             </div>
                             <div class="col-md-6 form-group">
-                                <label for="">Thành Phố  *</label>
+                                <label for="">Quận/Huyện *</label>
                                 <input type="text" class="form-control" name="cust_state" value="<?php if(isset($_POST['cust_state'])){echo $_POST['cust_state'];} ?>" style="border: 2px solid #936921;">
                             </div>
                             <div class="col-md-6 form-group">
