@@ -10,7 +10,7 @@ foreach ($result as $row) {
 }
 ?>
 
-<div class="page-banner" style="background-image: url(assets/uploads/<?php echo $faq_banner; ?>);">
+<div class="page-banner" style="background-color:#c18d8f;">
     <div class="inner">
         <h1><?php echo $faq_title; ?></h1> <!-- Tiêu đề của trang FAQ -->
     </div>
