@@ -51,7 +51,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 ?>
 <style>
 .common-bg {
-    background-color: #0039a6 !important; /* Màu nền bạn muốn, ví dụ: xanh lam */
+    background-color: #a13a3a !important; /* Màu nền bạn muốn, ví dụ: xanh lam */
     color: #fff!important; /* Màu chữ trắng */
 	border-radius: 10px;
 	
