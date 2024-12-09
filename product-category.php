@@ -52,7 +52,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                 exit;
             } else {
 
-                // Getting Title
+                // Lấy tiêu đề
                 for ($i=0; $i < count($top); $i++) { 
                     if($top[$i] == $_REQUEST['id']) {
                         $title = $top1[$i];
@@ -61,7 +61,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                 }
                 $arr1 = array();
                 $arr2 = array();
-                // Find out all ecat ids under this
+                // Tìm tất cả ecat id dưới top category này
                 for ($i=0; $i < count($mid); $i++) { 
                     if($mid2[$i] == $_REQUEST['id']) {
                         $arr1[] = $mid[$i];
@@ -83,7 +83,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                 header('location: index.php');
                 exit;
             } else {
-                // Getting Title
+                // Lấy tiêu đề
                 for ($i=0; $i < count($mid); $i++) { 
                     if($mid[$i] == $_REQUEST['id']) {
                         $title = $mid1[$i];
@@ -91,7 +91,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                     }
                 }
                 $arr2 = array();        
-                // Find out all ecat ids under this
+                // Tìm tất cả ecat id dưới mid category này
                 for ($i=0; $i < count($end); $i++) { 
                     if($end2[$i] == $_REQUEST['id']) {
                         $arr2[] = $end[$i];
@@ -106,7 +106,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                 header('location: index.php');
                 exit;
             } else {
-                // Getting Title
+                // Lấy tiêu đề
                 for ($i=0; $i < count($end); $i++) { 
                     if($end[$i] == $_REQUEST['id']) {
                         $title = $end1[$i];
@@ -140,7 +140,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 
                     <div class="row">
                         <?php
-                        // Checking if any product is available or not
+                        // Kiểm tra xem có sản phẩm nào không
                         $prod_count = 0;
                         $statement = $pdo->prepare("SELECT * FROM tbl_product");
                         $statement->execute();
