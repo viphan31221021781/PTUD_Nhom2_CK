@@ -47,9 +47,9 @@ if(isset($_POST['form1'])) {
     }
 }
 ?>
-<div class="page-banner" style="background-color:#d8c7c3; background-size: cover; display: flex; justify-content: center; align-items: center; text-align: center;">
+<div class="page-banner" style="background-color:#c18d8f; background-size: cover; display: flex; justify-content: center; align-items: center; text-align: center;">
     <!-- <div class="inner" style="background-color: #d8c7c3; padding: 10px 20px; border-radius: 10px; margin: 0 auto;"> -->
-        <h1 style="color: #484241; font-size: 48px; font-family: 'Arial', sans-serif; margin: 0;">ĐĂNG NHẬP</h1>
+        <h1 style="color: #fff; font-size: 48px; font-family: 'Arial', sans-serif; margin: 0;">ĐĂNG NHẬP</h1>
     <!-- </div> -->
 </div>
 <style>
@@ -98,7 +98,7 @@ if(isset($_POST['form1'])) {
                                 <div class="form-group text-center">
                                     <input type="submit" class="btn btn-success btn-lg" value="Đăng nhập" name="form1"   style="background-color: #931926; color: white; border-radius: 50px; padding: 15px 30px; width: 100%; border: none; transition: background-color 0.3s;">
                                 </div>
-                                <div class="text-center" style="background-color: #931926; color: white; border-radius: 50px; padding: 15px 30px; width: 100%; border: none; transition: background-color 0.3s;">
+                                <div class="text-center">
                                     <a href="forget-password.php" style="color:#dc3545; font-size: 16px;">Quên mật khẩu?</a>
                                 </div>
                             </div>
