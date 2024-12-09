@@ -86,95 +86,101 @@ if(isset($_POST['form1'])) {
                     <?php $csrf->echoInputField(); ?>
                     <div class="cart">
                         <table class="table table-responsive table-hover table-bordered">
-                            <tr>
-                                <th>#</th>
-                                <th>Hình ảnh</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Kích cỡ</th>
-                                <th>Màu sắc</th>
-                                <th>Giá</th>
-                                <th>Số lượng</th>
-                                <th class="text-right">Tổng</th>
-                                <th class="text-center" style="width: 100px;">Hành động</th>
-                            </tr>
-                            <?php
-                            $table_total_price = 0;
+                            <thead style="background-color: #f8f9fa; color: #931926;">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Kích cỡ</th>
+                                    <th>Màu sắc</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th class="text-right">Tổng</th>
+                                    <th class="text-center">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody style="background-color: #fff; box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+                                <?php
+                                $table_total_price = 0;
 
-                            $i = 0;
-                            foreach($_SESSION['cart_p_id'] as $key => $value) 
-                            {
-                                $i++;
-                                $arr_cart_p_id[$i] = $value;
-                            }
+                                $i = 0;
+                                foreach($_SESSION['cart_p_id'] as $key => $value) 
+                                {
+                                    $i++;
+                                    $arr_cart_p_id[$i] = $value;
+                                }
 
-                            $i = 0;
-                            foreach($_SESSION['cart_p_qty'] as $key => $value) 
-                            {
-                                $i++;
-                                $arr_cart_p_qty[$i] = $value;
-                            }
+                                $i = 0;
+                                foreach($_SESSION['cart_p_qty'] as $key => $value) 
+                                {
+                                    $i++;
+                                    $arr_cart_p_qty[$i] = $value;
+                                }
 
-                            $i = 0;
-                            foreach($_SESSION['cart_p_current_price'] as $key => $value) 
-                            {
-                                $i++;
-                                $arr_cart_p_current_price[$i] = $value;
-                            }
+                                $i = 0;
+                                foreach($_SESSION['cart_p_current_price'] as $key => $value) 
+                                {
+                                    $i++;
+                                    $arr_cart_p_current_price[$i] = $value;
+                                }
 
-                            $i = 0;
-                            foreach($_SESSION['cart_p_name'] as $key => $value) 
-                            {
-                                $i++;
-                                $arr_cart_p_name[$i] = $value;
-                            }
+                                $i = 0;
+                                foreach($_SESSION['cart_p_name'] as $key => $value) 
+                                {
+                                    $i++;
+                                    $arr_cart_p_name[$i] = $value;
+                                }
 
-                            $i = 0;
-                            foreach($_SESSION['cart_p_featured_photo'] as $key => $value) 
-                            {
-                                $i++;
-                                $arr_cart_p_featured_photo[$i] = $value;
-                            }
-                            ?>
-                            <?php for($i = 1; $i <= count($arr_cart_p_id); $i++): ?>
-                            <tr>
-                                <td><?php echo $i; ?></td>
-                                <td>
-                                    <img src="assets/uploads/<?php echo $arr_cart_p_featured_photo[$i]; ?>" alt="">
-                                </td>
-                                <td><?php echo $arr_cart_p_name[$i]; ?></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td><?php echo $arr_cart_p_current_price[$i]; ?> VNĐ</td>
-                                <td>
-                                    <input type="hidden" name="product_id[]" value="<?php echo $arr_cart_p_id[$i]; ?>">
-                                    <input type="hidden" name="product_name[]" value="<?php echo $arr_cart_p_name[$i]; ?>">
-                                    <input type="number" class="input-text qty text" step="1" min="1" name="quantity[]" value="<?php echo $arr_cart_p_qty[$i]; ?>" title="Qty">
-                                </td>
-                                <td class="text-right">
-                                    <?php
-                                    $row_total_price = $arr_cart_p_current_price[$i] * $arr_cart_p_qty[$i];
-                                    $table_total_price += $row_total_price;
-                                    ?>
-                                    <?php echo $row_total_price; ?> VNĐ
-                                </td>
-                                <td class="text-center">
-                                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');" href="cart-item-delete.php?id=<?php echo $arr_cart_p_id[$i]; ?>" class="trash"><i class="fa fa-trash" style="color:red;"></i></a>
-                                </td>
-                            </tr>
-                            <?php endfor; ?>
-                            <tr>
-                                <th colspan="7" class="text-right">Tổng cộng</th>
-                                <th class="text-right"><?php echo $table_total_price; ?> VNĐ</th>
-                                <th></th>
-                            </tr>
+                                $i = 0;
+                                foreach($_SESSION['cart_p_featured_photo'] as $key => $value) 
+                                {
+                                    $i++;
+                                    $arr_cart_p_featured_photo[$i] = $value;
+                                }
+                                ?>
+                                <?php for($i = 1; $i <= count($arr_cart_p_id); $i++): ?>
+                                <tr style="box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+                                    <td><?php echo $i; ?></td>
+                                    <td>
+                                        <img src="assets/uploads/<?php echo $arr_cart_p_featured_photo[$i]; ?>" alt="" style="width: 50px; height: 50px; border-radius: 8px;">
+                                    </td>
+                                    <td><?php echo $arr_cart_p_name[$i]; ?></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><?php echo $arr_cart_p_current_price[$i]; ?> VNĐ</td>
+                                    <td>
+                                        <input type="hidden" name="product_id[]" value="<?php echo $arr_cart_p_id[$i]; ?>">
+                                        <input type="hidden" name="product_name[]" value="<?php echo $arr_cart_p_name[$i]; ?>">
+                                        <input type="number" class="input-text qty text" step="1" min="1" name="quantity[]" value="<?php echo $arr_cart_p_qty[$i]; ?>" title="Qty">
+                                    </td>
+                                    <td class="text-right">
+                                        <?php
+                                        $row_total_price = $arr_cart_p_current_price[$i] * $arr_cart_p_qty[$i];
+                                        $table_total_price += $row_total_price;
+                                        ?>
+                                        <?php echo $row_total_price; ?> VNĐ
+                                    </td>
+                                    <td class="text-center">
+                                        <a onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');" href="cart-item-delete.php?id=<?php echo $arr_cart_p_id[$i]; ?>" class="trash"><i class="fa fa-trash" style="color:red;"></i></a>
+                                    </td>
+                                </tr>
+                                <?php endfor; ?>
+                            </tbody>
+                            <tfoot style="background-color: #f8f9fa; color: #931926;">
+                                <tr>
+                                    <th colspan="7" class="text-right">Tổng cộng</th>
+                                    <th class="text-right"><?php echo $table_total_price; ?> VNĐ</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
                         </table> 
                     </div>
 
-                    <div class="cart-buttons">
-                        <ul>
-                            <li><input type="submit" value="Cập nhật" class="btn btn-primary" name="form1"></li>
-                            <li><a href="index.php" class="btn btn-primary">Tiếp tục mua sắm</a></li>
-                            <li><a href="checkout.php" class="btn btn-primary">Thanh toán</a></li>
+                    <div class="cart-buttons text-center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><input type="submit" value="Cập nhật" class="btn btn-rounded" name="form1" style="background-color: #931926; color: #fff; border-radius: 25px; padding: 10px 20px;"></li>
+                            <li class="list-inline-item"><a href="index.php" class="btn btn-rounded" style="background-color: #931926; color: #fff; border-radius: 25px; padding: 10px 20px;">Tiếp tục mua sắm</a></li>
+                            <li class="list-inline-item"><a href="checkout.php" class="btn btn-rounded" style="background-color: #931926; color: #fff; border-radius: 25px; padding: 10px 20px;">Thanh toán</a></li>
                         </ul>
                     </div>
                 </form>

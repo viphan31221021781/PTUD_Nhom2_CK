@@ -3,19 +3,19 @@
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
 foreach ($result as $row) {
     $contact_title = $row['contact_title'];
     $contact_banner = $row['contact_banner'];
 }
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
 foreach ($result as $row) {
     $contact_map_iframe = $row['contact_map_iframe'];
-    $contact_email = $row['contact_email'];
-    $contact_phone = $row['contact_phone'];
-    $contact_address = $row['contact_address'];
+    $contact_email = 'PUTD@gmail.com'; // Đã sửa email
+    $contact_phone = '0909111222'; // Đã sửa số điện thoại
+    $contact_address = '279 Nguyễn Tri Phương'; // Đã sửa địa chỉ
 }
 ?>
 
@@ -120,28 +120,28 @@ foreach ($result as $row) {
                                 <?php $csrf->echoInputField(); ?>
                                 <div class="form-group mb-3">
                                     <label for="name">Họ và tên</label>
-                                    <input type="text" class="form-control" name="visitor_name" placeholder="Nhập họ và tên">
+                                    <input type="text" class="form-control" name="visitor_name" placeholder="Nhập họ và tên" style="border: 2px solid #931926;">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="email">Địa chỉ email</label>
-                                    <input type="email" class="form-control" name="visitor_email" placeholder="Nhập địa chỉ email">
+                                    <input type="email" class="form-control" name="visitor_email" placeholder="Nhập địa chỉ email" style="border: 2px solid #931926;">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="phone">Số điện thoại</label>
-                                    <input type="text" class="form-control" name="visitor_phone" placeholder="Nhập số điện thoại">
+                                    <input type="text" class="form-control" name="visitor_phone" placeholder="Nhập số điện thoại" style="border: 2px solid #931926;">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="message">Nội dung</label>
-                                    <textarea name="visitor_message" class="form-control" rows="5" placeholder="Nhập nội dung tin nhắn"></textarea>
+                                    <textarea name="visitor_message" class="form-control" rows="5" placeholder="Nhập nội dung tin nhắn" style="border: 2px solid #931926;"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary w-100" name="form_contact">Gửi tin nhắn</button>
+                                <button type="submit" class="btn" style="background-color: #931926; color: #fff; width: 100%;" name="form_contact">Gửi tin nhắn</button>
                             </form>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card p-4 shadow-sm">
+                        <div class="card p-4 shadow-sm" style="margin-top: 40px;">
                             <h5>Văn phòng của chúng tôi</h5>
-                            <p><?php echo nl2br($contact_address); ?></p>
+                            <p><?php echo $contact_address; ?></p>
                             <p><strong>Điện thoại:</strong> <?php echo $contact_phone; ?></p>
                             <p><strong>Email:</strong> <a href="mailto:<?php echo $contact_email; ?>"><?php echo $contact_email; ?></a></p>
                         </div>
