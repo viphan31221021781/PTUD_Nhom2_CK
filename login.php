@@ -47,13 +47,28 @@ if(isset($_POST['form1'])) {
     }
 }
 ?>
-
-<div class="page-banner" style="background-color:#28a745; background-image: url(assets/uploads/<?php echo $banner_login; ?>); background-size: cover;">
-    <div class="inner">
-        <h1 style="color: #ffffff; font-size: 48px; font-family: 'Arial', sans-serif;">ĐĂNG NHẬP</h1>
+<div class="page-banner" style="background-color:#d8c7c3; background-image: url(assets/uploads/<?php echo $banner_login; ?>); background-size: cover; display: flex; justify-content: center; align-items: center; text-align: center;">
+    <div class="inner" style="background-color: #d8c7c3; padding: 10px 20px; border-radius: 10px; margin: 0 auto;">
+        <h1 style="color: #000; font-size: 48px; font-family: 'Arial', sans-serif; margin: 0;">ĐĂNG NHẬP</h1>
     </div>
 </div>
-
+<style>
+    .user-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        background: #f8f9fa;
+    }
+    input.btn:hover {
+        background-color: #7a1420;
+        color: white;
+    }
+</style>
 <div class="page">
     <div class="container">
         <div class="row justify-content-center">
@@ -74,14 +89,14 @@ if(isset($_POST['form1'])) {
                                 ?>
                                 <div class="form-group">
                                     <label for="" style="font-size: 18px; color: #333; font-weight: bold;">Email *</label>
-                                    <input type="email" class="form-control" name="cust_email" style="border: 2px solid #007bff; border-radius: 5px; padding: 15px;">
+                                    <input type="email" class="form-control" name="cust_email" style="border: 2px solid #931926; border-radius: 5px; padding: 15px;">
                                 </div>
                                 <div class="form-group">
                                     <label for="" style="font-size: 18px; color: #333; font-weight: bold;">Mật khẩu *</label>
-                                    <input type="password" class="form-control" name="cust_password" style="border: 2px solid #007bff; border-radius: 5px; padding: 15px;">
+                                    <input type="password" class="form-control" name="cust_password" style="border: 2px solid #931926; border-radius: 5px; padding: 15px;">
                                 </div>
                                 <div class="form-group text-center">
-                                    <input type="submit" class="btn btn-success btn-lg" value="Đăng nhập" name="form1" style="background-color: #28a745; color: white; border-radius: 50px; padding: 15px 30px; width: 100%;">
+                                    <input type="submit" class="btn btn-success btn-lg" value="Đăng nhập" name="form1"   style="background-color: #931926; color: white; border-radius: 50px; padding: 15px 30px; width: 100%; border: none; transition: background-color 0.3s;">
                                 </div>
                                 <div class="text-center">
                                     <a href="forget-password.php" style="color:#dc3545; font-size: 16px;">Quên mật khẩu?</a>

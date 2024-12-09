@@ -264,7 +264,7 @@ foreach ($result as $row) {
 </div>-->
 
 <!-- top bar -->
-<div class="top">
+<div class="top" style="background-color: #931926; color: #ffffff;">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12">
@@ -353,18 +353,18 @@ foreach ($result as $row) {
 					<div class="form-group">
 						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text">
 					</div>
-					<button type="submit" class="btn btn-danger"><?php echo LANG_VALUE_3; ?></button>
+					<button type="submit" class="btn btn-danger" style="background-color: #d8c7c3; color:black"><?php echo LANG_VALUE_3; ?></button>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="nav">
-	<div class="container">
+<div class="nav" style="background-color: #931926; color: #ffffff;">
+	<div class="container" style="background-color: #931926; color: #ffffff;">
 		<div class="row">
 			<div class="col-md-12 pl_0 pr_0">
-				<div class="menu-container">
+				<div class="menu-container" style="background-color: #931926; color: #ffffff;">
 					<div class="menu">
 						<ul>
 							<li><a href="index.php">Home</a></li>

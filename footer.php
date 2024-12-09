@@ -20,6 +20,14 @@ foreach ($result as $row)
     background-color: #f5f5f5; /* Thay đổi màu nền quanh phần đăng ký */
     padding: 30px 0; /* Thêm khoảng cách trên dưới */
 }
+	/* Khung bên trong */
+	.home-newsletter .container {
+    background-color: #c18d8f;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 .home-newsletter .single {
     background-color: #ffffff; /* Màu nền trắng cho phần form */
@@ -28,10 +36,12 @@ foreach ($result as $row)
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo bóng cho phần form */
 }
 
+/* Tiêu đề */
 .home-newsletter h2 {
-    color: black; /* Màu chữ tiêu đề */
-    font-size: 24px; /* Kích thước chữ tiêu đề */
-    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    color: #000000 !important;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .home-newsletter .input-group input {
@@ -39,14 +49,28 @@ foreach ($result as $row)
 }
 
 .home-newsletter .btn-theme {
-    background-color: #484241; /* Màu nền cho nút đăng ký */
+    background-color: #931926; /* Màu nền cho nút đăng ký */
     border: none;
     color: #fff; /* Màu chữ nút */
+}
+/* Nút Subscribe */
+.home-newsletter .input-group-btn button {
+    background-color: #931926 !important;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
 }
 
 .home-newsletter .btn-theme:hover {
     background-color: #e67e22; /* Màu nền khi hover nút đăng ký */
 }
+/* Nút Subscribe hover */
+.home-newsletter .input-group-btn button:hover {
+    background-color: #d8c7c3 !important; /* Màu sáng hơn khi hover */
+    color: #000;
+}
+
 </style>
 <?php if($newsletter_on_off == 1): ?>
 <section class="home-newsletter">
