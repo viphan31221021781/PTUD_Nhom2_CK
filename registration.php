@@ -29,7 +29,7 @@ if (isset($_POST['form1'])) {
         } else {
             $statement = $pdo->prepare("SELECT * FROM tbl_customer WHERE cust_email=?");
             $statement->execute(array($_POST['cust_email']));
-            $total = $statement->rowCount();                            
+            $total = $statement->rowCount();                             
             if($total) {
                 $valid = 0;
                 $error_message .= "Email này đã được đăng ký.<br>";
@@ -161,8 +161,8 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
 
 <a href="'.$verify_link.'">'.$verify_link.'</a>';
 
-        $headers = "From: noreply@" . BASE_URL . "\r\n" .
-                   "Reply-To: noreply@" . BASE_URL . "\r\n" .
+        $headers = "From: noreply@" . BASE_URL . "\r\n" . 
+                   "Reply-To: noreply@" . BASE_URL . "\r\n" . 
                    "X-Mailer: PHP/" . phpversion() . "\r\n" . 
                    "MIME-Version: 1.0\r\n" . 
                    "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -211,27 +211,27 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
 
                             <div class="col-md-6 form-group">
                                 <label for="">Tên khách hàng *</label>
-                                <input type="text" class="form-control" name="cust_name" value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>" style="border: 2px solid #936921;">
+                                <input type="text" class="form-control" name="cust_name" value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Tên công ty</label>
-                                <input type="text" class="form-control" name="cust_cname" value="<?php if(isset($_POST['cust_cname'])){echo $_POST['cust_cname'];} ?>" style="border: 2px solid #936921;">
+                                <input type="text" class="form-control" name="cust_cname" value="<?php if(isset($_POST['cust_cname'])){echo $_POST['cust_cname'];} ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Email *</label>
-                                <input type="email" class="form-control" name="cust_email" value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>" style="border: 2px solid #936921;">
+                                <input type="email" class="form-control" name="cust_email" value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Số điện thoại *</label>
-                                <input type="text" class="form-control" name="cust_phone" value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>" style="border: 2px solid #936921;">
+                                <input type="text" class="form-control" name="cust_phone" value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="">Địa chỉ *</label>
-                                <textarea name="cust_address" class="form-control" cols="30" rows="10" style="height:70px;border: 2px solid #936921;"><?php if(isset($_POST['cust_address'])){echo $_POST['cust_address'];} ?></textarea>
+                                <textarea name="cust_address" class="form-control" cols="30" rows="10" style="height:70px;border: 2px solid #931926;"><?php if(isset($_POST['cust_address'])){echo $_POST['cust_address'];} ?></textarea>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Quốc gia *</label>
-                                <select name="cust_country" class="form-control select2" style="border: 2px solid #936921;">
+                                <select name="cust_country" class="form-control select2" style="border: 2px solid #931926;">
                                     <option value="">Chọn quốc gia</option>
                                 <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
@@ -246,29 +246,30 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
                                 </select>                                 
                             </div>
                             
+
                             <div class="col-md-6 form-group">
                                 <label for="">Thành phố *</label>
-                                <input type="text" class="form-control" name="cust_city" value="<?php if(isset($_POST['cust_city'])){echo $_POST['cust_city'];} ?>" style="border: 2px solid #936921;">
+                                <input type="text" class="form-control" name="cust_city" value="<?php if(isset($_POST['cust_city'])){echo $_POST['cust_city'];} ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Tỉnh/Thành phố *</label>
-                                <input type="text" class="form-control" name="cust_state" value="<?php if(isset($_POST['cust_state'])){echo $_POST['cust_state'];} ?>" style="border: 2px solid #936921;">
+                                <input type="text" class="form-control" name="cust_state" value="<?php if(isset($_POST['cust_state'])){echo $_POST['cust_state'];} ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Mã bưu điện *</label>
-                                <input type="text" class="form-control" name="cust_zip" value="<?php if(isset($_POST['cust_zip'])){echo $_POST['cust_zip'];} ?>" style="border: 2px solid #936921;">
+                                <input type="text" class="form-control" name="cust_zip" value="<?php if(isset($_POST['cust_zip'])){echo $_POST['cust_zip'];} ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Mật khẩu *</label>
-                                <input type="password" class="form-control" name="cust_password" style="border: 2px solid #936921;">
+                                <input type="password" class="form-control" name="cust_password" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Xác nhận mật khẩu *</label>
-                                <input type="password" class="form-control" name="cust_re_password" style="border: 2px solid #936921;">
+                                <input type="password" class="form-control" name="cust_re_password" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for=""></label>
-                                <input type="submit" class="btn btn-danger" value="Đăng ký" name="form1" style="background-color: #936921; border: none;">
+                                <input type="submit" class="btn btn-danger" value="Đăng ký" name="form1" style="background-color: #931926; border: none;">
                             </div>
                         </div>
                     </form>
