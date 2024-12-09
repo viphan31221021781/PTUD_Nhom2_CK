@@ -232,7 +232,7 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
                             <div class="col-md-6 form-group">
                                 <label for="">Tỉnh/thành phố *</label>
                                 <select name="cust_country" class="form-control select2" style="border: 2px solid #936921;">
-                                    <option value="">Chọn quốc gia</option>
+                                    <option value="">Chọn tỉnh/thàn phố</option>
                                 <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                 $statement->execute();
