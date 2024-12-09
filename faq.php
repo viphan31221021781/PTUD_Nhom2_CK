@@ -1,35 +1,55 @@
 <?php require_once('header.php'); ?>
 
 <?php
-// Kiểm tra xem khách hàng đã đăng nhập hay chưa
-if(!isset($_SESSION['customer'])) {
-    header('location: '.BASE_URL.'logout.php');
-    exit;
-} else {
-    // Nếu khách hàng đã đăng nhập nhưng tài khoản bị admin vô hiệu hóa, buộc phải đăng xuất
-    $statement = $pdo->prepare("SELECT * FROM tbl_customer WHERE cust_id=? AND cust_status=?");
-    $statement->execute(array($_SESSION['customer']['cust_id'], 0));
-    $total = $statement->rowCount();
-    if($total) {
-        header('location: '.BASE_URL.'logout.php');
-        exit;
-    }
+$statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
+$statement->execute();
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+foreach ($result as $row) {
+    $faq_title = $row['faq_title'];
+    $faq_banner = $row['faq_banner'];
 }
 ?>
+
+<div class="page-banner" style="background-image: url(assets/uploads/<?php echo $faq_banner; ?>);">
+    <div class="inner">
+        <h1><?php echo $faq_title; ?></h1> <!-- Tiêu đề của trang FAQ -->
+    </div>
+</div>
 
 <div class="page">
     <div class="container">
         <div class="row">            
-            <div class="col-md-12"> 
-                <?php require_once('customer-sidebar.php'); ?>
-            </div>
             <div class="col-md-12">
-                <div class="user-content">
-                    <h3 class="text-center">
-                        <?php echo "Trang cá nhân của bạn"; ?>
-                    </h3>
-                    <p class="text-center">Chào mừng bạn quay lại! Đây là khu vực quản lý thông tin cá nhân và đơn hàng của bạn.</p>
-                </div>                
+                
+                <div class="panel-group" id="faqAccordion">                    
+
+                    <?php
+                    $statement = $pdo->prepare("SELECT * FROM tbl_faq");
+                    $statement->execute();
+                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+                    foreach ($result as $row) {
+                        ?>
+                        <div class="panel panel-default">
+                            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question<?php echo $row['faq_id']; ?>">
+                                <h4 class="panel-title">
+                                    Câu hỏi: <?php echo $row['faq_title']; ?>
+                                </h4>
+                            </div>
+                            <div id="question<?php echo $row['faq_id']; ?>" class="panel-collapse collapse" style="height: 0px;">
+                                <div class="panel-body">
+                                    <h5><span class="label label-primary">Câu trả lời</span></h5>
+                                    <p>
+                                        <?php echo $row['faq_content']; ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    
+                </div>
+
             </div>
         </div>
     </div>
