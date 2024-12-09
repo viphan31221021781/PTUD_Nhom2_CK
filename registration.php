@@ -184,7 +184,7 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
 }
 ?>
 
-<div class="page-banner" style="background-color:#444;background-image: url(assets/uploads/<?php echo $banner_registration; ?>);">
+<div class="page-banner" style="background-color:#c18d8f">
     <div class="inner">
         <h1>Đăng ký tài khoản</h1>
     </div>
