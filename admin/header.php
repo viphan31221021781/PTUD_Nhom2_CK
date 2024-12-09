@@ -58,7 +58,7 @@ if(!isset($_SESSION['user'])) {
 		}
 
 		table th {
-			background-color: #0039a6;
+			background-color: #931926;
 			color: #fff;
 			font-weight: bold;
 			margin-right: 20px !important;
@@ -87,13 +87,28 @@ if(!isset($_SESSION['user'])) {
 		}
 
 		.btn.btn-primary.btn-sm {
-			background-color: #0530ad;
+			background-color: #931926;
 			margin-bottom: 20px;
 			padding:8px;
 			border-radius: 8px;
 			font-weight: bold;
 			margin-left: 20px;
 		}
+		h1, h1 >i{
+			font-size: 48px;
+			font-weight: bold;
+			
+		}
+		.sidebar{
+			background-color: #000000;
+			width: 80px;
+			color: #fff;
+		}
+		.treeview{
+			font-size: 18px;
+		}
+		.navbar.navbar-static-top {
+			background-color: #931926; /* Màu nền */}
 
 	</style>
 
@@ -103,10 +118,10 @@ if(!isset($_SESSION['user'])) {
 
 	<div class="wrapper">
 
-		<header class="main-header">
+		<header class="main-header" style="background-color: #931926 !important">
 
 			<a href="index.php" class="logo">
-				<span class="logo-lg">eCommerce PHP</span>
+				<span class="logo-lg">MUJI Store</span>
 			</a>
 
 			<nav class="navbar navbar-static-top">

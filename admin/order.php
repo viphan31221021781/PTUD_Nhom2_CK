@@ -1,5 +1,9 @@
 <?php require_once('header.php'); ?>
-
+<style>
+    td{
+        background-color: #fff;
+    }
+</style>
 <?php
 $error_message = '';
 if(isset($_POST['form1'])) {

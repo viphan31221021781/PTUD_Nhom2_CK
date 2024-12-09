@@ -10,7 +10,56 @@ foreach ($result as $row) {
 }
 ?>
 
-<div class="page-banner" style="background-image: url(assets/uploads/<?php echo $faq_banner; ?>);">
+<style>
+    .page-banner {
+        background-color: #c18d8f;
+        text-align: center;
+        padding: 50px 0;
+        color: #fff;
+    }
+
+    .panel-title {
+        color: #931926;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .panel-heading {
+        border: 1px solid #931926;
+        border-radius: 5px;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 15px;
+    }
+
+    .panel-heading:hover {
+        background-color: #931926;
+        color: #fff;
+    }
+
+    .panel-body {
+        border: 1px solid #931926;
+        border-radius: 5px;
+        padding: 15px;
+        background-color: #fdf5f5;
+    }
+
+    .label-primary {
+        background-color: #931926;
+        color: #fff;
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 3px;
+    }
+
+    .panel-group .panel {
+        margin-bottom: 15px;
+        border: none;
+    }
+</style>
+
+<div class="page-banner">
     <div class="inner">
         <h1><?php echo $faq_title; ?></h1> <!-- Tiêu đề của trang FAQ -->
     </div>
@@ -56,3 +105,4 @@ foreach ($result as $row) {
 </div>
 
 <?php require_once('footer.php'); ?>
+
