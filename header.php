@@ -175,35 +175,35 @@ foreach ($result as $row) {
 
 	if($cur_page == 'dashboard.php') {
 		?>
-		<title>Dashboard - <?php echo $meta_title_home; ?></title>
+		<title>Tổng quan - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
 	if($cur_page == 'customer-profile-update.php') {
 		?>
-		<title>Update Profile - <?php echo $meta_title_home; ?></title>
+		<title>Cập nhật hồ sơ - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
 	if($cur_page == 'customer-billing-shipping-update.php') {
 		?>
-		<title>Update Billing and Shipping Info - <?php echo $meta_title_home; ?></title>
+		<title>Cập nhật thông tin thanh toán và vận chuyển- <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
 	if($cur_page == 'customer-password-update.php') {
 		?>
-		<title>Update Password - <?php echo $meta_title_home; ?></title>
+		<title>cập nhật mật khẩu - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
 	if($cur_page == 'customer-order.php') {
 		?>
-		<title>Orders - <?php echo $meta_title_home; ?></title>
+		<title>Đơn hàng - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
