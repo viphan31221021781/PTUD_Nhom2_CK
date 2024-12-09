@@ -127,10 +127,10 @@ foreach ($result as $row)
 							$verification_url = BASE_URL.'verify.php?email='.$to.'&key='.$key;
 
 							$message = '
-Thanks for your interest to subscribe our newsletter!<br><br>
-Please click this link to confirm your subscription:
+Chân thành cảm ơn bạn đã quan tâm và đăng ký nhận thông báo từ chúng tôi!<br><br>
+Vui lòng nhấp vào liên kết này để xác nhận đăng ký của bạn:
 					'.$verification_url.'<br><br>
-This link will be active only for 24 hours.
+Liên kết này chỉ có hiệu lực trong 24 giờ.
 					';
 
 							$headers = 'From: ' . $contact_email . "\r\n" .
@@ -156,7 +156,7 @@ This link will be active only for 24 hours.
 			?>
 				<form action="" method="post">
 					<?php $csrf->echoInputField(); ?>
-					<h2><?php echo LANG_VALUE_93; ?></h2>
+					<h2>Đăng ký để nhận thông báo sớm nhất</h2>
 					<div class="input-group">
 			        	<input type="email" class="form-control" placeholder="<?php echo LANG_VALUE_95; ?>" name="email_subscribe">
 			         	<span class="input-group-btn">
@@ -171,7 +171,7 @@ This link will be active only for 24 hours.
 </section>
 <?php endif; ?>
 
-<div class="footer-bottom">
+<!-- <div class="footer-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 copyright">
@@ -179,11 +179,11 @@ This link will be active only for 24 hours.
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
-<a href="#" class="scrollup">
+<!-- <a href="#" class="scrollup">
 	<i class="fa fa-angle-up"></i>
-</a>
+</a> -->
 
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
@@ -211,7 +211,7 @@ foreach ($result as $row) {
 <script>
 	function confirmDelete()
 	{
-	    return confirm("Sure you want to delete this data?");
+	    return confirm("Bạn có chắc chắn muốn xóa dữ liệu này không?");
 	}
 	$(document).ready(function () {
 		advFieldsStatus = $('#advFieldsStatus').val();
