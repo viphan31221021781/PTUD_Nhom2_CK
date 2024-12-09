@@ -5,10 +5,10 @@ if(!isset($_REQUEST['search_text'])) {
     header('location: index.php');
     exit;
 } else {
-	if($_REQUEST['search_text']=='') {
-		header('location: index.php');
-    	exit;
-	}
+    if($_REQUEST['search_text']=='') {
+        header('location: index.php');
+        exit;
+    }
 }
 ?>
 
@@ -22,7 +22,6 @@ foreach ($result as $row) {
 ?>
 
 <div class="page-banner" style="background-color:#FFFF66">
-    <!-- <div class="overlay"></div> -->
     <div class="inner">
         <h1 style="color:black">
             Kết quả tìm kiếm: 
@@ -76,9 +75,9 @@ foreach ($result as $row) {
             {   
                 $pagination .= "<div class=\"pagination\">";
                 if ($page > 1) 
-                    $pagination.= "<a href=\"$targetpage&page=$prev\">&#171; previous</a>";
+                    $pagination.= "<a href=\"$targetpage&page=$prev\">&#171; trước</a>";
                 else
-                    $pagination.= "<span class=\"disabled\">&#171; previous</span>";    
+                    $pagination.= "<span class=\"disabled\">&#171; trước</span>";    
                 if ($lastpage < 7 + ($adjacents * 2))   //not enough pages to bother breaking it up
                 {   
                     for ($counter = 1; $counter <= $lastpage; $counter++)
@@ -135,9 +134,9 @@ foreach ($result as $row) {
                     }
                 }
                 if ($page < $counter - 1) 
-                    $pagination.= "<a href=\"$targetpage&page=$next\">next &#187;</a>";
+                    $pagination.= "<a href=\"$targetpage&page=$next\">tiếp &#187;</a>";
                 else
-                    $pagination.= "<span class=\"disabled\">next &#187;</span>";
+                    $pagination.= "<span class=\"disabled\">tiếp &#187;</span>";
                 $pagination.= "</div>\n";       
             }
             /* ===================== Pagination Code Ends ================== */
@@ -145,8 +144,9 @@ foreach ($result as $row) {
 
                         <?php
                             
+
                             if(!$total_pages):
-                                echo '<span style="color:red;font-size:18px;">No result found</span>';
+                                echo '<span style="color:red;font-size:18px;">Không tìm thấy kết quả</span>';
                             else:
                             foreach ($result as $row) {
                                 ?>
@@ -222,7 +222,16 @@ foreach ($result as $row) {
                                                         <i class="fa fa-star-half-o"></i>
                                                     ';
                                                 }
-                                                else {
+                                                elseif($avg_rating == 5) {
+                                                    echo '
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    ';
+                                                }
+                                                elseif($avg_rating != 0) {
                                                     for($i=1;$i<=5;$i++) {
                                                         ?>
                                                         <?php if($i>$avg_rating): ?>
@@ -238,11 +247,9 @@ foreach ($result as $row) {
                                             <?php if($row['p_qty'] == 0): ?>
                                                 <div class="out-of-stock">
                                                     <div class="inner">
-                                                        Out Of Stock
+                                                        Hết hàng
                                                     </div>
                                                 </div>
-                                            <?php else: ?>
-                                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>">Add to Cart</a></p>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -251,7 +258,7 @@ foreach ($result as $row) {
                             }
                             ?>
                             <div class="clear"></div>
-							<div class="pagination">
+                            <div class="pagination">
                             <?php 
                                 echo $pagination; 
                             ?>
