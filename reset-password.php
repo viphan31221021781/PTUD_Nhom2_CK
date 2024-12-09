@@ -3,7 +3,7 @@
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
 foreach ($result as $row) {
     $banner_reset_password = $row['banner_reset_password'];
 }
@@ -87,20 +87,19 @@ if(isset($_POST['form1'])) {
                     <?php else: ?>
                         <form action="" method="post">
                             <?php $csrf->echoInputField(); ?>
-                            <div class="row">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_100; ?> *</label>
-                                        <input type="password" class="form-control" name="cust_new_password">
+                                        <input type="password" class="form-control custom-input" name="cust_new_password">
                                     </div>
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_101; ?> *</label>
-                                        <input type="password" class="form-control" name="cust_re_password">
+                                        <input type="password" class="form-control custom-input" name="cust_re_password">
                                     </div>
                                     <div class="form-group">
                                         <label for=""></label>
-                                        <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_149; ?>" name="form1">
+                                        <input type="submit" class="btn custom-btn" value="<?php echo LANG_VALUE_149; ?>" name="form1">
                                     </div>
                                 </div>
                             </div>                        

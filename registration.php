@@ -3,7 +3,7 @@
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
 foreach ($result as $row) {
     $banner_registration = $row['banner_registration'];
 }
@@ -192,88 +192,85 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
 
 <div class="page">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
                 <div class="user-content">
 
                     <form action="" method="post">
                         <?php $csrf->echoInputField(); ?>
                         <div class="row">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8">
-                                
-                                <?php
-                                if($error_message != '') {
-                                    echo "<div class='error' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$error_message."</div>";
-                                }
-                                if($success_message != '') {
-                                    echo "<div class='success' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$success_message."</div>";
-                                }
-                                ?>
 
-                                <div class="col-md-6 form-group">
-                                    <label for="">Tên khách hàng *</label>
-                                    <input type="text" class="form-control" name="cust_name" value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="">Tên công ty</label>
-                                    <input type="text" class="form-control" name="cust_cname" value="<?php if(isset($_POST['cust_cname'])){echo $_POST['cust_cname'];} ?>">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="">Email *</label>
-                                    <input type="email" class="form-control" name="cust_email" value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="">Số điện thoại *</label>
-                                    <input type="text" class="form-control" name="cust_phone" value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>">
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <label for="">Địa chỉ *</label>
-                                    <textarea name="cust_address" class="form-control" cols="30" rows="10" style="height:70px;"><?php if(isset($_POST['cust_address'])){echo $_POST['cust_address'];} ?></textarea>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="">Quốc gia *</label>
-                                    <select name="cust_country" class="form-control select2">
-                                        <option value="">Chọn quốc gia</option>
-                                    <?php
-                                    $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
-                                    $statement->execute();
-                                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-                                    foreach ($result as $row) {
-                                        ?>
-                                        <option value="<?php echo $row['country_id']; ?>"><?php echo $row['country_name']; ?></option>
-                                        <?php
-                                    }
-                                    ?>    
-                                    </select>                                    
-                                </div>
-                                
-                                <div class="col-md-6 form-group">
-                                    <label for="">Thành phố *</label>
-                                    <input type="text" class="form-control" name="cust_city" value="<?php if(isset($_POST['cust_city'])){echo $_POST['cust_city'];} ?>">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="">Tỉnh/Thành phố *</label>
-                                    <input type="text" class="form-control" name="cust_state" value="<?php if(isset($_POST['cust_state'])){echo $_POST['cust_state'];} ?>">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="">Mã bưu điện *</label>
-                                    <input type="text" class="form-control" name="cust_zip" value="<?php if(isset($_POST['cust_zip'])){echo $_POST['cust_zip'];} ?>">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="">Mật khẩu *</label>
-                                    <input type="password" class="form-control" name="cust_password">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="">Xác nhận mật khẩu *</label>
-                                    <input type="password" class="form-control" name="cust_re_password">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for=""></label>
-                                    <input type="submit" class="btn btn-danger" value="Đăng ký" name="form1">
-                                </div>
+                            <?php
+                            if($error_message != '') {
+                                echo "<div class='error' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$error_message."</div>";
+                            }
+                            if($success_message != '') {
+                                echo "<div class='success' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$success_message."</div>";
+                            }
+                            ?>
+
+                            <div class="col-md-6 form-group">
+                                <label for="">Tên khách hàng *</label>
+                                <input type="text" class="form-control" name="cust_name" value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>" style="border: 2px solid #936921;">
                             </div>
-                        </div>                        
+                            <div class="col-md-6 form-group">
+                                <label for="">Tên công ty</label>
+                                <input type="text" class="form-control" name="cust_cname" value="<?php if(isset($_POST['cust_cname'])){echo $_POST['cust_cname'];} ?>" style="border: 2px solid #936921;">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">Email *</label>
+                                <input type="email" class="form-control" name="cust_email" value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>" style="border: 2px solid #936921;">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">Số điện thoại *</label>
+                                <input type="text" class="form-control" name="cust_phone" value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>" style="border: 2px solid #936921;">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="">Địa chỉ *</label>
+                                <textarea name="cust_address" class="form-control" cols="30" rows="10" style="height:70px;border: 2px solid #936921;"><?php if(isset($_POST['cust_address'])){echo $_POST['cust_address'];} ?></textarea>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">Quốc gia *</label>
+                                <select name="cust_country" class="form-control select2" style="border: 2px solid #936921;">
+                                    <option value="">Chọn quốc gia</option>
+                                <?php
+                                $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
+                                $statement->execute();
+                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                foreach ($result as $row) {
+                                ?>
+                                    <option value="<?php echo $row['country_id']; ?>" <?php if(isset($_POST['cust_country']) && $_POST['cust_country'] == $row['country_id']){echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
+                                <?php
+                                }
+                                ?>    
+                                </select>                                 
+                            </div>
+                            
+                            <div class="col-md-6 form-group">
+                                <label for="">Thành phố *</label>
+                                <input type="text" class="form-control" name="cust_city" value="<?php if(isset($_POST['cust_city'])){echo $_POST['cust_city'];} ?>" style="border: 2px solid #936921;">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">Tỉnh/Thành phố *</label>
+                                <input type="text" class="form-control" name="cust_state" value="<?php if(isset($_POST['cust_state'])){echo $_POST['cust_state'];} ?>" style="border: 2px solid #936921;">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">Mã bưu điện *</label>
+                                <input type="text" class="form-control" name="cust_zip" value="<?php if(isset($_POST['cust_zip'])){echo $_POST['cust_zip'];} ?>" style="border: 2px solid #936921;">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">Mật khẩu *</label>
+                                <input type="password" class="form-control" name="cust_password" style="border: 2px solid #936921;">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">Xác nhận mật khẩu *</label>
+                                <input type="password" class="form-control" name="cust_re_password" style="border: 2px solid #936921;">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for=""></label>
+                                <input type="submit" class="btn btn-danger" value="Đăng ký" name="form1" style="background-color: #936921; border: none;">
+                            </div>
+                        </div>
                     </form>
                 </div>                
             </div>
