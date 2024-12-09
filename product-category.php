@@ -3,7 +3,7 @@
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
 foreach ($result as $row) {
     $banner_product_category = $row['banner_product_category'];
 }
@@ -22,7 +22,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 
         $statement = $pdo->prepare("SELECT * FROM tbl_top_category");
         $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
         foreach ($result as $row) {
             $top[] = $row['tcat_id'];
             $top1[] = $row['tcat_name'];
@@ -30,7 +30,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 
         $statement = $pdo->prepare("SELECT * FROM tbl_mid_category");
         $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
         foreach ($result as $row) {
             $mid[] = $row['mcat_id'];
             $mid1[] = $row['mcat_name'];
@@ -39,7 +39,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 
         $statement = $pdo->prepare("SELECT * FROM tbl_end_category");
         $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
         foreach ($result as $row) {
             $end[] = $row['ecat_id'];
             $end1[] = $row['ecat_name'];
@@ -51,8 +51,6 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                 header('location: index.php');
                 exit;
             } else {
-
-                // Lấy tiêu đề
                 for ($i=0; $i < count($top); $i++) { 
                     if($top[$i] == $_REQUEST['id']) {
                         $title = $top1[$i];
@@ -61,7 +59,6 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                 }
                 $arr1 = array();
                 $arr2 = array();
-                // Tìm tất cả ecat id dưới top category này
                 for ($i=0; $i < count($mid); $i++) { 
                     if($mid2[$i] == $_REQUEST['id']) {
                         $arr1[] = $mid[$i];
@@ -83,7 +80,6 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                 header('location: index.php');
                 exit;
             } else {
-                // Lấy tiêu đề
                 for ($i=0; $i < count($mid); $i++) { 
                     if($mid[$i] == $_REQUEST['id']) {
                         $title = $mid1[$i];
@@ -91,7 +87,6 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                     }
                 }
                 $arr2 = array();        
-                // Tìm tất cả ecat id dưới mid category này
                 for ($i=0; $i < count($end); $i++) { 
                     if($end2[$i] == $_REQUEST['id']) {
                         $arr2[] = $end[$i];
@@ -106,7 +101,6 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                 header('location: index.php');
                 exit;
             } else {
-                // Lấy tiêu đề
                 for ($i=0; $i < count($end); $i++) { 
                     if($end[$i] == $_REQUEST['id']) {
                         $title = $end1[$i];
@@ -140,7 +134,6 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 
                     <div class="row">
                         <?php
-                        // Kiểm tra xem có sản phẩm nào không
                         $prod_count = 0;
                         $statement = $pdo->prepare("SELECT * FROM tbl_product");
                         $statement->execute();
@@ -166,8 +159,8 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                     ?>
                                     <div class="col-md-4 item item-product-cat">
                                         <div class="inner">
-                                            <div class="thumb">
-                                                <div class="photo" style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
+                                            <div class="thumb" style="border: 2px solid #936921; border-radius: 12px; overflow: hidden;">
+                                                <div class="photo" style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>); border-radius: 12px;"></div>
                                                 <div class="overlay"></div>
                                             </div>
                                             <div class="text">
@@ -256,7 +249,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                                         </div>
                                                     </div>
                                                 <?php else: ?>
-                                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
+                                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
@@ -276,3 +269,23 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 </div>
 
 <?php require_once('footer.php'); ?>
+
+<!-- CSS -->
+<style>
+.add-to-cart-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Soft padding */
+    background-color: #aa535a !important; /* Button color updated */
+    color: white; /* Text color */
+    border-radius: 30px; /* Rounded corners */
+    text-decoration: none;
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Optional: Bold text */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover transition */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #7c5e3b; /* Slightly darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+</style>
