@@ -13,9 +13,11 @@ $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);                             
 foreach ($result as $row) {
     $contact_map_iframe = $row['contact_map_iframe'];
-    $contact_email = 'PUTD@gmail.com'; // Đã sửa email
-    $contact_phone = '0909111222'; // Đã sửa số điện thoại
-    $contact_address = '279 Nguyễn Tri Phương'; // Đã sửa địa chỉ
+
+    // Thay đổi giá trị trực tiếp theo yêu cầu
+    $contact_email = 'miju_support@gmail.com'; // Cập nhật email
+    $contact_phone = '02873061976'; // Cập nhật số điện thoại
+    $contact_address = '279 Đường Nguyễn Tri Phương. Phường 5. Quận 10. TP. Hồ Chí Minh. Việt Nam'; // Cập nhật địa chỉ
 }
 ?>
 
@@ -34,16 +36,14 @@ foreach ($result as $row) {
                     <div class="col-md-8">
                         <div class="card p-4 shadow-sm">
                             <?php
-                            // Sau khi gửi form, kiểm tra các điều kiện trước khi gửi email
-                            if(isset($_POST['form_contact']))
-                            {
+                            if(isset($_POST['form_contact'])) {
                                 $error_message = '';
                                 $success_message = '';
                                 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
                                 $statement->execute();
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);                           
-                                foreach ($result as $row) 
-                                {
+
+                                foreach ($result as $row) {
                                     $receive_email = $row['receive_email'];
                                     $receive_email_subject = $row['receive_email_subject'];
                                     $receive_email_thank_you_message = $row['receive_email_thank_you_message'];
@@ -76,8 +76,7 @@ foreach ($result as $row) {
                                     $error_message .= 'Vui lòng nhập nội dung tin nhắn.\n';
                                 }
 
-                                if($valid == 1)
-                                {
+                                if($valid == 1) {
                                     $visitor_name = strip_tags($_POST['visitor_name']);
                                     $visitor_email = strip_tags($_POST['visitor_email']);
                                     $visitor_phone = strip_tags($_POST['visitor_phone']);
@@ -158,3 +157,4 @@ foreach ($result as $row) {
 </div>
 
 <?php require_once('footer.php'); ?>
+
