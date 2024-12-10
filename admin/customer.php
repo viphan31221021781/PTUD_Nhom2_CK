@@ -14,7 +14,7 @@
 					<table id="example1" class="table table-bordered table-hover table-striped">
 						<thead>
 							<tr>
-								<th width="10">#</th>
+								<th width="10">STT</th>
 								<th width="180">Tên</th>
 								<th width="150">Email</th>
 								<th width="180">Quốc Gia, Thành Phố, Bang</th>
