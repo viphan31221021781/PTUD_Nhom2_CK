@@ -312,7 +312,7 @@ foreach ($result as $row) {
 					if(isset($_SESSION['customer'])) {
 						?>
 						<li><i class="fa fa-user"></i> <?php echo $_SESSION['customer']['cust_name']; ?></li>
-						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li>
+						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo "Trang chủ"; ?></a></li>
 						<?php
 					} else {
 						?>
@@ -368,7 +368,7 @@ foreach ($result as $row) {
 				<div class="menu-container" style="background-color: #931926; color: #ffffff;">
 					<div class="menu">
 						<ul>
-							<li><a href="index.php">Home</a></li>
+							<li><a href="index.php">Trang chủ</a></li>
 							
 							<?php
 							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
