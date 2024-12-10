@@ -144,7 +144,7 @@ if($success_message != '') {
           <table id="example1" class="table table-bordered table-hover table-striped">
 			<thead>
 			    <tr>
-			        <th>#</th>
+			        <th>STT</th>
                     <th>Khách Hàng</th>
 			        <th>Chi Tiết Sản Phẩm</th>
                     <th>
