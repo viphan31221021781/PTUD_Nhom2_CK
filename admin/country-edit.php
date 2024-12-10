@@ -6,7 +6,7 @@ if(isset($_POST['form1'])) {
 
     if(empty($_POST['country_name'])) {
         $valid = 0;
-        $error_message .= "Tên quốc gia không được để trống<br>";
+        $error_message .= "Tên tỉnh thành không được để trống<br>";
     } else {
 		// Kiểm tra trùng lặp quốc gia
     	// Tên quốc gia hiện tại trong cơ sở dữ liệu
@@ -22,7 +22,7 @@ if(isset($_POST['form1'])) {
     	$total = $statement->rowCount();							
     	if($total) {
     		$valid = 0;
-        	$error_message .= "Tên quốc gia đã tồn tại<br>";
+        	$error_message .= "Tên tỉnh thành đã tồn tại<br>";
     	}
     }
 
@@ -31,7 +31,7 @@ if(isset($_POST['form1'])) {
 		$statement = $pdo->prepare("UPDATE tbl_country SET country_name=? WHERE country_id=?");
 		$statement->execute(array($_POST['country_name'],$_REQUEST['id']));
 
-    	$success_message = "Cập nhật quốc gia thành công.";
+    	$success_message = "Cập nhật tỉnh thành thành công.";
     }
 }
 ?>
@@ -55,7 +55,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Chỉnh Sửa Quốc Gia</h1>
+		<h1>Chỉnh Sửa Tỉnh thành</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="country.php" class="btn btn-primary btn-sm">Xem Tất Cả</a>
@@ -96,7 +96,7 @@ foreach ($result as $row) {
 
             <div class="box-body">
                 <div class="form-group">
-                    <label for="" class="col-sm-2 control-label">Tên Quốc Gia <span>*</span></label>
+                    <label for="" class="col-sm-2 control-label">Tên Tỉnh thành <span>*</span></label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="country_name" value="<?php echo $country_name; ?>">
                     </div>
