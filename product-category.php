@@ -115,7 +115,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 }
 ?>
 
-<div class="page-banner" style="background-color:#c18d8f">
+<div class="page-banner" style="background-color:#6e1518">
     <div class="inner">
         <h1><?php echo "Danh mục"; ?> <?php echo $title; ?></h1>
     </div>
