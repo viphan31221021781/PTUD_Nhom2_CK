@@ -154,7 +154,7 @@ foreach ($result as $row)
 
                             // Sending Confirmation Email
                             $to = $_POST['email_subscribe'];
-                            $subject = 'Subscriber Email Confirmation';
+                            $subject = 'Xác nhận đăng ký email';
                            
                             // Getting the url of the verification link
                             $verification_url = BASE_URL.'verify.php?email='.$to.'&key='.$key;
