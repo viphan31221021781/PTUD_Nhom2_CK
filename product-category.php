@@ -117,7 +117,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 
 <div class="page-banner" style="background-color:#c18d8f">
     <div class="inner">
-        <h1><?php echo LANG_VALUE_50; ?> <?php echo $title; ?></h1>
+        <h1><?php echo "Danh mục"; ?> <?php echo $title; ?></h1>
     </div>
 </div>
 
@@ -148,7 +148,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                         endfor;
 
                         if($prod_count==0) {
-                            echo '<div class="pl_15">'.LANG_VALUE_153.'</div>';
+                            echo '<div class="pl_15">'."Không có sản phẩm nào được tìm thấy".'</div>';
                         } else {
                             for($ii=0;$ii<count($final_ecat_ids);$ii++) {
                                 $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id=? AND p_is_active=?");
