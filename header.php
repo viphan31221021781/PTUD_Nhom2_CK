@@ -351,9 +351,9 @@ foreach ($result as $row) {
 				<form class="navbar-form navbar-left" role="search" action="search-result.php" method="get">
 					<?php $csrf->echoInputField(); ?>
 					<div class="form-group">
-						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text">
+						<input type="text" class="form-control search-top" placeholder="<?php echo "Tìm kiếm sản phẩm"; ?>" name="search_text">
 					</div>
-					<button type="submit" class="btn btn-danger" style="background-color: #d8c7c3; color:black"><?php echo LANG_VALUE_3; ?></button>
+					<button type="submit" class="btn btn-danger" style="background-color: #d8c7c3; color:black"><?php echo "Tìm kiếm"; ?></button>
 				</form>
 			</div>
 		</div>

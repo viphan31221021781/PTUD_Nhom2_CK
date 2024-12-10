@@ -158,9 +158,9 @@ Liên kết này chỉ có hiệu lực trong 24 giờ.
 					<?php $csrf->echoInputField(); ?>
 					<h2>Đăng ký để nhận thông báo sớm nhất</h2>
 					<div class="input-group">
-			        	<input type="email" class="form-control" placeholder="<?php echo LANG_VALUE_95; ?>" name="email_subscribe">
+			        	<input type="email" class="form-control" placeholder="<?php echo "Nhập Email của bạn vào"; ?>" name="email_subscribe">
 			         	<span class="input-group-btn">
-			         	<button class="btn btn-theme" type="submit" name="form_subscribe"><?php echo LANG_VALUE_92; ?></button>
+			         	<button class="btn btn-theme" type="submit" name="form_subscribe"><?php echo "Đăng ký"; ?></button>
 			         	</span>
 			        </div>
 				</div>
