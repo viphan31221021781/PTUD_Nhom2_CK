@@ -408,10 +408,10 @@ if($success_message1 != '') {
 								<p>
 									<?php echo $p_short_description; ?>
 								</p>
-							</div>
+                            </div>
                             <form action="" method="post">
                             <div class="p-quantity">
-                                <div class="row">
+                                <div class="row" >
                                     <?php if(isset($size)): ?>
                                     <div class="col-md-12 mb_20">
                                         <?php echo LANG_VALUE_52; ?> <br>
@@ -433,7 +433,7 @@ if($success_message1 != '') {
                                     <?php endif; ?>
 
                                     <?php if(isset($color)): ?>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 ">
                                         <?php echo LANG_VALUE_53; ?> <br>
                                         <select name="color_id" class="form-control select2" style="width:auto;">
                                             <?php
@@ -457,7 +457,7 @@ if($success_message1 != '') {
                             </div>
 							<div class="p-price">
                                 <span style="font-size:14px;"><?php echo LANG_VALUE_54; ?></span><br>
-                                <span>
+                                <span style="color:#931926">
                                     <?php if($p_old_price!=''): ?>
                                         <del><?php echo LANG_VALUE_1; ?><?php echo $p_old_price; ?></del>
                                     <?php endif; ?> 
@@ -472,24 +472,37 @@ if($success_message1 != '') {
 								<input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
 							</div>
 							<div class="btn-cart btn-cart1">
-                                <input type="submit" value="<?php echo LANG_VALUE_154; ?>" name="form_add_to_cart">
+                                <input type="submit" value="Thêm vào giỏ hàng" name="form_add_to_cart" style="background-color: #931926">
 							</div>
                             </form>
 							<div class="share">
-                                <?php echo LANG_VALUE_58; ?> <br>
+                                <p>Chia sẻ sản phẩm</p>
 								<div class="sharethis-inline-share-buttons"></div>
 							</div>
 						</div>
 					</div>
+<style>
+.nav-tabs p {
+    color: #931926;
+}
+<style>
+    .nav-tabs > li > a {
+        border-bottom: 2px solid #931926;
+    }
+    .nav-tabs > li.active > a {
+        border-bottom: 2px solid #931926 !important;
+    }
+</style>
 
+</style>
 					<div class="row">
 						<div class="col-md-12">
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><?php echo LANG_VALUE_59; ?></a></li>
-								<li role="presentation"><a href="#feature" aria-controls="feature" role="tab" data-toggle="tab"><?php echo LANG_VALUE_60; ?></a></li>
-                                <li role="presentation"><a href="#condition" aria-controls="condition" role="tab" data-toggle="tab"><?php echo LANG_VALUE_61; ?></a></li>
-                                <li role="presentation"><a href="#return_policy" aria-controls="return_policy" role="tab" data-toggle="tab"><?php echo LANG_VALUE_62; ?></a></li>
+								<li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><p>Mô tả</p></a></li>
+								<li role="presentation"><a href="#feature" aria-controls="feature" role="tab" data-toggle="tab"><p>Tính năng</p></a></li>
+                                <li role="presentation"><a href="#condition" aria-controls="condition" role="tab" data-toggle="tab"><p>Tình trạng</p></a></li>
+                                <li role="presentation"><a href="#return_policy" aria-controls="return_policy" role="tab" data-toggle="tab"><p>Chính sách hoàn trả</p></a></li>
                                <!-- <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab"><?php echo LANG_VALUE_63; ?></a></li> -->
 							</ul>
 
@@ -681,10 +694,10 @@ if($success_message1 != '') {
                             <div class="text">
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                 <h4>
-                                    <?php echo $row['p_current_price']; ?><?php echo "₫ Testing"; ?>
+                                    <?php echo LANG_VALUE_1; ?><?php echo $row['p_current_price']; ?> 
                                     <?php if($row['p_old_price'] != ''): ?>
                                     <del>
-                                        <?php echo $row['p_old_price']; ?><?php echo "₫ Testing"; ?>
+                                        <?php echo LANG_VALUE_1; ?><?php echo $row['p_old_price']; ?>
                                     </del>
                                     <?php endif; ?>
                                 </h4>

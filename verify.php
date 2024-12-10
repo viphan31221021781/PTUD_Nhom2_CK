@@ -4,8 +4,8 @@
 .login-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #f2ec85; /* Màu nền nút */
-    color: black; /* Màu chữ */
+    background-color: #931926; /* Màu nền nút */
+    color: #fff; /* Màu chữ */
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px; /* Bo góc nút */
@@ -50,9 +50,9 @@ if ( (!isset($_REQUEST['email'])) || (isset($_REQUEST['token'])) )
 }
 ?>
 
-<div class="page-banner" style="background-color:#FFFF66;">
+<div class="page-banner" style="background-color: #c18d8f;">
     <div class="inner">
-        <h1 style="color:black">Đăng ký thành công</h1>
+        <h1 style="color:#fff">Đăng ký thành công</h1>
     </div>
 </div>
 

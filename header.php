@@ -244,7 +244,7 @@ foreach ($result as $row) {
 
 .menu ul li {
     display: inline-block; /* Đặt các mục menu trên cùng một dòng */
-    margin-left: 15px; /* Khoảng cách giữa các mục menu */
+    margin-left: 30px; /* Khoảng cách giữa các mục menu */
 }
 
 .menu ul li a {
@@ -311,18 +311,18 @@ foreach ($result as $row) {
 					<?php
 					if(isset($_SESSION['customer'])) {
 						?>
-						<li><i class="fa fa-user"></i> <?php echo "Xin chào"; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
-						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo "Trang chính"; ?></a></li>
+						<li><i class="fa fa-user"></i> <?php echo LANG_VALUE_13; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
+						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li>
 						<?php
 					} else {
 						?>
-						<li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo "Đăng nhập"; ?></a></li>
-						<li><a href="registration.php"><i class="fa fa-user-plus"></i> <?php echo "Đăng ký"; ?></a></li>
+						<li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo LANG_VALUE_9; ?></a></li>
+						<li><a href="registration.php"><i class="fa fa-user-plus"></i> <?php echo LANG_VALUE_15; ?></a></li>
 						<?php	
 					}
 					?>
 
-					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo "Giỏ hàng"; ?> (<?php
+					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
 					if(isset($_SESSION['cart_p_id'])) {
 						$table_total_price = 0;
 						$i=0;
@@ -344,7 +344,7 @@ foreach ($result as $row) {
 					} else {
 						echo '0.00';
 					}
-					?><?php echo "₫"; ?>)</a></li>
+					?>)</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 search-area">
