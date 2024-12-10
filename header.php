@@ -311,18 +311,18 @@ foreach ($result as $row) {
 					<?php
 					if(isset($_SESSION['customer'])) {
 						?>
-						<li><i class="fa fa-user"></i> <?php echo LANG_VALUE_13; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
+						<li><i class="fa fa-user"></i> <?php echo "LANG_VALUE_13"; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
 						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li>
 						<?php
 					} else {
 						?>
-						<li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo LANG_VALUE_9; ?></a></li>
-						<li><a href="registration.php"><i class="fa fa-user-plus"></i> <?php echo LANG_VALUE_15; ?></a></li>
+						<li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo "Đăng nhập"; ?></a></li>
+						<li><a href="registration.php"><i class="fa fa-user-plus"></i> <?php echo "Đăng ký"; ?></a></li>
 						<?php	
 					}
 					?>
 
-					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
+					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo "Giỏ hàng"; ?> (<?php
 					if(isset($_SESSION['cart_p_id'])) {
 						$table_total_price = 0;
 						$i=0;
@@ -344,16 +344,16 @@ foreach ($result as $row) {
 					} else {
 						echo '0.00';
 					}
-					?>)</a></li>
+					?><?php echo "₫"; ?>)</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 search-area">
 				<form class="navbar-form navbar-left" role="search" action="search-result.php" method="get">
 					<?php $csrf->echoInputField(); ?>
 					<div class="form-group">
-						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text">
+						<input type="text" class="form-control search-top" placeholder="<?php echo "Nhập sản phẩm cần tìm"; ?>" name="search_text">
 					</div>
-					<button type="submit" class="btn btn-danger" style="background-color: #d8c7c3; color:black"><?php echo LANG_VALUE_3; ?></button>
+					<button type="submit" class="btn btn-danger" style="background-color: #d8c7c3; color:black"><?php echo "Tìm kiếm"; ?></button>
 				</form>
 			</div>
 		</div>
