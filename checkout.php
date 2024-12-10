@@ -40,14 +40,14 @@ if(!isset($_SESSION['cart_p_id'])) {
                 <div class="cart">
                     <table class="table table-responsive table-hover table-bordered">
                         <tr>
-                            <th><?php echo '#' ?></th>
-                            <th><?php echo LANG_VALUE_8; ?></th>
-                            <th><?php echo LANG_VALUE_47; ?></th>
-                            <th><?php echo LANG_VALUE_157; ?></th>
-                            <th><?php echo LANG_VALUE_158; ?></th>
-                            <th><?php echo LANG_VALUE_159; ?></th>
-                            <th><?php echo LANG_VALUE_55; ?></th>
-                            <th class="text-right"><?php echo LANG_VALUE_82; ?></th>
+                            <th><?php echo 'Thức tự' ?></th>
+                            <th><?php echo "Hình ảnh"; ?></th>
+                            <th><?php echo "Tên sản phẩm"; ?></th>
+                            <th><?php echo "Kích thước"; ?></th>
+                            <th><?php echo "Màu sắc"; ?></th>
+                            <th><?php echo "Giá"; ?></th>
+                            <th><?php echo "Số lượng"; ?></th>
+                            <th class="text-right"><?php echo "Tổng cộng"; ?></th>
                         </tr>
                          <?php
                         $table_total_price = 0;
@@ -124,20 +124,20 @@ if(!isset($_SESSION['cart_p_id'])) {
                             <td><?php echo $arr_cart_p_name[$i]; ?></td>
                             <td><?php echo $arr_cart_size_name[$i]; ?></td>
                             <td><?php echo $arr_cart_color_name[$i]; ?></td>
-                            <td><?php echo LANG_VALUE_1; ?><?php echo $arr_cart_p_current_price[$i]; ?></td>
+                            <td><?php echo $arr_cart_p_current_price[$i]; ?><?php echo "₫"; ?></td>
                             <td><?php echo $arr_cart_p_qty[$i]; ?></td>
                             <td class="text-right">
                                 <?php
-                                $row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
+                                $row_total_price = floatval($arr_cart_p_current_price[$i]) * floatval($arr_cart_p_qty[$i]);
                                 $table_total_price = $table_total_price + $row_total_price;
                                 ?>
-                                <?php echo LANG_VALUE_1; ?><?php echo $row_total_price; ?>
+                                <?php echo $row_total_price; ?><?php echo "₫"; ?>
                             </td>
                         </tr>
                         <?php endfor; ?>           
                         <tr>
-                            <th colspan="7" class="total-text"><?php echo LANG_VALUE_81; ?></th>
-                            <th class="total-amount"><?php echo LANG_VALUE_1; ?><?php echo $table_total_price; ?></th>
+                            <th colspan="7" class="total-text"><?php echo "Tạm tính"; ?></th>
+                            <th class="total-amount"><?php echo $table_total_price; ?><?php echo "₫"; ?></th>
                         </tr>
                         <?php
                         // Lấy chi phí vận chuyển
@@ -159,16 +159,16 @@ if(!isset($_SESSION['cart_p_id'])) {
                         }                        
                         ?>
                         <tr>
-                            <td colspan="7" class="total-text"><?php echo LANG_VALUE_84; ?></td>
-                            <td class="total-amount"><?php echo LANG_VALUE_1; ?><?php echo $shipping_cost; ?></td>
+                            <td colspan="7" class="total-text"><?php echo "Phí vận chuyển"; ?></td>
+                            <td class="total-amount"><?php echo $shipping_cost; ?><?php echo "₫"; ?></td>
                         </tr>
                         <tr>
-                            <th colspan="7" class="total-text"><?php echo LANG_VALUE_82; ?></th>
+                            <th colspan="7" class="total-text"><?php echo "Tổng cộng"; ?></th>
                             <th class="total-amount">
                                 <?php
                                 $final_total = $table_total_price+$shipping_cost;
                                 ?>
-                                <?php echo LANG_VALUE_1; ?><?php echo $final_total; ?>
+                                <?php echo $final_total; ?><?php echo "₫"; ?>
                             </th>
                         </tr>
                     </table> 
@@ -177,7 +177,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                 <div class="billing-address">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3 class="special"><?php echo LANG_VALUE_161; ?></h3>
+                            <h3 class="special"><?php echo "Chi tiết đơn hàng"; ?></h3>
                             <table class="table table-responsive table-bordered table-hover table-striped bill-address">
                                 <tr>
                                     <td><?php echo LANG_VALUE_102; ?></td>
