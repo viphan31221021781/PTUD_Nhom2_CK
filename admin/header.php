@@ -189,8 +189,8 @@ if(!isset($_SESSION['user'])) {
                             <li><a href="color.php"><i class="fa fa-circle-o"></i> Màu sắc</a></li>
                             <li><a href="country.php"><i class="fa fa-circle-o"></i> Tỉnh thành </a></li>
                             <li><a href="shipping-cost.php"><i class="fa fa-circle-o"></i> Chi phí vận chuyển</a></li>
-                            <li><a href="top-category.php"><i class="fa fa-circle-o"></i> Danh mục cấp trên</a></li>
-                            <li><a href="mid-category.php"><i class="fa fa-circle-o"></i> Danh mục trung gian</a></li>
+                            <li><a href="top-category.php"><i class="fa fa-circle-o"></i> Danh mục cấp cao nhất</a></li>
+                            <li><a href="mid-category.php"><i class="fa fa-circle-o"></i> Danh mục cấp trung</a></li>
                             <li><a href="end-category.php"><i class="fa fa-circle-o"></i> Danh mục cấp dưới</a></li>
                         </ul>
                     </li>

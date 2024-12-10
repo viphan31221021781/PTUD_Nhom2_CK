@@ -143,7 +143,7 @@ h3{
             <div class="small-box common-bg">
                 <div class="inner">
                     <h3><?php echo $total_top_category; ?></h3>
-                    <p>Danh mục cao cấp</p>
+                    <p>Danh mục cấp cao nhất</p>
                 </div>
                 
             </div>
@@ -152,7 +152,7 @@ h3{
             <div class="small-box common-bg">
                 <div class="inner">
                     <h3><?php echo $total_mid_category; ?></h3>
-                    <p>Danh mục trung gian</p>
+                    <p>Danh mục cấp trung</p>
                 </div>
                 
             </div>
@@ -161,7 +161,7 @@ h3{
             <div class="small-box common-bg">
                 <div class="inner">
                     <h3><?php echo $total_end_category; ?></h3>
-                    <p>Danh mục cuối</p>
+                    <p>Danh mục cấp dưới</p>
                 </div>
                 
             </div>

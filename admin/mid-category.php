@@ -2,7 +2,7 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Xem danh mục cấp trung</h1>
+		<h1>Xem Danh Mục Cấp Trung</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="mid-category-add.php" class="btn btn-primary btn-sm">Thêm mới</a>
