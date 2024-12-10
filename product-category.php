@@ -129,7 +129,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
             </div>
             <div class="col-md-9">
                 
-                <h3><?php echo LANG_VALUE_51; ?> "<?php echo $title; ?>"</h3>
+                <h3><?php echo Sản phẩm thuộc danh mục; ?> "<?php echo $title; ?>"</h3>
                 <div class="product product-cat">
 
                     <div class="row">
