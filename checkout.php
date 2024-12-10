@@ -180,19 +180,19 @@ if(!isset($_SESSION['cart_p_id'])) {
                             <h3 class="special"><?php echo "Chi tiết đơn hàng"; ?></h3>
                             <table class="table table-responsive table-bordered table-hover table-striped bill-address">
                                 <tr>
-                                    <td><?php echo LANG_VALUE_102; ?></td>
+                                    <td><?php echo "Họ và tên"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_name']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_103; ?></td>
+                                    <td><?php echo "Tên công ty"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_cname']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_104; ?></td>
+                                    <td><?php echo "Số điện thoại"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_phone']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_106; ?></td>
+                                    <td><?php echo "Tỉnh"; ?></td>
                                     <td>
                                         <?php
                                         $statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
@@ -205,19 +205,19 @@ if(!isset($_SESSION['cart_p_id'])) {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_105; ?></td>
+                                    <td><?php echo "Địa chỉ"; ?></td>
                                     <td><?php echo nl2br($_SESSION['customer']['cust_b_address']); ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_107; ?></td>
+                                    <td><?php echo "Phường/Xã"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_city']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_108; ?></td>
+                                    <td><?php echo "Quận/Huyện"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_state']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_109; ?></td>
+                                    <td><?php echo "Mã Zip"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_zip']; ?></td>
                                 </tr>                                 
                             </table>
@@ -226,19 +226,19 @@ if(!isset($_SESSION['cart_p_id'])) {
                             <h3 class="special"><?php echo LANG_VALUE_162; ?></h3>
                             <table class="table table-responsive table-bordered table-hover table-striped bill-address">
                                 <tr>
-                                    <td><?php echo LANG_VALUE_102; ?></td>
+                                    <td><?php echo "Họ và tên"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_name']; ?></p></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_103; ?></td>
+                                    <td><?php echo "Tên công ty"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_cname']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_104; ?></td>
+                                    <td><?php echo "Số điện thoại"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_phone']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_106; ?></td>
+                                    <td><?php echo "Tỉnh"; ?></td>
                                     <td>
                                         <?php
                                         $statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
@@ -251,21 +251,21 @@ if(!isset($_SESSION['cart_p_id'])) {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_105; ?></td>
+                                    <td><?php echo "Địa chỉ"; ?></td>
                                     <td>
                                         <?php echo nl2br($_SESSION['customer']['cust_b_address']); ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_107; ?></td>
+                                    <td><?php echo "Phường/Xã"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_city']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_108; ?></td>
+                                    <td><?php echo "Quận/Huyện"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_state']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_109; ?></td>
+                                    <td><?php echo "Mã Zip"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_b_zip']; ?></td>
                                 </tr>                                
                             </table>
@@ -274,19 +274,19 @@ if(!isset($_SESSION['cart_p_id'])) {
                             <h3 class="special"><?php echo LANG_VALUE_162; ?></h3>
                             <table class="table table-responsive table-bordered table-hover table-striped bill-address">
                                 <tr>
-                                    <td><?php echo LANG_VALUE_102; ?></td>
+                                    <td><?php echo "Họ và tên"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_s_name']; ?></p></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_103; ?></td>
+                                    <td><?php echo "Tên công ty"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_s_cname']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_104; ?></td>
+                                    <td><?php echo "Số điện thoại"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_s_phone']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_106; ?></td>
+                                    <td><?php echo "Tỉnh"; ?></td>
                                     <td>
                                         <?php
                                         $statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
@@ -299,21 +299,21 @@ if(!isset($_SESSION['cart_p_id'])) {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_105; ?></td>
+                                    <td><?php echo "Địa chỉ"; ?></td>
                                     <td>
                                         <?php echo nl2br($_SESSION['customer']['cust_s_address']); ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_107; ?></td>
+                                    <td><?php echo "Phường/Xã"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_s_city']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_108; ?></td>
+                                    <td><?php echo "Quận/Huyện"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_s_state']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?php echo LANG_VALUE_109; ?></td>
+                                    <td><?php echo "Mã Zip"; ?></td>
                                     <td><?php echo $_SESSION['customer']['cust_s_zip']; ?></td>
                                 </tr> 
                             </table>
