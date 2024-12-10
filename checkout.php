@@ -223,7 +223,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                             </table>
                         </div>
                         <div class="col-md-6">
-                            <h3 class="special"><?php echo LANG_VALUE_162; ?></h3>
+                            <h3 class="special"><?php echo "Địa chỉ giao hàng"; ?></h3>
                             <table class="table table-responsive table-bordered table-hover table-striped bill-address">
                                 <tr>
                                     <td><?php echo "Họ và tên"; ?></td>
@@ -325,12 +325,12 @@ if(!isset($_SESSION['cart_p_id'])) {
 
                 <div class="cart-buttons">
                     <ul>
-                        <li><a href="cart.php" class="btn btn-primary"><?php echo LANG_VALUE_21; ?></a></li>
+                        <li><a href="cart.php" class="btn btn-primary"><?php echo "Quay lại giỏ hàng"; ?></a></li>
                     </ul>
                 </div>
 
 				<div class="clear"></div>
-                <h3 class="special"><?php echo LANG_VALUE_33; ?></h3>
+                <h3 class="special"><?php echo "Thanh toán"; ?></h3>
                 <div class="row">
                     
                     	<?php
