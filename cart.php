@@ -185,7 +185,7 @@ if(isset($_POST['form1'])) {
                             </td>
                             <td class="text-right">
                                 <?php
-                                $row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
+                                $row_total_price = floatval($arr_cart_p_current_price[$i]) * floatval($arr_cart_p_qty[$i]);
                                 $table_total_price = $table_total_price + $row_total_price;
                                 ?>
                                 <?php echo $row_total_price; ?> VNĐ
