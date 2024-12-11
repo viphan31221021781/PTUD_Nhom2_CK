@@ -12,7 +12,7 @@ foreach ($result as $row) {
 
 <style>
     .page-banner {
-        background-color: #c18d8f;
+        background-color: #6e1518;
         text-align: center;
         padding: 50px 0;
         color: #fff;
