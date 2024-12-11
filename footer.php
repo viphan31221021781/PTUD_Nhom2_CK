@@ -15,6 +15,7 @@ foreach ($result as $row)
     $before_body = $row['before_body'];
 }
 ?>
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <style>
     .home-newsletter {
     background-color: #f5f5f5; /* Thay đổi màu nền quanh phần đăng ký */
@@ -31,18 +32,12 @@ foreach ($result as $row)
 
 
 
-
-
-
-
 .home-newsletter .single {
     background-color: #ffffff; /* Màu nền trắng cho phần form */
     padding: 20px; /* Khoảng cách trong form */
     border-radius: 8px; /* Bo góc */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo bóng cho phần form */
 }
-
-
 
 
 /* Tiêu đề */
@@ -54,13 +49,9 @@ foreach ($result as $row)
 }
 
 
-
-
 .home-newsletter .input-group input {
     border-radius: 4px; /* Bo góc cho ô nhập liệu */
 }
-
-
 
 
 .home-newsletter .btn-theme {
@@ -78,8 +69,6 @@ foreach ($result as $row)
 }
 
 
-
-
 .home-newsletter .btn-theme:hover {
     background-color: #e67e22; /* Màu nền khi hover nút đăng ký */
 }
@@ -89,16 +78,146 @@ foreach ($result as $row)
     color: #000;
 }
 
+/* Đối với chế độ mặc định (mobile-first) */
+.flex {
+    display: flex; /* Thiết lập flexbox */
+}
+
+.flex-col {
+    flex-direction: column; /* Đặt các phần tử trong container theo chiều dọc */
+}
+
+/* Đối với chế độ màn hình rộng hơn (đối với kích thước màn hình lớn hơn 'md') */
+@media (min-width: 768px) {
+    .md\:flex-row {
+        flex-direction: row; /* Đặt các phần tử trong container theo chiều ngang khi màn hình lớn hơn hoặc bằng 768px */
+    }
+}
+
+/* Căn chỉnh các phần tử theo chiều ngang với khoảng cách đều */
+.justify-between {
+    justify-content: space-between; /* Tạo khoảng cách đều giữa các phần tử trong container */
+}
+
+/* Khoảng cách giữa các phần tử */
+.gap-6 {
+    gap: 3.5rem; /* Khoảng cách giữa các phần tử trong container */
+}
+footer { 
+	/* display: flex;  */
+	justify-content: space-between; 
+	padding: 20px; 
+	background-color: #f8f8f8;
+	width: 100%;
+}
+/* Các lớp của footer-static-block */
+.footer-static-block {
+    font-size: 13px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.footer-static-block div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-static-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-static-block ul li {
+    margin-bottom: 8px;
+}
+
+.footer-static-block ul li strong {
+    display: block;
+    margin-bottom: 16px;
+}
+
+.footer-static-block ul:nth-child(2) {
+    margin-bottom: 24px;
+}
 
 
+/* Các lớp của footer-menu */
+.footer-menu {
+    /* Cỡ chữ 13px */
+    font-size: 13px;
+    /* Thêm các thuộc tính khác nếu cần */
+}
+
+/* Các lớp của text-[13px] */
+.text-[13px] {
+    font-size: 13px; /* Cài đặt kích thước chữ 13px */
+}
+
+/* Các lớp của overflow-hidden */
+.overflow-hidden {
+    overflow: hidden; /* Ẩn phần nội dung vượt ra ngoài container */
+}
+
+/* Các lớp của w-full */
+.w-full {
+    width: 100%; /* Đặt chiều rộng của phần tử chiếm 100% chiều rộng của phần tử cha */
+}
+
+/* Lớp undefined có thể bị loại bỏ vì nó không có tác dụng gì trong Tailwind CSS */
+.undefined {
+    /* Không cần phải khai báo gì nếu không có thuộc tính nào */
+}
 
 </style>
 <?php if($newsletter_on_off == 1): ?>
 <section class="home-newsletter">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="single">
+	<footer>
+		<div class="flex flex-col md:flex-row justify-between gap-6">
+		<!-- Logo and Certification Section -->
+			<div class="footer-logo-wrapper">
+				<div class="footer-static-block footer-logo text-[13px] overflow-hidden w-full mb-6 md:mb-12">
+				</div>
+				<div class="footer-static-block footer-certificate text-[13px] overflow-hidden w-full undefined">
+                <div style="flex: 1;">
+                    <img src="assets/img/logo.png" alt="MUJI Logo" style="width: 100px; height: 100px;">
+                </div>
+				<div>
+					<p>
+					<a href="http://online.gov.vn/Home/WebDetails/123273">
+						<img src="https://api.muji.com.vn/media/wysiwyg/home_block/logoSaleNoti.png" alt="Đã thông báo bộ công thương" width="195" height="74" loading="lazy">
+					</a>
+					</p>
+				</div>
+				</div>
+			</div>
+			<!-- Footer Menu Section -->
+			<div class="footer-static-block footer-menu text-[13px] overflow-hidden w-full undefined" style="justify-content: space-between; 
+	padding: 20px; ">
+				<div style="font-size: 18px;">
+				<ul>
+					<li style="color: #931926"><strong>Về Miju</strong></li>
+					<li><a title="Miju là gì?" href="/ptud_nhom2_ck/about.php">Miju là gì?</a></li>
+					<li><a href=#>Thông báo</a></li>
+					<li><a title="Câu hỏi thường gặp" href="/ptud_nhom2_ck/faq.php">Câu hỏi thường gặp</a></li>
+				</ul>
+				<ul style="margin-bottom: 24px;">
+					<li style="color: #931926"><strong>Cửa hàng Bán lẻ</strong></li>
+					<li><a title="Chính sách Đổi, Trả, Hoàn tiền" href=#>Chính sách Đổi, Trả, Hoàn tiền</a></li>
+					<li><a title="Danh sách cửa hàng" href=#>Danh sách cửa hàng</a></li>
+				</ul>
+				<ul>
+					<li style="color: #931926"><strong>Cửa hàng Trực tuyến</strong></li>
+					<li><a title="Chính sách Bán hàng" href=#>Chính sách Bán hàng</a></li>
+					<li><a title="Chính sách Giao hàng" href=#>Chính sách Giao hàng</a></li>
+					<li><a title="Chính sách Trả hàng Hoàn tiền" href=#>Chính sách Trả hàng, Hoàn tiền</a></li>
+					<li><a title="Chính sách Đổi hàng" href=#>Chính sách Đổi hàng</a></li>
+					<li><a title="Chính sách Bảo hành" href=#>Chính sách Bảo hành</a></li>
+					<li><a title="Chính sách Bảo mật" href=#>Chính sách Bảo mật</a></li>
+				</ul>
+				</div>
+			</div>
+			<!-- Subscribe Section -->
+		    <div class="footer-subscribe-wrapper" style="padding-top: 20px; width: 40%;">
                     <?php
             if(isset($_POST['form_subscribe']))
             {
@@ -131,18 +250,12 @@ foreach ($result as $row)
                             $key = md5(uniqid(rand(), true));
 
 
-
-
                             // Getting current date
                             $current_date = date('Y-m-d');
 
 
-
-
                             // Getting current date and time
                             $current_date_time = date('Y-m-d H:i:s');
-
-
 
 
                             // Inserting data into the database
@@ -150,16 +263,12 @@ foreach ($result as $row)
                             $statement->execute(array($_POST['email_subscribe'],$current_date,$current_date_time,$key,0));
 
 
-
-
                             // Sending Confirmation Email
                             $to = $_POST['email_subscribe'];
-                            $subject = 'Xác nhận đăng ký email';
+                            $subject = 'Subscriber Email Confirmation';
                            
                             // Getting the url of the verification link
                             $verification_url = BASE_URL.'verify.php?email='.$to.'&key='.$key;
-
-
 
 
                             $message = '
@@ -170,8 +279,6 @@ Liên kết này chỉ có hiệu lực trong 24 giờ.
                     ';
 
 
-
-
                             $headers = 'From: ' . $contact_email . "\r\n" .
                                    'Reply-To: ' . $contact_email . "\r\n" .
                                    'X-Mailer: PHP/' . phpversion() . "\r\n" .
@@ -179,12 +286,8 @@ Liên kết này chỉ có hiệu lực trong 24 giờ.
                                    "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 
-
-
                             // Sending the email
                             mail($to, $subject, $message, $headers);
-
-
 
 
                             $success_message1 = "Bạn đã đăng ký thành công";
@@ -201,11 +304,11 @@ Liên kết này chỉ có hiệu lực trong 24 giờ.
             ?>
                 <form action="" method="post">
                     <?php $csrf->echoInputField(); ?>
-                    <h2>Đăng ký để nhận thông báo sớm nhất</h2>
+                    <p style="color: #931926; font-size: 18px"><strong>Đăng ký nhận tin từ Miju</strong></p>
                     <div class="input-group">
                         <input type="email" class="form-control" placeholder="<?php echo "Nhập Email của bạn vào"; ?>" name="email_subscribe">
                         <span class="input-group-btn">
-                        <button class="btn btn-theme" type="submit" name="form_subscribe"><?php echo "Đăng ký"; ?></button>
+                        <button class="btn btn-theme" type="submit" name="form_subscribe" style="padding: 7px;"><?php echo "Đăng ký"; ?></button>
                         </span>
                     </div>
                 </div>
@@ -213,28 +316,17 @@ Liên kết này chỉ có hiệu lực trong 24 giờ.
             </div>
         </div>
     </div>
+			</div>
+		</div>
+	</footer>
+    <div style="padding:50px">
+                <p style="font-size: 13px; text-align: left;"><em>Bản quyền thuộc © Miju Co., Ltd.</em></p>
+                <p style="font-size: 13px; text-align: left;"><strong>CÔNG TY TNHH MIJU RETAIL (VIỆT NAM)</strong></p>
+                <p style="font-size: 13px; text-align: left;">ĐKKD SỐ 0123456789 do sở KH & ĐT TP.HCM cấp ngày: 01/01/2024</p>
+                <p style="font-size: 13px; text-align: left;">Trụ sở chính: Phòng N1-306, Tầng 3, Đại học Kinh Tế, Nguyễn Văn Linh, Bình Chánh, TP.HCM</p>
+            </div>
 </section>
 <?php endif; ?>
-
-
-
-
-<!-- <div class="footer-bottom">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 copyright">
-                <?php echo $footer_copyright; ?>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
-
-<!-- <a href="#" class="scrollup">
-    <i class="fa fa-angle-up"></i>
-</a> -->
 
 
 
@@ -248,8 +340,6 @@ foreach ($result as $row) {
     $stripe_secret_key = $row['stripe_secret_key'];
 }
 ?>
-
-
 
 
 <script src="assets/js/jquery-2.2.4.min.js"></script>
@@ -274,13 +364,9 @@ foreach ($result as $row) {
         advFieldsStatus = $('#advFieldsStatus').val();
 
 
-
-
         $('#paypal_form').hide();
         $('#stripe_form').hide();
         $('#bank_form').hide();
-
-
 
 
         $('#advFieldsStatus').on('change',function() {
@@ -304,8 +390,6 @@ foreach ($result as $row) {
             }
         });
     });
-
-
 
 
     $(document).on('submit', '#stripe_form', function () {
@@ -338,6 +422,3 @@ foreach ($result as $row) {
 <?php echo $before_body; ?>
 </body>
 </html>
-
-
-
