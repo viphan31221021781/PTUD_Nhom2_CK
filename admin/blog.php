@@ -35,7 +35,7 @@
                  <table id="example1" class="table table-bordered table-hover table-striped">
                      <thead>
                          <tr>
-                             <th>#</th>
+                             <th>STT</th>
                              <th>Tiêu Đề</th>
                              <th>Tác Giả</th>
                              <th>Ngày Đăng</th>
@@ -58,8 +58,14 @@
                                  <td><?php echo $row['blog_author']; ?></td>
                                  <td><?php echo $row['blog_date']; ?></td>
                                  <td>
-                                     <?php if ($row['blog_image']): ?>
-                                         <img src="<?php echo $row['blog_image']; ?>" alt="Blog Image" style="width: 100px; height: auto;">
+                                 
+
+                                    <?php if ($row['blog_image']): ?>
+                                        
+                                        <img
+                                        src="../assets/uploads/<?php echo htmlspecialchars($row['blog_image']); ?>"
+                                        alt="<?php echo htmlspecialchars($row['blog_title']); ?>" style="width:50px">
+                                        
                                      <?php else: ?>
                                          Không có ảnh
                                      <?php endif; ?>

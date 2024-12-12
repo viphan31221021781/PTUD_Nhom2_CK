@@ -30,7 +30,16 @@ if (!$result) {
 $blog_title = $result['blog_title'];
 $blog_content = $result['blog_content'];
 ?>
+<style>
+    .blog-content span {
+    max-width: 100%;
+    overflow-x: hidden; /* Ẩn bất kỳ nội dung tràn ngang nào */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước tổng */
+    margin: 0 auto; /* Căn giữa container nếu cần */
+    }
+</style>
 
+<div style="width:100%">
 <!-- Page Banner với màu đỏ -->
 <div class="page-banner" style="background-color:#6e1518; text-align: center; padding: 50px 0;">
    <div class="inner">
@@ -45,7 +54,7 @@ $blog_content = $result['blog_content'];
            <div class="col-md-10">
                <div class="content-box bg-light shadow-sm rounded">
                    <!-- Căn giữa nội dung bài viết -->
-                   <div style="padding-left: 20px; padding-right: 20px;">
+                   <div class="blog-content" style="padding-left: 20px; padding-right: 20px;">
                        <!-- Hiển thị nội dung bài viết với ảnh responsive -->
                        <p><?php echo nl2br($blog_content); ?></p>
                    </div>
@@ -53,6 +62,7 @@ $blog_content = $result['blog_content'];
            </div>
        </div>
    </div>
+</div>
 </div>
 
 <?php require_once('footer.php'); ?>
