@@ -222,9 +222,14 @@ if(!isset($_SESSION['user'])) {
 			          </a>
 			        </li>
 
-			      			        <li class="treeview <?php if( ($cur_page == 'faq.php') ) {echo 'active';} ?>">
+			      	<li class="treeview <?php if( ($cur_page == 'faq.php') ) {echo 'active';} ?>">
 			          <a href="faq.php">
 			            <i class="fa fa-question-circle"></i> <span>FAQ</span>
+			          </a>
+			        </li>
+					<li class="treeview <?php if( ($cur_page == 'blog.php') ) {echo 'active';} ?>">
+			          <a href="blog.php">
+			            <i class="fa fa-question-circle"></i> <span>Blog</span>
 			          </a>
 			        </li>
 
