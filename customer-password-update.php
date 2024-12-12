@@ -76,13 +76,13 @@ if (isset($_POST['form1'])) {
                                 ?>
                                 <div class="form-group">
                                     <label for="">Mật khẩu mới *</label>
-                                    <input type="password" class="form-control" name="cust_password">
+                                    <input type="password" class="form-control" name="cust_password" style="border: 2px solid #931926">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Xác nhận mật khẩu *</label>
-                                    <input type="password" class="form-control" name="cust_re_password">
+                                    <input type="password" class="form-control" name="cust_re_password" style="border: 2px solid #931926">
                                 </div>
-                                <input type="submit" class="btn btn-primary" value="Cập nhật" name="form1">
+                                <input type="submit" class="btn btn-primary" value="Cập nhật" name="form1" style="background-color:#931926">
                             </div>
                         </div>
                         

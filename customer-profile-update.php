@@ -95,7 +95,7 @@ if (isset($_POST['form1'])) {
             </div>
             <div class="col-md-12">
                 <div class="user-content">
-                    <h3>
+                    <h3 style="text-align: center;">
                         Chỉnh sửa thông tin cá nhân
                     </h3>
                     <?php
@@ -111,34 +111,34 @@ if (isset($_POST['form1'])) {
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label for="">Họ và tên *</label>
-                                <input type="text" class="form-control" name="cust_name" value="<?php echo $_SESSION['customer']['cust_name']; ?>">
+                                <input type="text" class="form-control" name="cust_name" value="<?php echo $_SESSION['customer']['cust_name']; ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Tên công ty</label>
-                                <input type="text" class="form-control" name="cust_cname" value="<?php echo $_SESSION['customer']['cust_cname']; ?>">
+                                <input type="text" class="form-control" name="cust_cname" value="<?php echo $_SESSION['customer']['cust_cname']; ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Email *</label>
-                                <input type="text" class="form-control" name="" value="<?php echo $_SESSION['customer']['cust_email']; ?>" disabled>
+                                <input type="text" class="form-control" name="" value="<?php echo $_SESSION['customer']['cust_email']; ?>" disabled; style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Số điện thoại *</label>
-                                <input type="text" class="form-control" name="cust_phone" value="<?php echo $_SESSION['customer']['cust_phone']; ?>">
+                                <input type="text" class="form-control" name="cust_phone" value="<?php echo $_SESSION['customer']['cust_phone']; ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="">Địa chỉ *</label>
-                                <textarea name="cust_address" class="form-control" cols="30" rows="10" style="height:70px;"><?php echo $_SESSION['customer']['cust_address']; ?></textarea>
+                                <textarea; name="cust_address" class="form-control" cols="30" rows="10" style="height:70px;border: 2px solid #931926"><?php echo $_SESSION['customer']['cust_address']; ?></textarea; >
                             </div>
                             <div class="col-md-6 form-group">
-                                <label for="">Quốc gia *</label>
-                                <select name="cust_country" class="form-control">
+                                <label for="">Tỉnh/Thành phố *</label>
+                                <select name="cust_country" class="form-control" style="border: 2px solid #931926;">
                                 <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                 $statement->execute();
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {
                                     ?>
-                                    <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $_SESSION['customer']['cust_country']) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
+                                    <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $_SESSION['customer']['cust_country']) {echo 'selected';} ?>><?php echo $row['country_name'];  ?></option>
                                     <?php
                                 }
                                 ?>
@@ -146,19 +146,19 @@ if (isset($_POST['form1'])) {
                             </div>
                             
                             <div class="col-md-6 form-group">
-                                <label for="">Thành phố *</label>
-                                <input type="text" class="form-control" name="cust_city" value="<?php echo $_SESSION['customer']['cust_city']; ?>">
+                                <label for="">Quận/Huyện *</label>
+                                <input type="text" class="form-control" name="cust_city" value="<?php echo $_SESSION['customer']['cust_city']; ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
-                                <label for="">Tỉnh/Bang *</label>
-                                <input type="text" class="form-control" name="cust_state" value="<?php echo $_SESSION['customer']['cust_state']; ?>">
+                                <label for="">Phường/Xã *</label>
+                                <input type="text" class="form-control" name="cust_state" value="<?php echo $_SESSION['customer']['cust_state']; ?>" style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Mã bưu điện *</label>
-                                <input type="text" class="form-control" name="cust_zip" value="<?php echo $_SESSION['customer']['cust_zip']; ?>">
+                                <input type="text" class="form-control" name="cust_zip" value="<?php echo $_SESSION['customer']['cust_zip']; ?>" style="border: 2px solid #931926;">
                             </div>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Cập nhật" name="form1">
+                        <input type="submit" class="btn btn-primary" value="Cập nhật" name="form1" style="background-color: #931926;">
                     </form>
                 </div>                
             </div>
