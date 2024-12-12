@@ -20,7 +20,7 @@
           <table id="example1" class="table table-bordered table-hover table-striped">
 			<thead>
 			    <tr>
-			        <th>#</th>
+			        <th>STT</th>
 			        <th>Tên Danh Mục Cấp Cao Nhất</th>
                     <th>Hiển thị trên Menu?</th>
 			        <th>Hành Động</th>

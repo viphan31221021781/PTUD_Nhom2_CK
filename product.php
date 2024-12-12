@@ -1,5 +1,6 @@
 <?php require_once('header.php'); ?>
 
+
 <?php
 if(!isset($_REQUEST['id'])) {
     header('location: index.php');
@@ -15,7 +16,6 @@ if(!isset($_REQUEST['id'])) {
         exit;
     }
 }
-
 foreach($result as $row) {
     $p_name = $row['p_name'];
     $p_old_price = $row['p_old_price'];
@@ -32,19 +32,21 @@ foreach($result as $row) {
     $p_is_active = $row['p_is_active'];
     $ecat_id = $row['ecat_id'];
 }
-
 // Getting all categories name for breadcrumb
 $statement = $pdo->prepare("SELECT
                         t1.ecat_id,
                         t1.ecat_name,
                         t1.mcat_id,
 
+
                         t2.mcat_id,
                         t2.mcat_name,
                         t2.tcat_id,
 
+
                         t3.tcat_id,
                         t3.tcat_name
+
 
                         FROM tbl_end_category t1
                         JOIN tbl_mid_category t2
@@ -66,6 +68,7 @@ foreach ($result as $row) {
 
 $p_total_view = $p_total_view + 1;
 
+
 $statement = $pdo->prepare("UPDATE tbl_product SET p_total_view=? WHERE p_id=?");
 $statement->execute(array($p_total_view,$_REQUEST['id']));
 
@@ -77,6 +80,7 @@ foreach ($result as $row) {
     $size[] = $row['size_id'];
 }
 
+
 $statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
 $statement->execute(array($_REQUEST['id']));
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
@@ -86,20 +90,21 @@ foreach ($result as $row) {
 
 
 if(isset($_POST['form_review'])) {
-    
+   
     $statement = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=? AND cust_id=?");
     $statement->execute(array($_REQUEST['id'],$_SESSION['customer']['cust_id']));
     $total = $statement->rowCount();
-    
+   
     if($total) {
-        $error_message = LANG_VALUE_68; 
+        $error_message = "Bạn đã đánh giá sản phẩm này trước đó.";
     } else {
         $statement = $pdo->prepare("INSERT INTO tbl_rating (p_id,cust_id,comment,rating) VALUES (?,?,?,?)");
         $statement->execute(array($_REQUEST['id'],$_SESSION['customer']['cust_id'],$_POST['comment'],$_POST['rating']));
-        $success_message = LANG_VALUE_163;    
+        $success_message = "Cảm ơn bạn đã đánh giá sản phẩm!";    
     }
-    
+   
 }
+
 
 // Getting the average rating for this product
 $t_rating = 0;
@@ -116,21 +121,23 @@ if($tot_rating == 0) {
     $avg_rating = $t_rating / $tot_rating;
 }
 
+
 if(isset($_POST['form_add_to_cart'])) {
 
-	// getting the currect stock of this product
-	$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
-	$statement->execute(array($_REQUEST['id']));
-	$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-	foreach ($result as $row) {
-		$current_p_qty = $row['p_qty'];
-	}
-	if($_POST['p_qty'] > $current_p_qty):
-		$temp_msg = 'Sorry! There are only '.$current_p_qty.' item(s) in stock';
-		?>
-		<script type="text/javascript">alert('<?php echo $temp_msg; ?>');</script>
-		<?php
-	else:
+
+    // getting the currect stock of this product
+    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+    $statement->execute(array($_REQUEST['id']));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);                          
+    foreach ($result as $row) {
+        $current_p_qty = $row['p_qty'];
+    }
+    if($_POST['p_qty'] > $current_p_qty):
+        $temp_msg = 'Sorry! There are only '.$current_p_qty.' item(s) in stock';
+        ?>
+        <script type="text/javascript">alert('<?php echo $temp_msg; ?>');</script>
+        <?php
+    else:
     if(isset($_SESSION['cart_p_id']))
     {
         $arr_cart_p_id = array();
@@ -139,22 +146,25 @@ if(isset($_POST['form_add_to_cart'])) {
         $arr_cart_p_qty = array();
         $arr_cart_p_current_price = array();
 
+
         $i=0;
-        foreach($_SESSION['cart_p_id'] as $key => $value) 
+        foreach($_SESSION['cart_p_id'] as $key => $value)
         {
             $i++;
             $arr_cart_p_id[$i] = $value;
         }
 
+
         $i=0;
-        foreach($_SESSION['cart_size_id'] as $key => $value) 
+        foreach($_SESSION['cart_size_id'] as $key => $value)
         {
             $i++;
             $arr_cart_size_id[$i] = $value;
         }
 
+
         $i=0;
-        foreach($_SESSION['cart_color_id'] as $key => $value) 
+        foreach($_SESSION['cart_color_id'] as $key => $value)
         {
             $i++;
             $arr_cart_color_id[$i] = $value;
@@ -179,19 +189,23 @@ if(isset($_POST['form_add_to_cart'])) {
             }
         }
         if($added == 1) {
-           $error_message1 = 'This product is already added to the shopping cart.';
+           $error_message1 = 'Sản phẩm này đã được thêm vào giỏ hàng.';
         } else {
 
+
             $i=0;
-            foreach($_SESSION['cart_p_id'] as $key => $res) 
+            foreach($_SESSION['cart_p_id'] as $key => $res)
             {
                 $i++;
             }
             $new_key = $i+1;
 
+
             if(isset($_POST['size_id'])) {
 
+
                 $size_id = $_POST['size_id'];
+
 
                 $statement = $pdo->prepare("SELECT * FROM tbl_size WHERE size_id=?");
                 $statement->execute(array($size_id));
@@ -203,7 +217,7 @@ if(isset($_POST['form_add_to_cart'])) {
                 $size_id = 0;
                 $size_name = '';
             }
-            
+           
             if(isset($_POST['color_id'])) {
                 $color_id = $_POST['color_id'];
                 $statement = $pdo->prepare("SELECT * FROM tbl_color WHERE color_id=?");
@@ -216,8 +230,7 @@ if(isset($_POST['form_add_to_cart'])) {
                 $color_id = 0;
                 $color_name = '';
             }
-          
-
+         
             $_SESSION['cart_p_id'][$new_key] = $_REQUEST['id'];
             $_SESSION['cart_size_id'][$new_key] = $size_id;
             $_SESSION['cart_size_name'][$new_key] = $size_name;
@@ -228,17 +241,19 @@ if(isset($_POST['form_add_to_cart'])) {
             $_SESSION['cart_p_name'][$new_key] = $_POST['p_name'];
             $_SESSION['cart_p_featured_photo'][$new_key] = $_POST['p_featured_photo'];
 
-            $success_message1 = 'Product is added to the cart successfully!';
+
+            $success_message1 = 'Sản phẩm đã được thêm vào giỏ hàng thành công!';
         }
-        
+       
     }
     else
     {
 
+
         if(isset($_POST['size_id'])) {
 
-            $size_id = $_POST['size_id'];
 
+            $size_id = $_POST['size_id'];
             $statement = $pdo->prepare("SELECT * FROM tbl_size WHERE size_id=?");
             $statement->execute(array($size_id));
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
@@ -249,7 +264,7 @@ if(isset($_POST['form_add_to_cart'])) {
             $size_id = 0;
             $size_name = '';
         }
-        
+       
         if(isset($_POST['color_id'])) {
             $color_id = $_POST['color_id'];
             $statement = $pdo->prepare("SELECT * FROM tbl_color WHERE color_id=?");
@@ -262,7 +277,8 @@ if(isset($_POST['form_add_to_cart'])) {
             $color_id = 0;
             $color_name = '';
         }
-        
+       
+
 
         $_SESSION['cart_p_id'][1] = $_REQUEST['id'];
         $_SESSION['cart_size_id'][1] = $size_id;
@@ -274,12 +290,12 @@ if(isset($_POST['form_add_to_cart'])) {
         $_SESSION['cart_p_name'][1] = $_POST['p_name'];
         $_SESSION['cart_p_featured_photo'][1] = $_POST['p_featured_photo'];
 
-        $success_message1 = 'Product is added to the cart successfully!';
+
+        $success_message1 = 'Sản phẩm đã được thêm vào giỏ hàng thành công!';
     }
-	endif;
+    endif;
 }
 ?>
-
 <?php
 if($error_message1 != '') {
     echo "<script>alert('".$error_message1."')</script>";
@@ -289,15 +305,13 @@ if($success_message1 != '') {
     header('location: product.php?id='.$_REQUEST['id']);
 }
 ?>
-
-
 <div class="page">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
                 <div class="breadcrumb mb_30">
                     <ul>
-                        <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>">TRANG CHỦ</a></li>
                         <li>></li>
                         <li><a href="<?php echo BASE_URL.'product-category.php?id='.$tcat_id.'&type=top-category' ?>"><?php echo $tcat_name; ?></a></li>
                         <li>></li>
@@ -308,15 +322,14 @@ if($success_message1 != '') {
                         <li><?php echo $p_name; ?></li>
                     </ul>
                 </div>
-
-				<div class="product">
-					<div class="row">
-						<div class="col-md-5">
-							<ul class="prod-slider">
-                                
-								<li style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>);">
+                <div class="product">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <ul class="prod-slider">
+                               
+                                <li style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>);">
                                     <a class="popup" href="assets/uploads/<?php echo $p_featured_photo; ?>"></a>
-								</li>
+                                </li>
                                 <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_product_photo WHERE p_id=?");
                                 $statement->execute(array($_REQUEST['id']));
@@ -329,9 +342,9 @@ if($success_message1 != '') {
                                     <?php
                                 }
                                 ?>
-							</ul>
-							<div id="prod-pager">
-								<a data-slide-index="0" href=""><div class="prod-pager-thumb" style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>"></div></a>
+                            </ul>
+                            <div id="prod-pager">
+                                <a data-slide-index="0" href=""><div class="prod-pager-thumb" style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>"></div></a>
                                 <?php
                                 $i=1;
                                 $statement = $pdo->prepare("SELECT * FROM tbl_product_photo WHERE p_id=?");
@@ -344,12 +357,12 @@ if($success_message1 != '') {
                                     $i++;
                                 }
                                 ?>
-							</div>
-						</div>
-						<div class="col-md-7">
-							<div class="p-title"><h2><?php echo $p_name; ?></h2></div>
-							<div class="p-review">
-								<div class="rating">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="p-title"><h2><?php echo $p_name; ?></h2></div>
+                            <div class="p-review">
+                                <div class="rating">
                                     <?php
                                     if($avg_rating == 0) {
                                         echo '';
@@ -362,7 +375,7 @@ if($success_message1 != '') {
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                         ';
-                                    } 
+                                    }
                                     elseif($avg_rating == 2.5) {
                                         echo '
                                             <i class="fa fa-star"></i>
@@ -403,18 +416,18 @@ if($success_message1 != '') {
                                     }                                    
                                     ?>
                                 </div>
-							</div>
-							<div class="p-short-des">
-								<p>
-									<?php echo $p_short_description; ?>
-								</p>
+                            </div>
+                            <div class="p-short-des">
+                                <p>
+                                    <?php echo $p_short_description; ?>
+                                </p>
                             </div>
                             <form action="" method="post">
                             <div class="p-quantity">
                                 <div class="row" >
                                     <?php if(isset($size)): ?>
                                     <div class="col-md-12 mb_20">
-                                        <?php echo LANG_VALUE_52; ?> <br>
+                                        <?php echo "Kích thước" ?> <br>
                                         <select name="size_id" class="form-control select2" style="width:auto;">
                                             <?php
                                             $statement = $pdo->prepare("SELECT * FROM tbl_size");
@@ -432,10 +445,11 @@ if($success_message1 != '') {
                                     </div>
                                     <?php endif; ?>
 
+
                                     <?php if(isset($color)): ?>
                                     <div class="col-md-12 ">
-                                        <?php echo LANG_VALUE_53; ?> <br>
-                                        <select name="color_id" class="form-control select2" style="width:auto;">
+                                        <?php echo "Màu sắc" ?> <br>
+                                        <select name="color_id" class="form-control select2" style="width:auto;>
                                             <?php
                                             $statement = $pdo->prepare("SELECT * FROM tbl_color");
                                             $statement->execute();
@@ -452,35 +466,36 @@ if($success_message1 != '') {
                                     </div>
                                     <?php endif; ?>
 
+
                                 </div>
-                                
+                               
                             </div>
-							<div class="p-price">
-                                <span style="font-size:14px;"><?php echo "Giá sản phẩm"; ?></span><br>
+                            <div class="p-price">
+                                <span style="font-size:14px;"><?php echo "Giá" ?></span><br>
                                 <span style="color:#931926">
                                     <?php if($p_old_price!=''): ?>
-                                        <del><?php echo $p_old_price; ?><?php echo "₫"; ?></del>
-                                    <?php endif; ?> 
-                                        <?php echo $p_current_price; ?><?php echo "₫"; ?>
+                                        <del><?php echo $p_old_price; ?> <?php echo "VNĐ"?></del>
+                                    <?php endif; ?>
+                                        <?php echo $p_current_price; ?><?php echo "VNĐ"?>
                                 </span>
                             </div>
                             <input type="hidden" name="p_current_price" value="<?php echo $p_current_price; ?>">
                             <input type="hidden" name="p_name" value="<?php echo $p_name; ?>">
                             <input type="hidden" name="p_featured_photo" value="<?php echo $p_featured_photo; ?>">
-							<div class="p-quantity">
-                                <?php echo "Số lượng sản phẩm"; ?> <br>
-								<input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
-							</div>
-							<div class="btn-cart btn-cart1">
+                            <div class="p-quantity">
+                                <?php echo "Số lượng"; ?> <br>
+                                <input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
+                            </div>
+                            <div class="btn-cart btn-cart1">
                                 <input type="submit" value="Thêm vào giỏ hàng" name="form_add_to_cart" style="background-color: #931926">
-							</div>
+                            </div>
                             </form>
-							<div class="share">
+                            <div class="share">
                                 <p>Chia sẻ sản phẩm</p>
-								<div class="sharethis-inline-share-buttons"></div>
-							</div>
-						</div>
-					</div>
+                                <div class="sharethis-inline-share-buttons"></div>
+                            </div>
+                        </div>
+                    </div>
 <style>
 .nav-tabs p {
     color: #931926;
@@ -494,36 +509,35 @@ if($success_message1 != '') {
     }
 </style>
 
-</style>
-					<div class="row">
-						<div class="col-md-12">
-							<!-- Nav tabs -->
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><p>Mô tả</p></a></li>
-								<li role="presentation"><a href="#feature" aria-controls="feature" role="tab" data-toggle="tab"><p>Tính năng</p></a></li>
-                                <li role="presentation"><a href="#condition" aria-controls="condition" role="tab" data-toggle="tab"><p>Tình trạng</p></a></li>
-                                <li role="presentation"><a href="#return_policy" aria-controls="return_policy" role="tab" data-toggle="tab"><p>Chính sách hoàn trả</p></a></li>
-                               <!-- <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab"><?php echo LANG_VALUE_63; ?></a></li> -->
-							</ul>
 
-							<!-- Tab panes -->
-							<div class="tab-content">
-								<div role="tabpanel" class="tab-pane active" id="description" style="margin-top: -30px;">
-									<p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><p>Mô tả</p></a></li>
+                                <li role="presentation"><a href="#feature" aria-controls="feature" role="tab" data-toggle="tab"><p>Tính năng</p></a></li>
+                                <li role="presentation"><a href="#condition" aria-controls="condition" role="tab" data-toggle="tab"><p>Điều kiện</p></a></li>
+                                <li role="presentation"><a href="#return_policy" aria-controls="return_policy" role="tab" data-toggle="tab"><p>Chính sách hoàn trả</p></a></li>
+                               <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab"><p>Đánh giá</p></a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="description" style="margin-top: -30px;">
+                                    <p>
                                         <?php
                                         if($p_description == '') {
-                                            echo LANG_VALUE_70;
+                                            echo "Chưa có mô tả sản phẩm";
                                         } else {
                                             echo $p_description;
                                         }
                                         ?>
-									</p>
-								</div>
+                                    </p>
+                                </div>
                                 <div role="tabpanel" class="tab-pane" id="feature" style="margin-top: -30px;">
                                     <p>
                                         <?php
                                         if($p_feature == '') {
-                                            echo LANG_VALUE_71;
+                                            echo "Chưa có thông tin tính năng";
                                         } else {
                                             echo $p_feature;
                                         }
@@ -534,7 +548,7 @@ if($success_message1 != '') {
                                     <p>
                                         <?php
                                         if($p_condition == '') {
-                                            echo LANG_VALUE_72;
+                                            echo "Chưa có thông tin về điều kiện sản phẩm";
                                         } else {
                                             echo $p_condition;
                                         }
@@ -545,26 +559,25 @@ if($success_message1 != '') {
                                     <p>
                                         <?php
                                         if($p_return_policy == '') {
-                                            echo LANG_VALUE_73;
+                                            echo "Chưa có thông tin về chính sách hoàn trả";
                                         } else {
                                             echo $p_return_policy;
                                         }
                                         ?>
                                     </p>
                                 </div>
-								<div role="tabpanel" class="tab-pane" id="review" style="margin-top: -30px;">
-
+                                <div role="tabpanel" class="tab-pane" id="review" style="margin-top: -30px;">
                                     <div class="review-form">
                                         <?php
-                                        $statement = $pdo->prepare("SELECT * 
-                                                            FROM tbl_rating t1 
-                                                            JOIN tbl_customer t2 
-                                                            ON t1.cust_id = t2.cust_id 
+                                        $statement = $pdo->prepare("SELECT *
+                                                            FROM tbl_rating t1
+                                                            JOIN tbl_customer t2
+                                                            ON t1.cust_id = t2.cust_id
                                                             WHERE t1.p_id=?");
                                         $statement->execute(array($_REQUEST['id']));
                                         $total = $statement->rowCount();
                                         ?>
-                                        <h2><?php echo LANG_VALUE_63; ?> (<?php echo $total; ?>)</h2>
+                                        <h2><?php echo "Tổng số đánh giá"; ?> (<?php echo $total; ?>)</h2>
                                         <?php
                                         if($total) {
                                             $j=0;
@@ -572,18 +585,18 @@ if($success_message1 != '') {
                                             foreach ($result as $row) {
                                                 $j++;
                                                 ?>
-                                                <div class="mb_10"><b><u><?php echo LANG_VALUE_64; ?> <?php echo $j; ?></u></b></div>
+                                                <div class="mb_10"><b><u><?php echo "Đánh giá"; ?> <?php echo $j; ?></u></b></div>
                                                 <table class="table table-bordered">
                                                     <tr>
-                                                        <th style="width:170px;"><?php echo LANG_VALUE_75; ?></th>
+                                                        <th style="width:170px;"><?php echo "Tên khách hàng"; ?></th>
                                                         <td><?php echo $row['cust_name']; ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th><?php echo LANG_VALUE_76; ?></th>
+                                                        <th><?php echo "Nhận xét"; ?></th>
                                                         <td><?php echo $row['comment']; ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th><?php echo LANG_VALUE_78; ?></th>
+                                                        <th><?php echo "Đánh giá" ?></th>
                                                         <td>
                                                             <div class="rating">
                                                                 <?php
@@ -604,11 +617,11 @@ if($success_message1 != '') {
                                                 <?php
                                             }
                                         } else {
-                                            echo LANG_VALUE_74;
+                                            echo "Chưa có đánh giá nào";
                                         }
                                         ?>
-                                        
-                                        <h2><?php echo LANG_VALUE_65; ?></h2>
+                                       
+                                        <h2><?php echo "Viết đánh giá của bạn"; ?></h2>
                                         <?php
                                         if($error_message != '') {
                                             echo "<script>alert('".$error_message."')</script>";
@@ -618,9 +631,8 @@ if($success_message1 != '') {
                                         }
                                         ?>
                                         <?php if(isset($_SESSION['customer'])): ?>
-
                                             <?php
-                                            $statement = $pdo->prepare("SELECT * 
+                                            $statement = $pdo->prepare("SELECT *
                                                                 FROM tbl_rating
                                                                 WHERE p_id=? AND cust_id=?");
                                             $statement->execute(array($_REQUEST['id'],$_SESSION['customer']['cust_id']));
@@ -636,49 +648,47 @@ if($success_message1 != '') {
                                                 <input type="radio" name="rating" class="rating" value="5" checked>
                                             </div>                                            
                                             <div class="form-group">
-                                                <textarea name="comment" class="form-control" cols="30" rows="10" placeholder="Write your comment (optional)" style="height:100px;"></textarea>
+                                                <textarea name="comment" class="form-control" cols="30" rows="10" placeholder="Đánh giá về sản phẩm" style="height:100px;"></textarea>
                                             </div>
-                                            <input type="submit" class="btn btn-default" name="form_review" value="<?php echo LANG_VALUE_67; ?>">
+                                            <input type="submit" class="btn btn-default" name="form_review" value="<?php echo "Gửi"; ?>">
                                             </form>
                                             <?php else: ?>
-                                                <span style="color:red;"><?php echo LANG_VALUE_68; ?></span>
+                                                <span style="color:red;"><?php echo "Bạn đã đánh giá sản phẩm này rồi"; ?></span>
                                             <?php endif; ?>
 
 
                                         <?php else: ?>
                                             <p class="error">
-												<?php echo LANG_VALUE_69; ?> <br>
-												<a href="login.php" style="color:red;text-decoration: underline;"><?php echo LANG_VALUE_9; ?></a>
-											</p>
-                                        <?php endif; ?>                         
+                                                <?php echo "Bạn cần đăng nhập để đánh giá sản phẩm."; ?> <br>
+                                                <a href="login.php" style="color:red;text-decoration: underline;"><?php echo "Đăng nhập ngay"; ?></a>
+                                            </p>
+                                        <?php endif; ?>                        
                                     </div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-	</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 <div class="product bg-gray pt_70 pb_70">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="headline">
-                    <h2><?php echo LANG_VALUE_155; ?></h2>
-                    <h3><?php echo LANG_VALUE_156; ?></h3>
+                    <h2><?php echo "Sản phẩm liên quan/tương tự"; ?></h2>
+                    <h3><?php echo "Khám phá thêm sản phẩm" ?></h3>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-
                 <div class="product-carousel">
+
 
                     <?php
                     $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id=? AND p_id!=?");
@@ -694,10 +704,10 @@ if($success_message1 != '') {
                             <div class="text">
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                 <h4>
-                                    <?php echo LANG_VALUE_1; ?><?php echo $row['p_current_price']; ?> 
+                                    <?php echo $row['p_current_price']; ?> <?php echo "VNĐ"; ?>
                                     <?php if($row['p_old_price'] != ''): ?>
                                     <del>
-                                        <?php echo LANG_VALUE_1; ?><?php echo $row['p_old_price']; ?>
+                                        <?php echo $row['p_old_price']; ?> <?php echo "VNĐ"; ?>
                                     </del>
                                     <?php endif; ?>
                                 </h4>
@@ -729,7 +739,7 @@ if($success_message1 != '') {
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                         ';
-                                    } 
+                                    }
                                     elseif($avg_rating == 2.5) {
                                         echo '
                                             <i class="fa fa-star"></i>
@@ -770,18 +780,22 @@ if($success_message1 != '') {
                                     }
                                     ?>
                                 </div>
-                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo LANG_VALUE_154; ?></a></p>
+                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo "Xem thêm"; ?></a></p>
                             </div>
                         </div>
                         <?php
                     }
                     ?>
-
                 </div>
+
 
             </div>
         </div>
     </div>
 </div>
 
+
 <?php require_once('footer.php'); ?>
+
+
+

@@ -158,8 +158,8 @@ if(isset($_POST['form2'])) {
           <table id="example1" class="table table-bordered table-hover table-striped">
 			<thead>
 			    <tr>
-			        <th>#</th>
-			        <th>Quốc gia</th>
+			        <th>STT</th>
+			        <th>Tỉnh thành</th>
                     <th>Phí vận chuyển</th>
 			        <th>Tùy chọn</th>
 			    </tr>

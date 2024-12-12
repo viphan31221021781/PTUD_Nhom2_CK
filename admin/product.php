@@ -17,7 +17,7 @@
 					<table id="example1" class="table table-bordered table-hover table-striped">
 					<thead class="thead-dark">
 							<tr>
-								<th width="10">#</th>
+								<th width="10">STT</th>
 								<th>Ảnh</th>
 								<th width="200">Tên Sản Phẩm</th>
 								<th width="60">Giá Cũ</th>
