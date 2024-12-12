@@ -121,7 +121,7 @@ if(!isset($_SESSION['user'])) {
 		<header class="main-header" style="background-color: #931926 !important">
 
 			<a href="index.php" class="logo">
-				<span class="logo-lg">MUJI Store</span>
+				<span class="logo-lg">MIJU Store</span>
 			</a>
 
 			<nav class="navbar navbar-static-top">
