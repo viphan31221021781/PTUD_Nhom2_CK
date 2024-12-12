@@ -24,8 +24,8 @@
 			    <tr>
 			        <th>STT</th>
 			        <th>Tên danh mục cấp dưới</th>
-                    <th>Tên danh mục trung gian</th>
-                    <th>Tên danh mục cấp trên</th>
+                    <th>Tên danh mục trung</th>
+                    <th>Tên danh mục cấp cao nhất</th>
 			        <th>Hành động</th>
 			    </tr>
 			</thead>
