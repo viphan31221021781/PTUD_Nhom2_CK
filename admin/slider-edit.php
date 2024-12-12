@@ -142,9 +142,9 @@ foreach ($result as $row) {
                             <label for="" class="col-sm-2 control-label">Vị trí</label>
                             <div class="col-sm-6">
                                 <select name="position" class="form-control">
-                                    <option value="Left" <?php if($position == 'Left') {echo 'selected';} ?>>Trái</option>
-                                    <option value="Center" <?php if($position == 'Center') {echo 'selected';} ?>>Giữa</option>
-                                    <option value="Right" <?php if($position == 'Right') {echo 'selected';} ?>>Phải</option>
+                                    <option value="Trái" <?php if($position == 'Left') {echo 'selected';} ?>>Trái</option>
+                                    <option value="Giữa" <?php if($position == 'Center') {echo 'selected';} ?>>Giữa</option>
+                                    <option value="Phải" <?php if($position == 'Right') {echo 'selected';} ?>>Phải</option>
                                 </select>
                             </div>
                         </div>              

@@ -247,7 +247,7 @@ if($success_message != '') {
                         		<b>Thông tin giao dịch:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
                         	<?php endif; ?>
                         </td>
-                        <td>$<?php echo $row['paid_amount']; ?></td>
+                        <td><?php echo $row['paid_amount']; ?>₫</td>
                         <td>
                             <?php echo $row['payment_status']; ?>
                             <br><br>

@@ -18,7 +18,7 @@
           <table id="example1" class="table table-bordered table-hover table-striped">
 			<thead>
 			    <tr>
-			        <th>#</th>
+			        <th>STT</th>
 			        <th>Email người đăng ký</th>
 			        <th>Hành động</th>
 			    </tr>
@@ -26,7 +26,7 @@
             <tbody>
             	<?php
             	$i=0;
-            	$statement = $pdo->prepare("SELECT * FROM tbl_subscriber WHERE subs_active=1");
+            	$statement = $pdo->prepare("SELECT * FROM tbl_subscriber");
             	$statement->execute();
             	$result = $statement->fetchAll(PDO::FETCH_ASSOC);
             	foreach ($result as $row) {

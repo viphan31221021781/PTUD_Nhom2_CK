@@ -17,7 +17,7 @@
 								<th width="10">STT</th>
 								<th width="180">Tên</th>
 								<th width="150">Email</th>
-								<th width="180">Quốc Gia, Thành Phố, Bang</th>
+								<th width="180">Địa chỉ</th>
 								<th>Trạng Thái</th>
 								<th width="100">Thay Đổi Trạng Thái</th>
 								<th width="100">Hành Động</th>

@@ -110,9 +110,9 @@ if(isset($_POST['form1'])) {
 							<label for="" class="col-sm-2 control-label">Vị Trí </label>
 							<div class="col-sm-6">
 								<select name="position" class="form-control">
-									<option value="Left">Trái</option>
-									<option value="Center">Giữa</option>
-									<option value="Right">Phải</option>
+									<option value="Trái">Trái</option>
+									<option value="Giữa">Giữa</option>
+									<option value="Phải">Phải</option>
 								</select>
 							</div>
 						</div>
