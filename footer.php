@@ -28,6 +28,22 @@ foreach ($result as $row)
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.footer-static-block.footer-certificate {
+    display: block; /* Đảm bảo nội dung hiển thị dạng khối */
+    text-align: left; /* Canh trái nội dung */
+    padding-left: 30px; /* Cách lề trái 30px */
+}
+
+.footer-static-block.footer-certificate div {
+    margin-bottom: 10px; /* Tạo khoảng cách giữa các đoạn văn */
+    display: block; /* Đảm bảo nội dung không nằm ngang */
+}
+
+.footer-static-block.footer-certificate img {
+    max-width: 100%; /* Hình ảnh tự động điều chỉnh kích thước */
+    height: auto; /* Duy trì tỉ lệ hình ảnh */
+}
+
 
 
 
@@ -207,8 +223,13 @@ footer {
                </div>
                <div class="footer-static-block footer-certificate text-[13px] overflow-hidden w-full undefined">
                <div style="flex: 1;">
-                   <img src="assets/img/logo.png" alt="MUJI Logo" style="width: 100px; height: 100px;">
+                   <img src="assets/uploads/logo.png" alt="MUJI Logo" style="width: 200px; height: 200px;">
                </div>
+               <div>
+                <p style="font-size: 16px; text-align: left;"><b>CÔNG TY TNHH MIJU RETAIL</b></p>
+                <p style="font-size: 14px; text-align: left;">ĐKKD SỐ 0123456789 do sở KH & ĐT TP.HCM cấp ngày: 01/01/2024</p>
+                <p style="font-size: 14px; text-align: left;">Trụ sở chính: Phòng N1-306, Tầng 3, Đại học Kinh Tế, Nguyễn Văn Linh, Bình Chánh, TP.HCM</p>
+                </div>
                <div>
                    <p>
                    <a href="http://online.gov.vn/Home/WebDetails/123273">
@@ -245,7 +266,7 @@ footer {
                </div>
            </div>
            <!-- Subscribe Section -->
-           <div class="footer-subscribe-wrapper" style="padding-top: 20px; width: 40%;">
+           <div class="footer-subscribe-wrapper" style="padding-top: 20px; width: 40%; padding-right: 30px; ">
                    <?php
            if(isset($_POST['form_subscribe']))
            {
@@ -363,12 +384,9 @@ Liên kết này chỉ có hiệu lực trong 24 giờ.
            </div>
        </div>
    </footer>
-   <div style="padding:50px">
-               <p style="font-size: 13px; text-align: left;"><em>Bản quyền thuộc © Miju Co., Ltd.</em></p>
-               <p style="font-size: 13px; text-align: left;"><strong>CÔNG TY TNHH MIJU RETAIL (VIỆT NAM)</strong></p>
-               <p style="font-size: 13px; text-align: left;">ĐKKD SỐ 0123456789 do sở KH & ĐT TP.HCM cấp ngày: 01/01/2024</p>
-               <p style="font-size: 13px; text-align: left;">Trụ sở chính: Phòng N1-306, Tầng 3, Đại học Kinh Tế, Nguyễn Văn Linh, Bình Chánh, TP.HCM</p>
-           </div>
+  <!--<div style="padding:50px">
+               <p style="font-size: 13px; text-align: centercenter;"><em>Bản quyền thuộc © Miju Co., Ltd.</em></p>
+           </div>-->
 </section>
 <?php endif; ?>
 
