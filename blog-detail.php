@@ -32,7 +32,7 @@ $blog_content = $result['blog_content'];
 ?>
 
 <!-- Page Banner với màu đỏ -->
-<div class="page-banner" style="background-color:#FF0022; text-align: center; padding: 50px 0;">
+<div class="page-banner" style="background-color:#6e1518; text-align: center; padding: 50px 0;">
    <div class="inner">
        <h1 style="color: white;"><?php echo $blog_title; ?></h1>
    </div>
