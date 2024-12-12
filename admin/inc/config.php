@@ -17,7 +17,6 @@ $dbuser = 'root';
 // Database Password
 $dbpass = '';
 
-$pdo = new PDO("mysql:host=localhost;port=3307;dbname=ecommerceweb", $dbuser, $dbpass);
 
 // Defining base url
 define("BASE_URL", "");
