@@ -337,7 +337,8 @@ foreach ($result as $row) {
 	                        $arr_cart_p_current_price[$i] = $value;
 	                    }
 	                    for($i=1;$i<=count($arr_cart_p_qty);$i++) {
-	                    	$row_total_price = floatval($arr_cart_p_current_price[$i]) * floatval($arr_cart_p_qty[$i]);
+	                    	$row_total_price = intval($arr_cart_p_current_price[$i]) * intval($arr_cart_p_qty[$i]);
+
 
 	                        $table_total_price = $table_total_price + $row_total_price;
 	                    }

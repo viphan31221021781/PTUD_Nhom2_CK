@@ -8,7 +8,7 @@ if(isset($_POST['form1'])) {
 
     if(empty($_POST['country_id'])) {
         $valid = 0;
-        $error_message .= 'Bạn phải chọn một quốc gia<br>';
+        $error_message .= 'Bạn phải chọn một tỉnh thành<br>';
     }
 
     if($_POST['amount'] == '') {
@@ -194,54 +194,12 @@ if(isset($_POST['form2'])) {
         </div>
       </div> 
 
-      <h4 style="background: #dd4b39;color:#fff;padding:10px 20px;">Lưu ý: Nếu một quốc gia không có trong danh sách trên, chi phí vận chuyển theo mục 'Khu vực còn lại' sẽ được áp dụng</h4>
+      
 
 </section>
 
 
-<section class="content-header">
-    <div class="content-header-left">
-        <h1>PHÍ VẬN CHUYỂN CHO KHU VỰC CÒN LẠI</h1>
-    </div>
-</section>
 
-<section class="content">
-
-    <?php
-    $statement = $pdo->prepare("SELECT * FROM tbl_shipping_cost_all WHERE sca_id=1");
-    $statement->execute();
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-    foreach ($result as $row) {
-        $amount = $row['amount'];
-    }
-    ?>
-
-    <div class="row">
-        <div class="col-md-12">
-
-            <form class="form-horizontal" action="" method="post">
-                <div class="box box-info">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Phí vận chuyển <span>*</span></label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="amount" value="<?php echo $amount; ?>">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-2 control-label"></label>
-                            <div class="col-sm-6">
-                                <button type="submit" class="btn btn-success pull-left" name="form2">Cập nhật</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-
-        </div>
-    </div>
-</section>
 
 
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

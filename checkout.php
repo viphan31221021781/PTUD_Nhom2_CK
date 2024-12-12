@@ -36,7 +36,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                     </p>
                 <?php else: ?>
 
-                <h3 class="special"><?php echo LANG_VALUE_26; ?></h3>
+                <h3 class="special"><?php echo "Chi tiết đơn hàng" ?></h3>
                 <div class="cart">
                     <table class="table table-responsive table-hover table-bordered">
                         <tr>
@@ -128,7 +128,8 @@ if(!isset($_SESSION['cart_p_id'])) {
                             <td><?php echo $arr_cart_p_qty[$i]; ?></td>
                             <td class="text-right">
                                 <?php
-                                $row_total_price = floatval($arr_cart_p_current_price[$i]) * floatval($arr_cart_p_qty[$i]);
+                                $row_total_price = intval($arr_cart_p_current_price[$i]) * intval($arr_cart_p_qty[$i]);
+
                                 $table_total_price = $table_total_price + $row_total_price;
                                 ?>
                                 <?php echo $row_total_price; ?><?php echo "₫"; ?>
@@ -368,11 +369,11 @@ if(!isset($_SESSION['cart_p_id'])) {
 	                            <div class="row">
 
 	                                <div class="col-md-12 form-group">
-	                                    <label for=""><?php echo LANG_VALUE_34; ?> *</label>
+	                                    <label for=""><?php echo "Chọn phương thức thanh toán"; ?> *</label>
 	                                    <select name="payment_method" class="form-control select2" id="advFieldsStatus">
-	                                        <option value=""><?php echo LANG_VALUE_35; ?></option>
-	                                        <option value="PayPal"><?php echo LANG_VALUE_36; ?></option>
-	                                        <option value="Bank Deposit"><?php echo LANG_VALUE_38; ?></option>
+	                                        <option value=""><?php echo "Chọn một phương thức"; ?></option>
+	                                        <option value="PayPal"><?php echo "Paypal"; ?></option>
+	                                        <option value="Bank Deposit"><?php echo "Ngân hàng"; ?></option>
 	                                    </select>
 	                                </div>
 
