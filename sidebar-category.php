@@ -1,3 +1,4 @@
+
 <h3><?php echo "Danh mục"; ?></h3>
 <div id="left" class="span3">
 
@@ -11,8 +12,8 @@
                 $i++;
                 ?>
                 <li class="cat-level-1 deeper parent">
-                    <a class="" href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category">
-                        <span data-toggle="collapse" data-parent="#menu-group-1" href="#cat-lvl1-id-<?php echo $i; ?>" class="sign"><i class="fa fa-plus"></i></span>
+                    <a class="" href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"  style="background-color: #931926 !important">
+                        <span data-toggle="collapse" data-parent="#menu-group-1" href="#cat-lvl1-id-<?php echo $i; ?>" style="margin-left: 10px"><i class="fa fa-plus"></i></span>
                         <span class="lbl"><?php echo $row['tcat_name']; ?></span>                      
                     </a>
                     <ul class="children nav-child unstyled small collapse" id="cat-lvl1-id-<?php echo $i; ?>">
