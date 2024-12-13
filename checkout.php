@@ -395,7 +395,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                                     <form action="payment/bank/init.php" method="post" id="bank_form">
                                         <input type="hidden" name="amount" value="<?php echo $final_total; ?>">
                                         <div class="col-md-12 form-group">
-                                            <label for=""><?php echo LANG_VALUE_43; ?></span></label><br>
+                                            <label for=""><?php echo "Gửi đến tài khoản này"; ?></span></label><br>
                                             <?php
                                             $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
                                             $statement->execute();
@@ -406,11 +406,11 @@ if(!isset($_SESSION['cart_p_id'])) {
                                             ?>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <label for=""><?php echo LANG_VALUE_44; ?> <br><span style="font-size:12px;font-weight:normal;">(<?php echo LANG_VALUE_45; ?>)</span></label>
+                                            <label for=""><?php echo "Thông tin chuyển khoản"; ?> <br><span style="font-size:12px;font-weight:normal;">(<?php echo "Bao gồm thông tin ID đơn hàng và những thông tin khác"; ?>)</span></label>
                                             <textarea name="transaction_info" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_46; ?>" name="form3">
+                                            <input type="submit" class="btn btn-primary" value="<?php echo "Trả ngay"; ?>" name="form3">
                                         </div>
                                     </form>
 	                                
