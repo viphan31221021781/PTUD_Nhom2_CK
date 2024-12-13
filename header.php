@@ -312,7 +312,7 @@ foreach ($result as $row) {
 					if(isset($_SESSION['customer'])) {
 						?>
 						<li><i class="fa fa-user"></i> <?php echo $_SESSION['customer']['cust_name']; ?></li>
-						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo "Trang chủ"; ?></a></li>
+						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo "Trang cá nhân"; ?></a></li>
 						<?php
 					} else {
 						?>
