@@ -488,10 +488,9 @@ if($success_message1 != '') {
                             </div>
                             <div class="btn btn-rounded">
                                 <input type="submit" value="Thêm vào giỏ hàng" name="form_add_to_cart" style="background-color: #931926; color: #fff; border-radius: 25px; padding: 10px 20px;">
-                                
-                                <!-- <input type="submit" value="Thêm vào giỏ hàng" name="form_add_to_cart" style="background-color: #931926"> -->
                             </div>
-                            <li class="list-inline-item" style="list-style: none; padding: 0;margin: 15px;"><a href="checkout.php" class="btn btn-rounded" style="background-color: #931926; color: #fff; border-radius: 25px; padding: 10px 20px;">Thanh toán</a></li>
+
+                            <!-- <li class="list-inline-item" style="list-style: none; padding: 0;margin: 15px;"><a href="checkout.php" class="btn btn-rounded" style="background-color: #931926; color: #fff; border-radius: 25px; padding: 10px 20px;">Thanh toán</a></li> -->
                             </form>
                             <div class="share">
                                 <p>Chia sẻ sản phẩm</p>
