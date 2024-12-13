@@ -486,9 +486,12 @@ if($success_message1 != '') {
                                 <?php echo "Số lượng"; ?> <br>
                                 <input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
                             </div>
-                            <div class="btn-cart btn-cart1">
-                                <input type="submit" value="Thêm vào giỏ hàng" name="form_add_to_cart" style="background-color: #931926">
+                            <div class="btn btn-rounded">
+                                <input type="submit" value="Thêm vào giỏ hàng" name="form_add_to_cart" style="background-color: #931926; color: #fff; border-radius: 25px; padding: 10px 20px;">
+                                
+                                <!-- <input type="submit" value="Thêm vào giỏ hàng" name="form_add_to_cart" style="background-color: #931926"> -->
                             </div>
+                            <li class="list-inline-item" style="list-style: none; padding: 0;margin: 15px;"><a href="checkout.php" class="btn btn-rounded" style="background-color: #931926; color: #fff; border-radius: 25px; padding: 10px 20px;">Thanh toán</a></li>
                             </form>
                             <div class="share">
                                 <p>Chia sẻ sản phẩm</p>
