@@ -96,7 +96,7 @@ foreach ($result as $row) {
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $row) {
                 ?>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="item">
                         <div class="photo"><img src="assets/uploads/<?php echo $row['photo']; ?>" width="150px" alt="<?php echo $row['title']; ?>"></div>
                         <h3><?php echo $row['title']; ?></h3>
