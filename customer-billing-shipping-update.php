@@ -57,16 +57,15 @@ if (isset($_POST['form1'])) {
     $_SESSION['customer']['cust_zip'] = strip_tags($_POST['cust_zip']);
 }
 ?>
-
 <div class="page">
     <div class="container">
-        <div class="row">            
-            <div class="col-md-12"> 
+        <div class="row justify-content-center"> 
+        <div class="col-md-12"> 
                 <?php require_once('customer-sidebar.php'); ?>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-8"> 
                 <div class="user-content" style="background: #f4f4f4; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                    <?php
+                    <?php 
                     if($error_message != '') {
                         echo "<div class='error' style='padding: 15px; background:#f8d7da; border-left: 5px solid #dc3545; margin-bottom:20px; font-size: 16px;'>".$error_message."</div>";
                     }
@@ -77,7 +76,7 @@ if (isset($_POST['form1'])) {
                     <form action="" method="post">
                         <?php $csrf->echoInputField(); ?>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <h3>Thông tin hóa đơn</h3>
                                 <div class="form-group">
                                     <label for="cust_name">Tên người nhận *</label>
@@ -127,11 +126,10 @@ if (isset($_POST['form1'])) {
                                     <input type="text" class="form-control" name="cust_zip" value="<?php echo $_SESSION['customer']['cust_zip']; ?>" required; style="border: 2px solid #931926;">
                                 </div>
                             </div>
-                          
                         </div>
                         <input type="submit" class="btn btn-primary" value="Cập nhật" name="form1" style="background-color:#931926">
                     </form>
-                </div>                
+                </div> 
             </div>
         </div>
     </div>
