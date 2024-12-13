@@ -102,7 +102,7 @@ if(isset($_POST['form_faq'])) {
         } else {
             // cập nhật cơ sở dữ liệu
             $statement = $pdo->prepare("UPDATE tbl_page SET faq_title=?,faq_meta_title=?,faq_meta_keyword=?,faq_meta_description=? WHERE id=1");
-            $statement->execute(array($_POST['faq _title'],$_POST['faq_meta_title'],$_POST['faq_meta_keyword'],$_POST['faq_meta_description']));
+            $statement->execute(array($_POST['faq_title'],$_POST['faq_meta_title'],$_POST['faq_meta_keyword'],$_POST['faq_meta_description']));
         }
 
         $success_message = 'Thông tin trang Câu hỏi thường gặp đã được cập nhật thành công.';
