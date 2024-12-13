@@ -65,6 +65,7 @@ if (isset($_POST['form1'])) {
             strip_tags($_POST['cust_name']),
             strip_tags($_POST['cust_cname']),
             strip_tags($_POST['cust_phone']),
+            strip_tags($_POST['cust_email']),
             strip_tags($_POST['cust_country']),
             strip_tags($_POST['cust_address']),
             strip_tags($_POST['cust_city']),
@@ -78,6 +79,7 @@ if (isset($_POST['form1'])) {
         $_SESSION['customer']['cust_name'] = $_POST['cust_name'];
         $_SESSION['customer']['cust_cname'] = $_POST['cust_cname'];
         $_SESSION['customer']['cust_phone'] = $_POST['cust_phone'];
+        $_SESSION['customer']['cust_phone'] = $_POST['cust_email'];
         $_SESSION['customer']['cust_country'] = $_POST['cust_country'];
         $_SESSION['customer']['cust_address'] = $_POST['cust_address'];
         $_SESSION['customer']['cust_city'] = $_POST['cust_city'];
@@ -119,7 +121,7 @@ if (isset($_POST['form1'])) {
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Email *</label>
-                                <input type="text" class="form-control" name="" value="<?php echo $_SESSION['customer']['cust_email']; ?>" disabled; style="border: 2px solid #931926;">
+                                <input type="text" class="form-control" name="cust_email" value="<?php echo $_SESSION['customer']['cust_email']; ?>" disabled; style="border: 2px solid #931926;">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Số điện thoại *</label>

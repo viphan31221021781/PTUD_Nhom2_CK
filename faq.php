@@ -1,5 +1,6 @@
 <?php require_once('header.php'); ?>
 
+
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
 $statement->execute();
@@ -10,6 +11,7 @@ foreach ($result as $row) {
 }
 ?>
 
+
 <style>
     .page-banner {
         background-color: #6e1518;
@@ -18,11 +20,13 @@ foreach ($result as $row) {
         color: #fff;
     }
 
+
     .panel-title {
         color: #931926;
         font-size: 18px;
         font-weight: bold;
     }
+
 
     .panel-heading {
         border: 1px solid #931926;
@@ -33,10 +37,12 @@ foreach ($result as $row) {
         padding: 15px;
     }
 
+
     .panel-heading:hover {
         background-color: #931926;
         color: #fff;
     }
+
 
     .panel-body {
         border: 1px solid #931926;
@@ -44,6 +50,7 @@ foreach ($result as $row) {
         padding: 15px;
         background-color: #fdf5f5;
     }
+
 
     .label-primary {
         background-color: #931926;
@@ -53,11 +60,13 @@ foreach ($result as $row) {
         border-radius: 3px;
     }
 
+
     .panel-group .panel {
         margin-bottom: 15px;
         border: none;
     }
 </style>
+
 
 <div class="page-banner">
     <div class="inner">
@@ -65,12 +74,14 @@ foreach ($result as $row) {
     </div>
 </div>
 
+
 <div class="page">
     <div class="container">
         <div class="row">            
             <div class="col-md-12">
-                
+               
                 <div class="panel-group" id="faqAccordion">                    
+
 
                     <?php
                     $statement = $pdo->prepare("SELECT * FROM tbl_faq");
@@ -96,13 +107,15 @@ foreach ($result as $row) {
                         <?php
                     }
                     ?>
-                    
+                   
                 </div>
+
 
             </div>
         </div>
     </div>
 </div>
+
 
 <?php require_once('footer.php'); ?>
 

@@ -103,71 +103,39 @@ if (isset($_POST['form1'])) {
 
         // saving into the database
         $statement = $pdo->prepare("INSERT INTO tbl_customer (
-                                        cust_name,
-                                        cust_cname,
-                                        cust_email,
-                                        cust_phone,
-                                        cust_country,
-                                        cust_address,
-                                        cust_city,
-                                        cust_state,
-                                        cust_zip,
-                                        cust_b_name,
-                                        cust_b_cname,
-                                        cust_b_phone,
-                                        cust_b_country,
-                                        cust_b_address,
-                                        cust_b_city,
-                                        cust_b_state,
-                                        cust_b_zip,
-                                        cust_s_name,
-                                        cust_s_cname,
-                                        cust_s_phone,
-                                        cust_s_country,
-                                        cust_s_address,
-                                        cust_s_city,
-                                        cust_s_state,
-                                        cust_s_zip,
-                                        cust_password,
-                                        cust_token,
-                                        cust_datetime,
-                                        cust_timestamp,
-                                        cust_status
-                                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-                                    
+            cust_name,
+            cust_cname,
+            cust_email,
+            cust_phone,
+            cust_country,
+            cust_address,
+            cust_city,
+            cust_state,
+            cust_zip,
+            cust_password,
+            cust_token,
+            cust_datetime,
+            cust_timestamp,
+            cust_status
+        ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        
         $statement->execute(array(
-                                        strip_tags($_POST['cust_name']),
-                                        strip_tags($_POST['cust_cname']),
-                                        strip_tags($_POST['cust_email']),
-                                        strip_tags($_POST['cust_phone']),
-                                        strip_tags($_POST['cust_country']),
-                                        strip_tags($_POST['cust_address']),
-                                        strip_tags($_POST['cust_city']),
-                                        strip_tags($_POST['cust_state']),
-                                        strip_tags($_POST['cust_zip']),
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        md5($_POST['cust_password']),
-                                        $token,
-                                        $cust_datetime,
-                                        $cust_timestamp,
-                                        0
-                                    ));
+            strip_tags($_POST['cust_name']),
+            strip_tags($_POST['cust_cname']),
+            strip_tags($_POST['cust_email']),
+            strip_tags($_POST['cust_phone']),
+            strip_tags($_POST['cust_country']),
+            strip_tags($_POST['cust_address']),
+            strip_tags($_POST['cust_city']),
+            strip_tags($_POST['cust_state']),
+            strip_tags($_POST['cust_zip']),
+            md5($_POST['cust_password']),
+            $token,
+            $cust_datetime,
+            $cust_timestamp,
+            0
+        ));
+        
 
 
         // Send email for confirmation of the account

@@ -182,22 +182,22 @@ if(!isset($_SESSION['cart_p_id'])) {
                             <table class="table table-responsive table-bordered table-hover table-striped bill-address">
                                 <tr>
                                     <td><?php echo "Họ và tên"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_name']; ?></td>
+                                    <td><?php echo $_SESSION['customer']['cust_name']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><?php echo "Tên công ty"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_cname']; ?></td>
+                                    <td><?php echo $_SESSION['customer']['cust_cname']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><?php echo "Số điện thoại"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_phone']; ?></td>
+                                    <td><?php echo $_SESSION['customer']['cust_phone']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><?php echo "Tỉnh"; ?></td>
                                     <td>
                                         <?php
                                         $statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
-                                        $statement->execute(array($_SESSION['customer']['cust_b_country']));
+                                        $statement->execute(array($_SESSION['customer']['cust_country']));
                                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                         foreach ($result as $row) {
                                             echo $row['country_name'];
@@ -207,116 +207,20 @@ if(!isset($_SESSION['cart_p_id'])) {
                                 </tr>
                                 <tr>
                                     <td><?php echo "Địa chỉ"; ?></td>
-                                    <td><?php echo nl2br($_SESSION['customer']['cust_b_address']); ?></td>
+                                    <td><?php echo nl2br($_SESSION['customer']['cust_address']); ?></td>
                                 </tr>
                                 <tr>
                                     <td><?php echo "Phường/Xã"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_city']; ?></td>
+                                    <td><?php echo $_SESSION['customer']['cust_city']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><?php echo "Quận/Huyện"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_state']; ?></td>
+                                    <td><?php echo $_SESSION['customer']['cust_state']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><?php echo "Mã Zip"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_zip']; ?></td>
+                                    <td><?php echo $_SESSION['customer']['cust_zip']; ?></td>
                                 </tr>                                 
-                            </table>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="special"><?php echo "Địa chỉ giao hàng"; ?></h3>
-                            <table class="table table-responsive table-bordered table-hover table-striped bill-address">
-                                <tr>
-                                    <td><?php echo "Họ và tên"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_name']; ?></p></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Tên công ty"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_cname']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Số điện thoại"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_phone']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Tỉnh"; ?></td>
-                                    <td>
-                                        <?php
-                                        $statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
-                                        $statement->execute(array($_SESSION['customer']['cust_b_country']));
-                                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                        foreach ($result as $row) {
-                                            echo $row['country_name'];
-                                        }
-                                        ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Địa chỉ"; ?></td>
-                                    <td>
-                                        <?php echo nl2br($_SESSION['customer']['cust_b_address']); ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Phường/Xã"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_city']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Quận/Huyện"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_state']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Mã Zip"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_zip']; ?></td>
-                                </tr>                                
-                            </table>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="special"><?php echo LANG_VALUE_162; ?></h3>
-                            <table class="table table-responsive table-bordered table-hover table-striped bill-address">
-                                <tr>
-                                    <td><?php echo "Họ và tên"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_name']; ?></p></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Tên công ty"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_cname']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Số điện thoại"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_phone']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Tỉnh"; ?></td>
-                                    <td>
-                                        <?php
-                                        $statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
-                                        $statement->execute(array($_SESSION['customer']['cust_s_country']));
-                                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                        foreach ($result as $row) {
-                                            echo $row['country_name'];
-                                        }
-                                        ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Địa chỉ"; ?></td>
-                                    <td>
-                                        <?php echo nl2br($_SESSION['customer']['cust_s_address']); ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Phường/Xã"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_city']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Quận/Huyện"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_state']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo "Mã Zip"; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_zip']; ?></td>
-                                </tr> 
                             </table>
                         </div>
                     </div>                    
@@ -337,22 +241,22 @@ if(!isset($_SESSION['cart_p_id'])) {
                     	<?php
 		                $checkout_access = 1;
 		                if(
-		                    ($_SESSION['customer']['cust_b_name']=='') ||
-		                    ($_SESSION['customer']['cust_b_cname']=='') ||
-		                    ($_SESSION['customer']['cust_b_phone']=='') ||
-		                    ($_SESSION['customer']['cust_b_country']=='') ||
-		                    ($_SESSION['customer']['cust_b_address']=='') ||
-		                    ($_SESSION['customer']['cust_b_city']=='') ||
-		                    ($_SESSION['customer']['cust_b_state']=='') ||
-		                    ($_SESSION['customer']['cust_b_zip']=='') ||
-		                    ($_SESSION['customer']['cust_s_name']=='') ||
-		                    ($_SESSION['customer']['cust_s_cname']=='') ||
-		                    ($_SESSION['customer']['cust_s_phone']=='') ||
-		                    ($_SESSION['customer']['cust_s_country']=='') ||
-		                    ($_SESSION['customer']['cust_s_address']=='') ||
-		                    ($_SESSION['customer']['cust_s_city']=='') ||
-		                    ($_SESSION['customer']['cust_s_state']=='') ||
-		                    ($_SESSION['customer']['cust_s_zip']=='')
+		                    ($_SESSION['customer']['cust_name']=='') ||
+		                    ($_SESSION['customer']['cust_cname']=='') ||
+		                    ($_SESSION['customer']['cust_phone']=='') ||
+		                    ($_SESSION['customer']['cust_country']=='') ||
+		                    ($_SESSION['customer']['cust_address']=='') ||
+		                    ($_SESSION['customer']['cust_city']=='') ||
+		                    ($_SESSION['customer']['cust_state']=='') ||
+		                    ($_SESSION['customer']['cust_zip']=='') ||
+		                    ($_SESSION['customer']['cust_name']=='') ||
+		                    ($_SESSION['customer']['cust_cname']=='') ||
+		                    ($_SESSION['customer']['cust_phone']=='') ||
+		                    ($_SESSION['customer']['cust_country']=='') ||
+		                    ($_SESSION['customer']['cust_address']=='') ||
+		                    ($_SESSION['customer']['cust_city']=='') ||
+		                    ($_SESSION['customer']['cust_state']=='') ||
+		                    ($_SESSION['customer']['cust_zip']=='')
 		                ) {
 		                    $checkout_access = 0;
 		                }
