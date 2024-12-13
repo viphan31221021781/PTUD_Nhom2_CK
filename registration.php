@@ -134,6 +134,8 @@ if (isset($_POST['form1'])) {
                                         cust_timestamp,
                                         cust_status
                                     ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                                    
         $statement->execute(array(
                                         strip_tags($_POST['cust_name']),
                                         strip_tags($_POST['cust_cname']),
