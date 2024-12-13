@@ -30,7 +30,7 @@ if(!isset($_SESSION['customer'])) {
                         <table class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>STT</th>
                                     <th>Tên Sản Phẩm</th>
                                     <th>Ngày Thanh Toán</th>
                                     <th>Mã Giao Dịch</th>
