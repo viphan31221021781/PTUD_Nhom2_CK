@@ -40,7 +40,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                 <div class="cart">
                     <table class="table table-responsive table-hover table-bordered">
                         <tr>
-                            <th><?php echo 'Thức tự' ?></th>
+                            <th><?php echo 'Thứ tự' ?></th>
                             <th><?php echo "Hình ảnh"; ?></th>
                             <th><?php echo "Tên sản phẩm"; ?></th>
                             <th><?php echo "Kích thước"; ?></th>
@@ -374,8 +374,13 @@ if(!isset($_SESSION['cart_p_id'])) {
 	                                        <option value=""><?php echo "Chọn một phương thức"; ?></option>
 	                                        <option value="PayPal"><?php echo "Paypal"; ?></option>
 	                                        <option value="Bank Deposit"><?php echo "Ngân hàng"; ?></option>
+	                                      
+	                                       
+
 	                                    </select>
 	                                </div>
+
+                                    
 
                                     <form class="paypal" action="<?php echo BASE_URL; ?>payment/paypal/payment_process.php" method="post" id="paypal_form" target="_blank">
                                         <input type="hidden" name="cmd" value="_xclick" />
@@ -386,7 +391,7 @@ if(!isset($_SESSION['cart_p_id'])) {
 
                                         <input type="hidden" name="final_total" value="<?php echo $final_total; ?>">
                                         <div class="col-md-12 form-group">
-                                            <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_46; ?>" name="form1">
+                                            <input type="submit" class="btn btn-primary" value="<?php echo "Thanh toán"; ?>" name="form1">
                                         </div>
                                     </form>
 
@@ -410,7 +415,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                                             <textarea name="transaction_info" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input type="submit" class="btn btn-primary" value="<?php echo "Trả ngay"; ?>" name="form3">
+                                            <input type="submit" class="btn btn-primary" value="<?php echo "Thanh toán"; ?>" name="form3">
                                         </div>
                                     </form>
 	                                
