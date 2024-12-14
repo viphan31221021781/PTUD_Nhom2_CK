@@ -19,7 +19,7 @@ if(!isset($_SESSION['cart_p_id'])) {
 ?>
 
 
-<div class="page-banner" style="background-color: #c18d8f">
+<div class="page-banner" style="background-color: #6e1518">
     <div class="page-banner-inner">
         <h1>Thanh toán</h1>
     </div>

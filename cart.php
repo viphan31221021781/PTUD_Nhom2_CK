@@ -67,7 +67,7 @@ if(isset($_POST['form1'])) {
 }
 ?>
 
-<div class="page-banner" style="background-color:#c18d8f">
+<div class="page-banner" style="background-color:#6e1518">
     <!-- <div class="overlay"></div> -->
     <div class="page-banner-inner">
         <h1>Giỏ hàng</h1>
