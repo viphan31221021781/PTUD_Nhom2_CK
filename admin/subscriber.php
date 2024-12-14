@@ -5,7 +5,6 @@
 		<h1 style="margin-left:30px;"><i class="fa fa-hand-o-right" style="padding-right:10px"></i>Người đăng ký</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="subscriber-remove.php" class="btn btn-primary btn-sm">Xóa người đăng ký chờ duyệt</a>
 		<a href="subscriber-csv.php" class="btn btn-primary btn-sm">Xuất dưới dạng CSV</a>
 	</div>
 </section>
