@@ -21,7 +21,7 @@ foreach ($result as $row) {
 }
 ?>
 
-<div class="page-banner" style="background-color:#c18d8f">
+<div class="page-banner" style="background-color:#6e1518">
     <div class="inner">
         <h1 style="color:#fff">
             Kết quả tìm kiếm: 
