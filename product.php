@@ -474,9 +474,9 @@ if($success_message1 != '') {
                                 <span style="font-size:14px;"><?php echo "Giá" ?></span><br>
                                 <span style="color:#931926">
                                     <?php if($p_old_price!=''): ?>
-                                        <del><?php echo $p_old_price; ?> <?php echo "VNĐ"?></del>
+                                        <del><?php echo number_format($p_old_price); ?> <?php echo "VNĐ"?></del>
                                     <?php endif; ?>
-                                        <?php echo $p_current_price; ?><?php echo "VNĐ"?>
+                                        <?php echo number_format($p_current_price); ?><?php echo "VNĐ"?>
                                 </span>
                             </div>
                             <input type="hidden" name="p_current_price" value="<?php echo $p_current_price; ?>">
