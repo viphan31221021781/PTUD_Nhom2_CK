@@ -177,7 +177,7 @@ if(isset($_POST['form1'])) {
                             <td><?php echo $arr_cart_p_name[$i]; ?></td>
                             <td><?php echo $arr_cart_size_name[$i]; ?></td>
                             <td><?php echo $arr_cart_color_name[$i]; ?></td>
-                            <td><?php echo $arr_cart_p_current_price[$i]; ?> VNĐ</td>
+                            <td><?php echo number_format($arr_cart_p_current_price[$i]); ?> VNĐ</td>
                             <td>
                                 <input type="hidden" name="product_id[]" value="<?php echo $arr_cart_p_id[$i]; ?>">
                                 <input type="hidden" name="product_name[]" value="<?php echo $arr_cart_p_name[$i]; ?>">
@@ -188,7 +188,7 @@ if(isset($_POST['form1'])) {
                                 $row_total_price = floatval($arr_cart_p_current_price[$i]) * floatval($arr_cart_p_qty[$i]);
                                 $table_total_price = $table_total_price + $row_total_price;
                                 ?>
-                                <?php echo $row_total_price; ?> VNĐ
+                                <?php echo number_format($row_total_price); ?> VNĐ
                             </td>
                             <td class="text-center">
                                 <a onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');" href="cart-item-delete.php?id=<?php echo $arr_cart_p_id[$i]; ?>&size=<?php echo $arr_cart_size_id[$i]; ?>&color=<?php echo $arr_cart_color_id[$i]; ?>" class="trash"><i class="fa fa-trash" style="color:red;"></i></a>
@@ -200,7 +200,7 @@ if(isset($_POST['form1'])) {
 
                         <tr>
                             <th colspan="7" class="total-text">Tổng</th>
-                            <th class="total-amount"><?php echo $table_total_price; ?> VNĐ</th>
+                            <th class="total-amount"><?php echo number_format($table_total_price); ?> VNĐ</th>
                             <th></th>
                         </tr>
                         </tfoot>

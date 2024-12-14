@@ -350,7 +350,7 @@ Liên kết này chỉ có hiệu lực trong 24 giờ.
 
 
                            // Sending the email
-                           mail($to, $subject, $message, $headers);
+                        //    mail($to, $subject, $message, $headers);
 
 
 

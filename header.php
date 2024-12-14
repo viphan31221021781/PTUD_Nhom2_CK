@@ -342,7 +342,7 @@ foreach ($result as $row) {
 
 	                        $table_total_price = $table_total_price + $row_total_price;
 	                    }
-						echo $table_total_price;
+						echo number_format($table_total_price);
 					} else {
 						echo '0.00';
 					}
