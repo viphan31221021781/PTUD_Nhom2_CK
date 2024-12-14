@@ -220,7 +220,7 @@ if($success_message != '') {
                                 echo '<br>(<b>Kích thước:</b> '.$row1['size'];
                                 echo ', <b>Màu sắc:</b> '.$row1['color'].')';
                                 echo '<br>(<b>Số lượng:</b> '.$row1['quantity'];
-                                echo ', <b>Giá đơn vị:</b> '.$row1['unit_price'].')';
+                                echo ', <b>Giá đơn vị:</b> '. number_format($row1['unit_price'])."đ".')';
                                 echo '<br><br>';
                            }
                            ?>
@@ -247,7 +247,7 @@ if($success_message != '') {
                         		<b>Thông tin giao dịch:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
                         	<?php endif; ?>
                         </td>
-                        <td><?php echo $row['paid_amount']; ?>₫</td>
+                        <td><?php echo number_format($row['paid_amount']); ?>₫</td>
                         <td>
                             <?php echo $row['payment_status']; ?>
                             <br><br>

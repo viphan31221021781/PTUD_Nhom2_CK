@@ -111,11 +111,12 @@ if (isset($_POST['form1'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="cust_city">Quận/Huyện *</label>
-                                    <input type="text" class="form-control" name="cust_city" value="<?php echo $_SESSION['customer']['cust_city']; ?>" required; style="border: 2px solid #931926;">
+                                    <input type="text" class="form-control" name="cust_state" value="<?php echo $_SESSION['customer']['cust_state']; ?>" required; style="border: 2px solid #931926;">
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="cust_state">Phường/Xã *</label>
-                                    <input type="text" class="form-control" name="cust_state" value="<?php echo $_SESSION['customer']['cust_state']; ?>" required; style="border: 2px solid #931926;">
+                                    <input type="text" class="form-control" name="cust_city" value="<?php echo $_SESSION['customer']['cust_city']; ?>" required; style="border: 2px solid #931926;">
                                 </div>
                                 <div class="form-group">
                                     <label for="cust_address">Địa chỉ *</label>
