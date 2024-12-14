@@ -302,9 +302,6 @@ if(!isset($_SESSION['cart_p_id'])) {
 	                                        <option value="PayPal"><?php echo "Paypal"; ?></option>
 	                                        <option value="Bank Deposit"><?php echo "Ngân hàng"; ?></option>
 	                                        <option value="Bank Deposit"><?php echo "Tiền mặt"; ?></option>
-	                                      
-	                                       
-
 	                                    </select>
 	                                </div>
 

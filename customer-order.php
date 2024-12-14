@@ -157,14 +157,14 @@ if(!isset($_SESSION['customer'])) {
                                                 echo '<br>Kích Cỡ: '.$row1['size'];
                                                 echo '<br>Màu Sắc: '.$row1['color'];
                                                 echo '<br>Số Lượng: '.$row1['quantity'];
-                                                echo '<br>Giá: $'.$row1['unit_price'];
+                                                echo '<br>Giá: '. number_format($row1['unit_price'])."đ";
                                                 echo '<br><br>';
                                             }
                                             ?>
                                         </td>
                                         <td><?php echo $row['payment_date']; ?></td>
                                         <td><?php echo $row['txnid']; ?></td>
-                                        <td><?php echo '$'.$row['paid_amount']; ?></td>
+                                        <td><?php echo number_format($row['paid_amount'])."đ"; ?></td>
                                         <td><?php echo $row['payment_status']; ?></td>
                                         <td><?php echo $row['payment_method']; ?></td>
                                         <td><?php echo $row['payment_id']; ?></td>
