@@ -1,5 +1,0 @@
-Thông tin đăng nhập vào trang Admin
-Link trang quản l1y Admin: http://localhost/PTUD_Nhom2_ck/admin/
-
-Email   : quynh@gmail.com | thao@gmail.com | phuc@gmail.com | vy@gmail.com | vi@gmail.com
-Password: quynh@123       | thao@123       | phuc@123       | vy@123       | vi@123
