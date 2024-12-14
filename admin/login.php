@@ -27,13 +27,15 @@ if(isset($_POST['form1'])) {
                 $row_password = $row['password'];
             }
         
-            if( $row_password != md5($password) ) {
-                $error_message .= 'Mật khẩu không đúng<br>';
-            } else {       
-            
+			if (!password_verify($password, $row_password)) {
+				$error_message .= 'Mật khẩu không đúng<br>';
+			}
+			
+			 else {       
 				$_SESSION['user'] = $row;
-                header("location: index.php");
-            }
+				header("location: index.php");
+			}
+			
         }
     }
 

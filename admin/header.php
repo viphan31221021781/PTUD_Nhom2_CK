@@ -233,11 +233,17 @@ if(!isset($_SESSION['user'])) {
 			          </a>
 			        </li>
 
-						<li class="treeview <?php if( ($cur_page == 'customer.php') || ($cur_page == 'customer-add.php') || ($cur_page == 'customer-edit.php') ) {echo 'active';} ?>">
+					<li class="treeview <?php if( ($cur_page == 'customer.php') || ($cur_page == 'customer-add.php') || ($cur_page == 'customer-edit.php') ) {echo 'active';} ?>">
 			          <a href="customer.php">
 			            <i class="fa fa-user-plus"></i> <span>Khách hàng đã đăng ký</span>
 			          </a>
 			        </li>
+					<li class="treeview <?php if( ($cur_page == 'user.php') ) {echo 'active';} ?>">
+			          <a href="user.php">
+			            <i class="fa fa-question-circle"></i> <span>Quản lý người dùng</span>
+			          </a>
+			        </li>
+				
 
 			        <li class="treeview <?php if( ($cur_page == 'page.php') ) {echo 'active';} ?>">
 			          <a href="page.php">
