@@ -159,7 +159,7 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
                    "Content-Type: text/html; charset=ISO-8859-1\r\n";
        
         // Sending Email
-        mail($to, $subject, $message, $headers);
+        // mail($to, $subject, $message, $headers);
 
 
 
