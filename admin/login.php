@@ -21,7 +21,7 @@ if(isset($_POST['form1'])) {
     	$total = $statement->rowCount();    
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);    
         if($total==0) {
-            $error_message .= 'Email không hợp lệh<br>';
+            $error_message .= 'Email không hợp lệ<br>';
         } else {       
             foreach($result as $row) { 
                 $row_password = $row['password'];
