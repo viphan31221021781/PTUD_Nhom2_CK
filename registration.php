@@ -180,7 +180,7 @@ Vui lòng nhấp vào liên kết bên dưới để xác nhận tài khoản c�
 ?>
 
 
-<div class="page-banner" style="background-color:#c18d8f">
+<div class="page-banner" style="background-color: #6e1518">
     <div class="inner">
         <h1>Đăng ký tài khoản</h1>
     </div>

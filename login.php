@@ -49,7 +49,7 @@ if(isset($_POST['form1'])) {
     }
 }
 ?>
-<div class="page-banner" style="background-color:#c18d8f; background-size: cover; display: flex; justify-content: center; align-items: center; text-align: center;">
+<div class="page-banner" style="background-color:#6e1518; background-size: cover; display: flex; justify-content: center; align-items: center; text-align: center;">
     <!-- <div class="inner" style="background-color: #d8c7c3; padding: 10px 20px; border-radius: 10px; margin: 0 auto;"> -->
         <h1 style="color: #fff; font-size: 48px; font-family: 'Arial', sans-serif; margin: 0;">ĐĂNG NHẬP</h1>
     <!-- </div> -->
