@@ -356,13 +356,13 @@ foreach ($result as $row) {
                             </div>
                         </div>  
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Giá cũ<br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
+                            <label for="" class="col-sm-3 control-label">Giá cũ</label>
                             <div class="col-sm-4">
                                 <input type="text" name="p_old_price" class="form-control" value="<?php echo $p_old_price; ?>">
                             </div>
                         </div>  
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Giá hiện tại <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
+                            <label for="" class="col-sm-3 control-label">Giá hiện tại <span>*</span></label>
                             <div class="col-sm-4">
                                 <input type="text" name="p_current_price" class="form-control" value="<?php echo $p_current_price; ?>">
                             </div>
@@ -462,7 +462,7 @@ foreach ($result as $row) {
                                 </table>
                             </div>
                             <div class="col-sm-2">
-                                <input type="button" id="btnAddNew" value="Add Item" style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;" class="btn btn-warning btn-xs">
+                                <input type="button" id="btnAddNew" value="Thêm" style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;" class="btn btn-warning btn-xs">
                             </div>
                         </div>
                         <div class="form-group">
